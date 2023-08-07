@@ -1,0 +1,1 @@
+### 使用uniapp+vite+vue3+uview-plus3.0 搭建的微信小程序快速开发模版
