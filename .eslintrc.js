@@ -18,4 +18,3 @@ module.exports = {
      'vue/no-deprecated-v-bind-sync': 'off'
    }
  }
- ​
