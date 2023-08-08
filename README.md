@@ -4,6 +4,15 @@
 
 [uview-plus官方文档](https://uiadmin.net/uview-plus/)
 
+### 待办完成
+- [x] uview-plus3.0 ui库集成
+- [x] 统一编译器规范
+- [x] 多环境支持
+- [x] pinia封装
+- [x] 网络请求封装
+- [x] 路径别名
+- [ ] 代码格式校验
+
 ### 使用方法
 ```bash
 # 安装依赖

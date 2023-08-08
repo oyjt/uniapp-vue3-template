@@ -1,18 +1,24 @@
 <script>
+import { mpUpdate } from '@/utils/index.js';
 export default {
   onLaunch: function () {
-    console.log('App Launch')
+    console.log('App Launch');
+    console.log('[ VITE_ENV ] >', process.env.VITE_ENV);
+    // #ifdef MP
+    mpUpdate();
+    // #endif
   },
   onShow: function () {
-    console.log('App Show')
+    console.log('App Show');
   },
   onHide: function () {
-    console.log('App Hide')
-  },
-}
+    console.log('App Hide');
+  }
+};
 </script>
 
 <style lang="scss">
-@import "uview-plus/index.scss";
 /*每个页面公共css */
+@import 'uview-plus/index.scss';
+@import '@/static/styles/common.scss';
 </style>
