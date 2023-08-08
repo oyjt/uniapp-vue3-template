@@ -9,7 +9,12 @@
 
 <script setup>
 import { ref } from 'vue';
+import useUserStore from '@/store/modules/user.js'
+
 const title = ref('Hello');
+
+const store = useUserStore()
+console.log('store.username', store.username)
 </script>
 
 <style>

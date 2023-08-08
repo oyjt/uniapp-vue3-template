@@ -1,0 +1,10 @@
+module.exports = {
+   "semi": false,
+   "singleQuote": true,
+   "trailingComma": "none",
+   "arrowParens": "avoid",
+   "jsxBracketSameLine": false,
+   "printWidth": 80,
+   "tabWidth": 2,
+   "tabSize": 2
+ }

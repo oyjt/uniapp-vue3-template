@@ -5,7 +5,8 @@
     "dev:h5": "uni",
     "dev:mp-weixin": "uni -p mp-weixin",
     "build:h5": "uni build",
-    "build:mp-weixin": "uni build -p mp-weixin"
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "cz": "git add . && cz"
   },
   "dependencies": {
     "@dcloudio/uni-app": "^3.0.0-3080720230703001",
@@ -15,18 +16,60 @@
     "clipboard": "^2.0.11",
     "dayjs": "^1.11.9",
     "pinia": "^2.0.33",
+    "pinia-plugin-unistorage": "^0.0.17",
     "uview-plus": "^3.1.35",
     "vue": "^3.2.45",
     "vue-i18n": "^9.1.9"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.10",
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
     "@dcloudio/types": "^3.3.2",
     "@dcloudio/uni-automator": "3.0.0-3080720230703001",
     "@dcloudio/uni-cli-shared": "3.0.0-3080720230703001",
     "@dcloudio/uni-stacktracey": "3.0.0-3080720230703001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3080720230703001",
+    "@vue/eslint-config-standard": "^8.0.1",
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.7.1",
+    "eslint": "^8.46.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^9.16.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.1",
     "sass": "^1.64.2",
     "sass-loader": "^10.4.1",
+    "unplugin-auto-import": "^0.16.6",
     "vite": "4.1.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{scss,less,styl,html}": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   }
 }

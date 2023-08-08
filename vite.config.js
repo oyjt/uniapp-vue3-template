@@ -3,7 +3,7 @@ import {
   loadEnv
 } from 'vite'
 import path from 'path'
-import uni from '@dcloudio/vite-plugin-uni'
+import createVitePlugins from './vite/plugins'
 // https://vitejs.dev/config/
 export default defineConfig(({
   mode,
@@ -24,8 +24,6 @@ export default defineConfig(({
         // 设置别名
         '@': path.resolve(__dirname, './src')
       },
-      // https://cn.vitejs.dev/config/#resolve-extensions
-      extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
     },
     // vite 相关配置
     server: {
@@ -41,8 +39,6 @@ export default defineConfig(({
         }
       }
     },
-    plugins: [
-      uni(),
-    ],
+    plugins: createVitePlugins(env, command === 'build'),
   }
 })

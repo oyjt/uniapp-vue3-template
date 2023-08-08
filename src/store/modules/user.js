@@ -4,25 +4,25 @@ import {
 
 const useUserStore = defineStore('user', {
   state: () => ({
-    userName: "",
-    userPassWord: ""
+    username: "江阳小道",
+    passWord: ""
   }),
   getters: {
     getUserName() {
-      return this.userName
+      return this.username
     },
     getPwd() {
-      return this.userPassWord
+      return this.passWord
     }
 
   },
   actions: {
     setUserName(name) {
-      uni.setStorageSync('userName', name)
-      this.userName = name
+      uni.setStorageSync('username', name)
+      this.username = name
     },
     setPwd(pwd) {
-      this.userPassWord = pwd
+      this.passWord = pwd
     }
   },
 })
