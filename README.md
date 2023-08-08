@@ -2,6 +2,8 @@
 
 使用uniapp+vite+vue3+uview-plus3.0 搭建的H5和微信小程序快速开发模版
 
+[uview-plus官方文档](https://uiadmin.net/uview-plus/)
+
 ### 使用方法
 ```bash
 # 安装依赖
