@@ -28,7 +28,6 @@ console.log('store.username', store.username)
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
 }
 
 .logo {
