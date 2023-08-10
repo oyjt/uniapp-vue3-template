@@ -16,7 +16,7 @@
 - [x] 自动导包
 - [x] 代码格式校验
 - [x] git提交格式校验
-- [ ] 集成ESLint、StyleLint、Prettier代码格式规范
+- [x] 集成ESLint、StyleLint、Prettier代码格式规范
 
 ### 使用方法
 

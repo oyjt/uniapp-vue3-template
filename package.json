@@ -28,6 +28,7 @@
     "@dcloudio/uni-stacktracey": "3.0.0-3080720230703001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3080720230703001",
     "@vue/eslint-config-standard": "^8.0.1",
+    "commitlint": "^17.7.1",
     "czg": "^1.7.1",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^9.0.0",
