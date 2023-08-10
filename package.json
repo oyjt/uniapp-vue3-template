@@ -28,19 +28,26 @@
     "@dcloudio/uni-stacktracey": "3.0.0-3080720230703001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3080720230703001",
     "@vue/eslint-config-standard": "^8.0.1",
-    "babel-eslint": "^10.1.0",
     "czg": "^1.7.1",
     "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^9.16.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.6",
     "prettier": "^3.0.1",
     "sass": "^1.64.2",
     "sass-loader": "^13.3.2",
+    "stylelint": "^15.10.2",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-order": "^6.0.3",
     "unplugin-auto-import": "^0.16.6",
     "vite": "^4.4.9"
   },
@@ -54,10 +61,12 @@
     ],
     "*.vue": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "stylelint --fix"
     ],
-    "*.{scss,less,styl,html}": [
-      "prettier --write"
+    "*.{scss,less,style,html}": [
+      "prettier --write",
+      "stylelint --fix"
     ],
     "*.md": [
       "prettier --write"

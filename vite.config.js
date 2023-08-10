@@ -1,14 +1,8 @@
-import {
-  defineConfig,
-  loadEnv
-} from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
-import createVitePlugins from './vite/plugins'
+import createVitePlugins from './vite/plugins/index.js'
 // https://vitejs.dev/config/
-export default defineConfig(({
-  mode,
-  command
-}) => {
+export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd())
 
   return {
@@ -23,7 +17,7 @@ export default defineConfig(({
         '~': path.resolve(__dirname, './'),
         // 设置别名
         '@': path.resolve(__dirname, './src')
-      },
+      }
     },
     // vite 相关配置
     server: {
@@ -35,10 +29,10 @@ export default defineConfig(({
         '/dev-api': {
           target: 'http://localhost:8080',
           changeOrigin: true,
-          rewrite: (p) => p.replace(/^\/dev-api/, '')
+          rewrite: p => p.replace(/^\/dev-api/, '')
         }
       }
     },
-    plugins: createVitePlugins(env, command === 'build'),
+    plugins: createVitePlugins(env, command === 'build')
   }
 })
