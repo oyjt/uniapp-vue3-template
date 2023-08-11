@@ -13,8 +13,6 @@ export default defineConfig(({ mode, command }) => {
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
       alias: {
-        // 设置路径
-        '~': path.resolve(__dirname, './'),
         // 设置别名
         '@': path.resolve(__dirname, './src')
       }

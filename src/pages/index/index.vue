@@ -20,6 +20,11 @@ const title = ref('Hello')
 
 const store = useUserStore()
 console.log('store.username', store.username)
+
+console.log(
+  '[ import.meta.env.VITE_APP_BASE_API ] >',
+  import.meta.env.VITE_APP_BASE_API
+)
 </script>
 
 <style>
