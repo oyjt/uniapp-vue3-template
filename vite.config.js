@@ -1,15 +1,9 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import path from 'path'
 import createVitePlugins from './vite/plugins/index.js'
 // https://vitejs.dev/config/
-export default defineConfig(({ mode, command }) => {
-  const env = loadEnv(mode, process.cwd())
-
+export default defineConfig(({ command }) => {
   return {
-    define: {
-      // 自定义配置环境变量
-      'process.env.VITE_ENV': env
-    },
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
       alias: {
@@ -19,7 +13,7 @@ export default defineConfig(({ mode, command }) => {
     },
     // vite 相关配置
     server: {
-      port: 80,
+      port: 8080,
       host: true,
       open: true,
       proxy: {
@@ -31,6 +25,6 @@ export default defineConfig(({ mode, command }) => {
         }
       }
     },
-    plugins: createVitePlugins(env, command === 'build')
+    plugins: createVitePlugins(command === 'build')
   }
 })
