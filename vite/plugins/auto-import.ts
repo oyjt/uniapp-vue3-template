@@ -4,9 +4,14 @@ export default function createAutoImport() {
     return autoImport({
         imports: [
             'vue',
-            'uni-app'
+            'uni-app',
+            'pinia'
         ],
         dts: true,
+        eslintrc: {
+          enabled: true,
+          globalsPropValue: true
+        },
         vueTemplate: true,
     })
 }

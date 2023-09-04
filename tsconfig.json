@@ -10,7 +10,7 @@
     "types": ["@dcloudio/types", "uni-app-types", "miniprogram-api-typings", "mini-types", "node"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./auto-imports.d.ts"],
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules", "unpackage"],
   // uni-app Component type prompt
   "vueCompilerOptions": {
     "nativeTags": ["block", "component", "template", "slot"]
