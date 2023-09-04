@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "es2016",
+    "lib": ["DOM", "ESNext"],
+    "ignoreDeprecations": "5.0",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["@dcloudio/types", "uni-app-types", "miniprogram-api-typings", "mini-types", "node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./auto-imports.d.ts"],
+  "exclude": ["dist", "node_modules"],
+  // uni-app Component type prompt
+  "vueCompilerOptions": {
+    "nativeTags": ["block", "component", "template", "slot"]
+  }
+}

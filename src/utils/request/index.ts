@@ -4,7 +4,7 @@ import config from '@/common/config'
 import {
   requestInterceptors,
   responseInterceptors
-} from './interceptors.js'
+} from './interceptors'
 //  初始化请求配置
 const initRequest = (vm) => {
   uni.$u.http.setConfig((defaultConfig) => {
@@ -12,8 +12,8 @@ const initRequest = (vm) => {
     defaultConfig.baseURL = config.baseUrl /* 根域名 */
     return defaultConfig
   })
-  requestInterceptors()
-  responseInterceptors()
+  requestInterceptors(vm)
+  responseInterceptors(vm)
 }
 export {
   initRequest

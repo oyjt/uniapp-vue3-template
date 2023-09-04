@@ -1,6 +1,6 @@
 let baseUrl = '/dev-api'
 if (process.env.NODE_ENV === 'production') {
-  imageUrl = '/prod-api'
+  baseUrl = '/prod-api'
 }
 
 export default {

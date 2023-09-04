@@ -17,6 +17,7 @@
 - [x] 代码格式校验
 - [x] git提交格式校验
 - [x] 集成ESLint、StyleLint、Prettier代码格式规范
+- [x] 集成@uni-helper/uni-deploy和@uni-helper/uni-use
 
 ### 使用方法
 

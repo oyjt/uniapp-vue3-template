@@ -1,5 +1,5 @@
 <script>
-import { mpUpdate } from '@/utils/index.js';
+import { mpUpdate } from '@/utils/index';
 export default {
   onLaunch: function () {
     console.log('App Launch');

@@ -3,8 +3,10 @@ import autoImport from 'unplugin-auto-import/vite'
 export default function createAutoImport() {
     return autoImport({
         imports: [
-            'vue'
+            'vue',
+            'uni-app'
         ],
-        dts: false
+        dts: true,
+        vueTemplate: true,
     })
 }

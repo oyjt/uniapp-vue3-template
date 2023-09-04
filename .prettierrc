@@ -4,7 +4,7 @@
   "trailingComma": "none",
   "arrowParens": "avoid",
   "jsxBracketSameLine": false,
-  "printWidth": 80,
+  "printWidth": 100,
   "tabWidth": 2,
   "tabSize": 2
 }

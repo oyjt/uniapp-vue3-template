@@ -1,8 +1,8 @@
-import path from 'path'
+import { resolve } from 'node:path'
 import { readFileSync } from 'fs'
 import pc from 'picocolors'
 
-const msgPath = path.resolve('.git/COMMIT_EDITMSG')
+const msgPath = resolve('.git/COMMIT_EDITMSG')
 const msg = readFileSync(msgPath, 'utf-8').trim()
 
 const commitRE =
