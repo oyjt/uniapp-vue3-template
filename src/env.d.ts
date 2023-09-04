@@ -6,3 +6,22 @@ declare module "*.vue" {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module 'uview-plus' {
+  export function install(): void
+
+  interface test {
+    /** 邮箱格式校验 */
+    email(email: string): boolean
+  }
+  interface $u {
+    http: any
+    test: test
+  }
+
+  global {
+    interface Uni {
+      $u: $u
+    }
+  }
+}

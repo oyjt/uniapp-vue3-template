@@ -1,12 +1,12 @@
 {
   "name": "uni-preset-vue",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev:h5": "uni",
     "dev:mp-weixin": "uni -p mp-weixin",
     "build:h5": "uni build",
     "build:mp-weixin": "uni build -p mp-weixin",
+    "type-check": "vue-tsc --noEmit",
     "cz": "git add . && npx czg"
   },
   "dependencies": {
@@ -31,8 +31,11 @@
     "@dcloudio/uni-stacktracey": "3.0.0-3080720230703001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3080720230703001",
     "@types/node": "^20.5.9",
+    "@typescript-eslint/parser": "^6.5.0",
     "@uni-helper/uni-deploy": "^0.3.0",
     "@vue/eslint-config-standard": "^8.0.1",
+    "@vue/runtime-core": "^3.3.4",
+    "@vue/tsconfig": "^0.4.0",
     "czg": "^1.7.1",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^9.0.0",
@@ -56,10 +59,12 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-order": "^6.0.3",
+    "typescript": "^5.2.2",
     "uni-app-types": "^0.1.7",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vue-tsc": "^1.8.8"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [

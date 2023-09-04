@@ -1,20 +1,15 @@
 <template>
   <view class="content">
-    <up-image
-      class="logo"
-      src="/static/logo.png"
-      width="200rpx"
-      height="200rpx"
-    ></up-image>
+    <up-image class="logo" src="/static/logo.png" width="200rpx" height="200rpx"></up-image>
     <view class="text-area">
       <up-text class="title" :text="title"></up-text>
     </view>
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // import { ref } from 'vue';
-import useUserStore from '@/store/modules/user.js'
+import useUserStore from '@/store/modules/user'
 
 const title = ref('Hello')
 
