@@ -18,12 +18,20 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "node", "pinia-plugin-persist-uni"]
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "pinia-plugin-persist-uni", "node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./auto-imports.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts"
+  ],
   "exclude": ["dist", "node_modules", "unpackage"],
   // uni-app Component type prompt
   "vueCompilerOptions": {
     "nativeTags": ["block", "component", "template", "slot"]
   }
 }
+

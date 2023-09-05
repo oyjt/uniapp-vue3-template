@@ -1,11 +1,9 @@
-import {
-  defineStore
-} from 'pinia';
+import { defineStore } from 'pinia'
 
 const useUserStore = defineStore('user', {
   state: () => ({
-    username: "江阳小道",
-    passWord: ""
+    username: '江阳小道',
+    passWord: ''
   }),
   getters: {
     getUserName() {
@@ -14,7 +12,6 @@ const useUserStore = defineStore('user', {
     getPwd() {
       return this.passWord
     }
-
   },
   actions: {
     setUserName(name) {
@@ -25,7 +22,7 @@ const useUserStore = defineStore('user', {
     }
   },
   persist: {
-    enabled: true,
+    enabled: true
   }
 })
 

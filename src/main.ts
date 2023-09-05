@@ -1,14 +1,19 @@
-import App from '@/App.vue'
-import store from '@/store'
 // 引入全局uview-plus
 import uviewPlus from 'uview-plus'
+import { createSSRApp } from 'vue'
+import App from '@/App.vue'
+import store from '@/store'
+
 // 引入mixin封装
 import { initMixin } from '@/common/mixin'
 
-// #ifdef VUE3
-import { createSSRApp } from 'vue'
 // 引入请求封装
 import { initRequest } from '@/utils/request/index'
+
+// http接口API抽离，免于写url或者一些固定的参数
+import httpApi from '@/api/index.js'
+
+// #ifdef VUE3
 export function createApp() {
   const app = createSSRApp(App)
   app.use(uviewPlus)
@@ -16,7 +21,9 @@ export function createApp() {
 
   initRequest(app)
   initMixin(app)
+  app.use(httpApi, app)
   return {
     app
   }
 }
+// #endif

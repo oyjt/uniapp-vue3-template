@@ -1,8 +1,12 @@
-import { defineConfig } from 'vite'
 import { resolve } from 'node:path'
-import createVitePlugins from './vite/plugins/index.js'
+import { defineConfig } from 'vite'
+import type { ConfigEnv, UserConfig } from 'vite'
+import createVitePlugins from './build/vite/plugins'
+import proxy from './build/vite/proxy'
+
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command }: ConfigEnv): UserConfig => {
+  const isBuild = command === 'build'
   return {
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
@@ -16,15 +20,8 @@ export default defineConfig(({ command }) => {
       port: 8080,
       host: true,
       open: true,
-      proxy: {
-        // https://cn.vitejs.dev/config/#server-proxy
-        '/api': {
-          target: 'http://localhost:8080',
-          changeOrigin: true,
-          rewrite: p => p.replace(/^\/api/, '')
-        }
-      }
+      proxy
     },
-    plugins: createVitePlugins(command === 'build')
+    plugins: createVitePlugins(isBuild)
   }
 })
