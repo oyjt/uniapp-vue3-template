@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import { showMessage } from './status'
 
 function requestInterceptors(vm: App<Element>) {
   /**
@@ -46,11 +47,46 @@ function responseInterceptors(vm: App<Element>) {
       }
       return data.data || {}
     },
-    (response: any) => {
-      /*  对响应错误做点什么 （statusCode !== 200） */
-      return Promise.reject(response)
+    (error: any) => {
+      const { response } = error
+      if (response) {
+        // 请求已发出，但是不在2xx的范围
+        showMessage(response.status)
+        return Promise.reject(response.data)
+      }
+      showMessage('网络连接异常,请稍后再试!')
     }
   )
 }
+
+// const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
+//   const conf = config;
+//   return new Promise((resolve) => {
+//     service.request<any, AxiosResponse<IResponse>>(conf).then((res: AxiosResponse<IResponse>) => {
+//       const {
+//         data: { result },
+//       } = res;
+//       resolve(result as T);
+//     });
+//   });
+// };
+
+// export function get<T = any>(config: AxiosRequestConfig): Promise<T> {
+//   return request({ ...config, method: 'GET' });
+// }
+
+// export function post<T = any>(config: AxiosRequestConfig): Promise<T> {
+//   return request({ ...config, method: 'POST' });
+// }
+
+// export function put<T = any>(config: AxiosRequestConfig): Promise<T> {
+//   return request({ ...config, method: 'put' });
+// }
+
+// export function del<T = any>(config: AxiosRequestConfig): Promise<T> {
+//   return request({ ...config, method: 'delete' });
+// }
+
+// export default request;
 
 export { requestInterceptors, responseInterceptors }

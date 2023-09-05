@@ -1,7 +1,9 @@
 import { createPinia } from 'pinia'
 import piniaPersist from 'pinia-plugin-persist-uni'
+import { useUserStore } from './modules/user'
 
-const store = createPinia()
-// pinia数据持久化
-store.use(piniaPersist)
-export default store
+const pinia = createPinia()
+pinia.use(piniaPersist)
+
+export { useUserStore }
+export default pinia
