@@ -15,6 +15,9 @@
     "eslint-comments/no-unlimited-disable": "off",
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "vue/component-tags-order": ["error", {
+      "order": ["template", "script", "style"]
+    }]
   }
 }

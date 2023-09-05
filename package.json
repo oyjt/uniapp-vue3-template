@@ -21,11 +21,10 @@
     "pinia": "2.0.36",
     "pinia-plugin-persist-uni": "^1.2.0",
     "uview-plus": "^3.1.36",
-    "vue": "^3.3.4"
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
-    "@babel/eslint-parser": "^7.22.10",
     "@dcloudio/types": "^3.3.3",
     "@dcloudio/uni-automator": "3.0.0-3080720230703001",
     "@dcloudio/uni-cli-shared": "3.0.0-3080720230703001",

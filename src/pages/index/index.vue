@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-// import { ref } from 'vue';
 import useUserStore from '@/store/modules/user'
 
 const title = ref('Hello')
@@ -16,13 +15,10 @@ const title = ref('Hello')
 const store = useUserStore()
 console.log('store.username', store.username)
 
-console.log(
-  '[ import.meta.env.VITE_APP_BASE_API ] >',
-  import.meta.env.VITE_APP_BASE_API
-)
+console.log('[ VITE_APP_BASE_API ] >', import.meta.env.VITE_APP_BASE_API)
 </script>
 
-<style>
+<style lang="scss" scoped>
 .content {
   display: flex;
   justify-content: center;
