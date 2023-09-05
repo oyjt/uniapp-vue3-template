@@ -17,30 +17,28 @@
 - [x] 代码格式校验
 - [x] git提交格式校验
 - [x] 集成ESLint、StyleLint、Prettier代码格式规范
+- [x] Typescript支持
 - [x] 集成@uni-helper/uni-deploy和@uni-helper/uni-use
 
 ### 使用方法
 
 ```bash
 # 安装依赖
-npm install
-
-# 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npmmirror.com
+pnpm install
 
 # 启动服务
-npm run dev:h5
+pnpm dev:h5
 
 # 启动微信小程序
-npm run dev:mp-weixin
+pnpm dev:mp-weixin
 ```
 
 ### 发布
 
 ```bash
 # 构建测试环境
-npm run build:h5
+pnpm build:h5
 
 # 构建生产环境
-npm run build:mp-weixin
+pnpm build:mp-weixin
 ```
