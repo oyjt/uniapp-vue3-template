@@ -21,6 +21,7 @@
     "**/*.yaml"
   ],
   "rules": {
+    "import-notation": "string",
     "unit-no-unknown": [true, { "ignoreUnits": ["rpx"] }],
     "no-descending-specificity": null,
     "selector-pseudo-element-no-unknown": [
@@ -36,7 +37,6 @@
       }
     ],
     "selector-type-no-unknown": [true, { "ignoreTypes": ["page", "radio", "checkbox"] }],
-    "import-notation": "string",
     "order/properties-order": [
       "position",
       "top",

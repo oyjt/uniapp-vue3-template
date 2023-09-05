@@ -19,6 +19,6 @@ onHide(() => {
 
 <style lang="scss">
 /* 每个页面公共css */
-@import url('uview-plus/index.scss');
-@import url('@/static/styles/common.scss');
+@import 'uview-plus/index.scss';
+@import '@/static/styles/common.scss';
 </style>

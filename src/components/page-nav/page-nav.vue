@@ -1,7 +1,7 @@
 <template>
   <view class="nav-wrap">
     <view class="nav-title">
-      <u--image :showLoading="true" src="./static/logo.png" width="70px" height="70px" />
+      <u--image :show-loading="true" src="./static/logo.png" width="70px" height="70px" />
       <view class="nav-info">
         <view class="nav-info__title">
           <text class="nav-info__title__text">uview-plus3</text>
@@ -15,21 +15,21 @@
 
 <script>
 export default {
-  name: 'page-nav',
+  name: 'PageNav',
   props: {
     desc: String,
     title: String
   },
   data() {
-    return {};
+    return {}
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .nav-wrap {
-  padding: 15px;
   position: relative;
+  padding: 15px;
 }
 
 .lang {
@@ -41,10 +41,11 @@ export default {
 .nav-title {
   /* #ifndef APP-NVUE */
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   /* #endif */
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 .nav-info {
@@ -53,6 +54,7 @@ export default {
   &__title {
     /* #ifndef APP-NVUE */
     display: flex;
+
     /* #endif */
     flex-direction: row;
     align-items: center;
@@ -60,18 +62,19 @@ export default {
     &__text {
       /* #ifndef APP-NVUE */
       display: flex;
+      font-size: 25px;
+      text-align: left;
+
       /* #endif */
       color: $u-main-color;
-      font-size: 25px;
       font-weight: bold;
-      text-align: left;
     }
 
     &__jump {
+      margin-left: 20px;
       font-size: 12px;
       color: $u-primary;
       font-weight: normal;
-      margin-left: 20px;
     }
   }
 }
@@ -79,14 +82,16 @@ export default {
 .logo {
   width: 70px;
   height: 70px;
+
   /* #ifndef APP-NVUE */
   height: auto;
+
   /* #endif */
 }
 
 .nav-slogan {
-  color: $u-tips-color;
   font-size: 14px;
+  color: $u-tips-color;
 }
 
 .nav-desc {
