@@ -22,8 +22,8 @@
     { "value": "test", "name": "test:     测试相关 | Adding missing tests or correcting existing tests", "emoji": ":white_check_mark:" },
     { "value": "build", "name": "build:    构建相关 | Changes that affect the build system or external dependencies", "emoji": ":package:" },
     { "value": "ci", "name": "ci:       持续集成 | Changes to our CI configuration files and scripts", "emoji": ":ferris_wheel:" },
-    { "value": "chore", "name": "chore:    回退代码 | Other changes that don't modify src or test files", "emoji": ":hammer:" },
-    { "value": "revert", "name": "revert:   其他修改 | Reverts a previous commit", "emoji": ":rewind:" }
+    { "value": "chore", "name": "chore:    其他修改 | Other changes that don't modify src or test files", "emoji": ":hammer:" },
+    { "value": "revert", "name": "revert:  回退代码  | Reverts a previous commit", "emoji": ":rewind:" }
   ],
   "useEmoji": false,
   "emojiAlign": "center",
