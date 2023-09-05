@@ -1,13 +1,24 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
     "sourceMap": true,
     "baseUrl": ".",
+    "module": "ESNext",
+    "target": "es2016",
+    "lib": ["DOM", "ESNext"],
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["@dcloudio/types", "uni-app-types", "node"],
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types", "uni-app-types", "miniprogram-api-typings", "mini-types", "node"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./auto-imports.d.ts"],
   "exclude": ["dist", "node_modules", "unpackage"],

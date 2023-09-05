@@ -11,6 +11,7 @@ node_modules
 .DS_Store
 dist
 *.local
+unpackage
 
 # Editor directories and files
 .idea
