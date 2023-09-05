@@ -36,6 +36,7 @@
       }
     ],
     "selector-type-no-unknown": [true, { "ignoreTypes": ["page", "radio", "checkbox"] }],
+    "import-notation": "string",
     "order/properties-order": [
       "position",
       "top",

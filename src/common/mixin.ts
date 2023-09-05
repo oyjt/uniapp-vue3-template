@@ -8,4 +8,4 @@ function initMixin(app: App<Element>) {
   // #endif
 }
 
-export { initMixin }
+export default initMixin

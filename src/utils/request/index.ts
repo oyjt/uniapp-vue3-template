@@ -13,4 +13,4 @@ function initRequest(vm: App<Element>) {
   requestInterceptors(vm)
   responseInterceptors(vm)
 }
-export { initRequest }
+export default initRequest

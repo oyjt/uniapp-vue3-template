@@ -5,13 +5,13 @@ import App from '@/App.vue'
 import store from '@/store'
 
 // 引入mixin封装
-import { initMixin } from '@/common/mixin'
+import initMixin from '@/common/mixin'
 
 // 引入请求封装
-import { initRequest } from '@/utils/request/index'
+import initRequest from '@/utils/request/index'
 
 // http接口API抽离，免于写url或者一些固定的参数
-import httpApi from '@/api/index.js'
+import initApi from '@/api/index'
 
 // #ifdef VUE3
 export function createApp() {
@@ -21,7 +21,8 @@ export function createApp() {
 
   initRequest(app)
   initMixin(app)
-  app.use(httpApi, app)
+  initApi(app)
+
   return {
     app
   }
