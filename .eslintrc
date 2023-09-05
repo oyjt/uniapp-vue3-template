@@ -1,0 +1,20 @@
+{
+  "extends": ["@antfu", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "none"
+      }
+    ],
+    "antfu/if-newline": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "eslint-comments/no-unlimited-disable": "off",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "no-console": "off"
+  }
+}

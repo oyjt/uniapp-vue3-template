@@ -8,22 +8,8 @@ declare module '*.vue' {
   export default component
 }
 
-declare module 'uview-plus' {
-  export function install(): void
+declare module 'uview-plus'
 
-  interface test {
-    /** 邮箱格式校验 */
-    email(email: string): boolean
-  }
-  interface $u {
-    toast(message: any): unknown
-    http: any
-    test: test
-  }
-
-  global {
-    interface Uni {
-      $u: $u
-    }
-  }
+interface Uni {
+  $u: $u
 }

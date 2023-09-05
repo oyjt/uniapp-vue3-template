@@ -1,9 +1,9 @@
 import {
   createPinia
 } from 'pinia';
-import { createUnistorage } from 'pinia-plugin-unistorage'
+import piniaPersist from 'pinia-plugin-persist-uni'
 
 const store = createPinia();
 // pinia数据持久化
-store.use(createUnistorage());
+store.use(piniaPersist);
 export default store

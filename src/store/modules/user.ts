@@ -18,13 +18,15 @@ const useUserStore = defineStore('user', {
   },
   actions: {
     setUserName(name) {
-      uni.setStorageSync('username', name)
       this.username = name
     },
     setPwd(pwd) {
       this.passWord = pwd
     }
   },
+  persist: {
+    enabled: true,
+  }
 })
 
 export default useUserStore

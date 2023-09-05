@@ -8,10 +8,6 @@ export default function createAutoImport() {
             'pinia'
         ],
         dts: true,
-        eslintrc: {
-          enabled: true,
-          globalsPropValue: true
-        },
         vueTemplate: true,
     })
 }
