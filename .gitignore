@@ -11,9 +11,6 @@ node_modules
 .DS_Store
 dist
 *.local
-unpackage
-.hbuilderx
-*-lock.*
 
 # Editor directories and files
 .idea
@@ -22,3 +19,10 @@ unpackage
 *.njsproj
 *.sln
 *.sw?
+
+#user
+.hbuilderx
+unpackage
+pnpm-lock.yaml
+yarn.lock
+package-lock.json

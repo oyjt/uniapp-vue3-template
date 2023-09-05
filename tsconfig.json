@@ -15,11 +15,9 @@
     "strictNullChecks": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["@dcloudio/types", "uni-app-types", "node"],
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom"],
     "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "node", "pinia-plugin-persist-uni"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./auto-imports.d.ts"],
