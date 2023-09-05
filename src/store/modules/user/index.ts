@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 import type { UserState } from './types'
 
-export const useUserStore = defineStore('user', {
+const useUserStore = defineStore('user', {
   state: (): UserState => ({
-    user_name: undefined,
-    avatar: undefined
+    user_name: '江阳小道',
+    avatar: ''
   }),
   getters: {
     userProfile(state: UserState): UserState {
@@ -45,3 +45,5 @@ export const useUserStore = defineStore('user', {
     enabled: true
   }
 })
+
+export default useUserStore

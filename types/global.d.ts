@@ -32,12 +32,11 @@ declare global {
     __: unknown;
   }
 
-  // declare interface ViteEnv {
-  //   VITE_APP_TITLE?: string;
-  //   VITE_OPEN_PROXY?: Boolean;
-  //   VITE_USE_MOCK: Boolean;
-  //   VITE_USE_COMPRESS: Boolean;
-  // }
+  declare interface ViteEnv {
+    VITE_APP_TITLE?: string;
+    VITE_APP_BASE_API: string;
+    VITE_DROP_CONSOLE: Boolean;
+  }
 
   declare function parseInt(s: string | number, radix?: number): number;
 

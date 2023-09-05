@@ -12,7 +12,7 @@ interface LoginRes {
   token: string
 }
 
-export interface LoginData {
+interface LoginData {
   username: string
   password: string
 }

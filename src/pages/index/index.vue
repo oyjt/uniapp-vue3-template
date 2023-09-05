@@ -10,10 +10,11 @@
 <script setup lang="ts">
 import useUserStore from '@/store/modules/user'
 
-const title = ref('Hello')
+const title = ref<string>('')
+title.value = import.meta.env.VITE_APP_TITLE
 
 const store = useUserStore()
-console.log('store.username', store.username)
+console.log('store.user_name', store.user_name)
 </script>
 
 <style lang="scss" scoped>
