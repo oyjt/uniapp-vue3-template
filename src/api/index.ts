@@ -1,7 +1,7 @@
 // 引入配置
 import type { App } from 'vue'
-import * as common from './modules/common'
-import * as user from './modules/user'
+import * as common from './common'
+import * as user from './user'
 
 // api 接口管理
 function initApi(app: App<Element>) {
