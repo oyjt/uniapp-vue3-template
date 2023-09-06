@@ -24,7 +24,7 @@ export function createApp() {
   initApi(app);
 
   return {
-    app
+    app,
   };
 }
 // #endif
