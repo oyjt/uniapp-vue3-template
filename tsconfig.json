@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "pinia-plugin-persist-uni", "node"]
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "node"]
   },
   "include": [
     "src/**/*.ts",
