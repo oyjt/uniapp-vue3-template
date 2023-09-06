@@ -19,7 +19,7 @@ export function createApp() {
   app.use(uviewPlus);
   app.use(store);
 
-  initRequest(app);
+  initRequest();
   initMixin(app);
   initApi(app);
 
