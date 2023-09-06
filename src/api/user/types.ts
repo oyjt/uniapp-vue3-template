@@ -1,21 +1,21 @@
 export interface ReqParams {
-  username: string
-  password: string
+  username: string;
+  password: string;
 }
 
 export interface ReqAuth {
-  auths: string[]
-  modules: string[]
+  auths: string[];
+  modules: string[];
 }
 
 export interface ResResult {
-  data?: ResResultData
-  status: string | ''
-  headers: object
+  data?: ResResultData;
+  status: string | '';
+  headers: object;
 }
 export interface ResResultData {
-  code?: number
-  result?: any
-  message: string
-  status: string
+  code?: number;
+  result?: any;
+  message: string;
+  status: string;
 }

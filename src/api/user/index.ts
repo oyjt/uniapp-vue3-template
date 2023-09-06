@@ -7,7 +7,7 @@ import type { UserState } from '@/store/modules/user/types';
 enum URL {
   login = '/user/login',
   logout = '/user/logout',
-  profile = '/user/profile'
+  profile = '/user/profile',
 }
 interface LoginRes {
   token: string;

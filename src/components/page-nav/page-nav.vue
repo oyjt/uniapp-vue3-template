@@ -18,12 +18,12 @@ export default {
   name: 'PageNav',
   props: {
     desc: String,
-    title: String
+    title: String,
   },
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
