@@ -1,52 +1,52 @@
-import { defineStore } from 'pinia'
-import type { UserState } from './types'
-import type { LoginData } from '@/api/user/index'
-import { getUserProfile, login as userLogin, logout as userLogout } from '@/api/user/index'
-import { clearToken, setToken } from '@/utils/auth'
+import { defineStore } from 'pinia';
+import type { UserState } from './types';
+import type { LoginData } from '@/api/user/index';
+import { getUserProfile, login as userLogin, logout as userLogout } from '@/api/user/index';
+import { clearToken, setToken } from '@/utils/auth';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
     user_name: '江阳小道',
-    avatar: ''
+    avatar: '',
   }),
   getters: {
     userProfile(state: UserState): UserState {
-      return { ...state }
-    }
+      return { ...state };
+    },
   },
   actions: {
     // 设置用户的信息
     setInfo(partial: Partial<UserState>) {
-      this.$patch(partial)
+      this.$patch(partial);
     },
     // 重置用户信息
     resetInfo() {
-      this.$reset()
+      this.$reset();
     },
     // 获取用户信息
     async info() {
-      const result = await getUserProfile()
-      this.setInfo(result)
+      const result = await getUserProfile();
+      this.setInfo(result);
     },
     // 异步登录并存储token
     async login(loginForm: LoginData) {
-      const result = await userLogin(loginForm)
-      const token = result?.token
+      const result = await userLogin(loginForm);
+      const token = result?.token;
       if (token) {
-        setToken(token)
+        setToken(token);
       }
-      return result
+      return result;
     },
     // Logout
     async logout() {
-      await userLogout()
-      this.resetInfo()
-      clearToken()
-    }
-  }
+      await userLogout();
+      this.resetInfo();
+      clearToken();
+    },
+  },
   // persist: {
   //   enabled: true
   // }
-})
+});
 
-export default useUserStore
+export default useUserStore;

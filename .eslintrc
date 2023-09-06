@@ -6,10 +6,10 @@
       "error",
       {
         "singleQuote": true,
-        "trailingComma": "none"
+        "trailingComma": "all",
+        "semi": true
       }
     ],
-    "semi": ["warn", "always"],
     "antfu/top-level-function": "off",
     "antfu/if-newline": "off",
     "@typescript-eslint/ban-ts-comment": "off",
