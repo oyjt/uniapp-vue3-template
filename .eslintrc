@@ -9,6 +9,7 @@
         "trailingComma": "none"
       }
     ],
+    "semi": ["warn", "always"],
     "antfu/top-level-function": "off",
     "antfu/if-newline": "off",
     "@typescript-eslint/ban-ts-comment": "off",
