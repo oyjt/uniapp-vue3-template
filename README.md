@@ -19,6 +19,8 @@
 - [x] 集成ESLint、StyleLint、Prettier代码格式规范
 - [x] Typescript支持
 - [x] 集成@uni-helper/uni-deploy和@uni-helper/uni-use
+- [x] 集成UnoCSS
+- [x] mock支持
 
 ### 使用方法
 

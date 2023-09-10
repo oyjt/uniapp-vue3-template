@@ -34,6 +34,7 @@
     "@typescript-eslint/parser": "^6.6.0",
     "@uni-helper/uni-app-types": "^0.5.9",
     "@uni-helper/uni-deploy": "^0.3.0",
+    "@unocss/eslint-config": "^0.55.7",
     "@vue/tsconfig": "^0.4.0",
     "czg": "^1.7.1",
     "eslint": "^8.49.0",
@@ -51,9 +52,12 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-order": "^6.0.3",
     "typescript": "^5.2.2",
+    "unocss": "^0.55.7",
+    "unocss-applet": "^0.5.5",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.1.4",
+    "vite-plugin-imagemin": "^0.6.1",
     "vue-tsc": "^1.8.10"
   },
   "lint-staged": {

@@ -1,8 +1,13 @@
 <template>
-  <view class="content">
-    <up-image class="logo" src="/static/logo.png" width="200rpx" height="200rpx"></up-image>
-    <view class="text-area">
-      <up-text class="title" :text="title"></up-text>
+  <view class="flex flex-col items-center justify-center">
+    <up-image
+      class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
+      src="/static/logo.png"
+      width="200rpx"
+      height="200rpx"
+    ></up-image>
+    <view class="flex justify-center">
+      <up-text class="font-size-36rpx color-gray-700" :text="title"></up-text>
     </view>
   </view>
 </template>
@@ -16,28 +21,3 @@ title.value = import.meta.env.VITE_APP_TITLE;
 const store = useUserStore();
 console.log('store.user_name', store.user_name);
 </script>
-
-<style lang="scss" scoped>
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.logo {
-  margin: 200rpx auto 50rpx;
-  width: 200rpx;
-  height: 200rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
-}
-</style>

@@ -1,5 +1,5 @@
 {
-  "extends": ["@antfu", "prettier"],
+  "extends": ["@antfu", "@unocss", "prettier"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": [
@@ -18,8 +18,11 @@
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
     "no-console": "off",
-    "vue/component-tags-order": ["error", {
-      "order": ["template", "script", "style"]
-    }]
+    "vue/component-tags-order": [
+      "error",
+      {
+        "order": ["template", "script", "style"]
+      }
+    ]
   }
 }

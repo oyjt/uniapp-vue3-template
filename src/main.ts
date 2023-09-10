@@ -4,6 +4,9 @@ import { createSSRApp } from 'vue';
 import App from '@/App.vue';
 import store from '@/store';
 
+// 引入UnoCSS
+import 'uno.css';
+
 // 引入mixin封装
 import initMixin from '@/common/mixin';
 

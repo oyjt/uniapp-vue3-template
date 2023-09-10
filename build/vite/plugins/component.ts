@@ -1,7 +1,11 @@
-import Components from 'unplugin-vue-components/vite'
+/**
+ * @name AutoRegistryComponents
+ * @description 按需加载，自动引入
+ */
+import Components from 'unplugin-vue-components/vite';
 
-export default function createAutoComponents() {
+export const AutoRegistryComponents = () => {
   return Components({
-    dts: 'types/components.d.ts'
-  })
-}
+    dts: 'types/components.d.ts',
+  });
+};
