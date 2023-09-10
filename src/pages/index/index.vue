@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import useUserStore from '@/store/modules/user';
 
-const title = ref<string>('');
+const title = ref<string>();
 title.value = import.meta.env.VITE_APP_TITLE;
 
 const store = useUserStore();
