@@ -1,5 +1,5 @@
 {
-  "name": "uni-preset-vue",
+  "name": "uni-vue3-project",
   "version": "0.0.1",
   "scripts": {
     "dev:h5": "uni",
@@ -31,7 +31,6 @@
     "@dcloudio/uni-cli-shared": "3.0.0-3081220230817001",
     "@dcloudio/uni-stacktracey": "3.0.0-3081220230817001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3081220230817001",
-    "@types/node": "^20.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "@uni-helper/uni-app-types": "^0.5.9",
     "@uni-helper/uni-deploy": "^0.3.0",
@@ -54,7 +53,7 @@
     "typescript": "^5.2.2",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
-    "vite": "^4.4.9",
+    "vite": "^4.1.4",
     "vue-tsc": "^1.8.10"
   },
   "lint-staged": {

@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "node"]
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
   },
   "include": [
     "src/**/*.ts",
