@@ -21,6 +21,8 @@
 - [x] 集成@uni-helper/uni-deploy和@uni-helper/uni-use
 - [x] 集成UnoCSS
 - [x] mock支持
+- [x] 集成z-paging下拉刷新功能
+- [x] 添加权限管理
 
 ### 使用方法
 

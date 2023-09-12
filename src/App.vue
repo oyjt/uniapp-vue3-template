@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
 import { mpUpdate } from '@/utils/index';
+import { setupPermission } from '@/permission';
 
 onLaunch(() => {
   console.log('App Launch');
@@ -8,6 +9,8 @@ onLaunch(() => {
   // #ifdef MP
   mpUpdate();
   // #endif
+
+  setupPermission();
 });
 onShow(() => {
   console.log('App Show');

@@ -36,7 +36,7 @@
         "ignorePseudoClasses": ["deep"]
       }
     ],
-    "selector-type-no-unknown": [true, { "ignoreTypes": ["page", "radio", "checkbox"] }],
+    "selector-type-no-unknown": [true, { "ignoreTypes": ["page", "radio", "checkbox", "scroll-view"] }],
     "order/properties-order": [
       "position",
       "top",
