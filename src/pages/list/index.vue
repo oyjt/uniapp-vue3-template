@@ -1,23 +1,25 @@
 <template>
-  <z-paging ref="pagingRef" v-model="dataList" @query="queryList">
+  <ZPaging ref="pagingRef" v-model="dataList" @query="queryList">
     <view v-for="(item, index) in dataList" :key="index">
       <u-cell :title="`列表长度-${index + 1}`">
         <template #icon>
           <u-avatar
             shape="square"
             size="35"
-            :src="item.url"
+            :src="item"
             custom-style="margin: -3px 5px -3px 0"
           ></u-avatar>
         </template>
       </u-cell>
     </view>
-  </z-paging>
+  </ZPaging>
 </template>
 
 <script setup lang="ts">
-const pagingRef = ref(null);
-const dataList = ref<any[]>([]);
+import ZPaging from 'z-paging/components/z-paging/z-paging.vue';
+
+const pagingRef = ref<InstanceType<typeof ZPaging> | null>(null);
+const dataList = ref<string[]>([]);
 
 const urls: string[] = [
   'https://cdn.uviewui.com/uview/album/1.jpg',
@@ -32,7 +34,9 @@ const urls: string[] = [
   'https://cdn.uviewui.com/uview/album/10.jpg',
 ];
 
-const queryList = (pageNo, pageSize) => {
+const queryList = (pageNo: number, pageSize: number) => {
+  console.log('[ pageNo ] >', pageNo);
+  console.log('[ pageSize ] >', pageSize);
   // 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
   // 这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过pagingRef.value.complete(请求回来的数组)将请求结果传给z-paging
   setTimeout(() => {
@@ -43,8 +47,8 @@ const queryList = (pageNo, pageSize) => {
         url: urls[uni.$u.random(0, urls.length - 1)],
       });
     }
-    pagingRef.value.complete(list);
-  }, 1500);
+    pagingRef.value?.complete(list);
+  }, 1000);
   // this.$request
   //   .queryList({ pageNo, pageSize })
   //   .then(res => {

@@ -1,5 +1,5 @@
 // 引入配置
-import type { HttpRequestConfig, HttpResponse } from 'uview-plus/libs/luch-request/index';
+import type { HttpRequestConfig } from 'uview-plus/libs/luch-request/index';
 import { requestInterceptors, responseInterceptors } from './interceptors';
 import type { IResponse } from './type';
 
@@ -18,10 +18,8 @@ function initRequest() {
 const request = <T = any>(config: HttpRequestConfig): Promise<T> => {
   const conf = config;
   return new Promise(resolve => {
-    uni.$u.http.request(conf).then((res: HttpResponse<IResponse>) => {
-      const {
-        data: { result },
-      } = res;
+    uni.$u.http.request(conf).then((res: IResponse) => {
+      const { result } = res;
       resolve(result as T);
     });
   });
