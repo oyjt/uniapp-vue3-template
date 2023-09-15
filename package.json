@@ -1,6 +1,7 @@
 {
   "name": "uni-vue3-project",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev:h5": "uni",
     "dev:mp-weixin": "uni -p mp-weixin",

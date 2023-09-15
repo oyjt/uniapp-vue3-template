@@ -10,22 +10,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # 下载源码
-      # 这一步就是检出你的仓库并下载里面的代码到runner中,actions/checkout@v3是官方自己造的轮子，直接拿来用就行
-      - uses: actions/checkout@v3
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: Node环境
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: 'pnpm'
 
-      # 安装依赖、打包
-      - name: Install and Build
+      - name: 安装pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 安装构建
         run: |
-          yarn install
-          yarn build:h5
+          pnpm install
+          pnpm build:h5
 
       # 部署到 GitHub pages
-      # - name: Deploy
+      # - name: 部署
       #   uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }} # secret 名
