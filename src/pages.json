@@ -25,6 +25,12 @@
 			"style": {
 				"navigationBarTitleText": "列表"
 			}
+		},
+    {
+			"path": "pages/webview/index",
+			"style": {
+				"navigationBarTitleText": "网页"
+			}
 		}
 	],
 	"globalStyle": {

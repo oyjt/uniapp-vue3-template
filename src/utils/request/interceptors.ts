@@ -5,7 +5,7 @@ import type {
 } from 'uview-plus/libs/luch-request/index';
 import { showMessage } from './status';
 import { getToken } from '@/utils/auth';
-import { useUserStore } from '@/store';
+import useUserStore from '@/store/modules/user';
 
 // 是否正在刷新token的标记
 let isRefreshing: boolean = false;
@@ -27,8 +27,6 @@ function requestInterceptors() {
       if (token && config.header) {
         config.header.token = token;
       }
-      // 可以在此通过vm引用vuex中的变量，具体值在vm.$store.state中
-      // console.log(vm.$store.state);
       return config;
     },
     (

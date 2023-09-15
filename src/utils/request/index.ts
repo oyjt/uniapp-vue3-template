@@ -16,9 +16,8 @@ function initRequest() {
 }
 
 const request = <T = any>(config: HttpRequestConfig): Promise<T> => {
-  const conf = config;
   return new Promise(resolve => {
-    uni.$u.http.request(conf).then((res: IResponse) => {
+    uni.$u.http.request(config).then((res: IResponse) => {
       const { result } = res;
       resolve(result as T);
     });

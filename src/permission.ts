@@ -1,6 +1,6 @@
 import { getToken } from '@/utils/auth';
 
-const whiteList = ['pages/share/index'];
+const whiteList = ['/pages/index/index'];
 
 function hasPermission(path: string) {
   return getToken() || whiteList.includes(path);

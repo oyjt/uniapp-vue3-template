@@ -5,13 +5,13 @@
 <script setup lang="ts">
 const url = ref<string>('');
 
-onLoad(params => {
-  if (params.title) {
+onLoad((params: AnyObject | undefined) => {
+  if (params?.title) {
     uni.setNavigationBarTitle({
       title: params.title,
     });
   }
-  if (params.url) {
+  if (params?.url) {
     url.value = params.url;
   }
 });

@@ -3,7 +3,7 @@
     <view class="login-form-wrap">
       <view class="title">欢迎登录</view>
       <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号" />
-      <view class="u-border-bottom my-20rpx flex">
+      <view class="u-border-bottom my-40rpx flex">
         <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码" />
         <view>
           <u-code ref="uCodeRef" @change="codeChange"></u-code>
@@ -38,26 +38,28 @@
 </template>
 
 <script setup lang="ts">
+import uCode from 'uview-plus/components/u-code/u-code.vue';
+
 const tel = ref<string>();
 const code = ref<string>();
 const tips = ref<string>();
-const uCodeRef = ref(null);
+const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
 
-const inputStyle = computed(() => {
-  const style = {};
-  if (tel.value) {
+const inputStyle = computed<CSSStyleDeclaration>(() => {
+  const style = {} as CSSStyleDeclaration;
+  if (tel.value && code.value) {
     style.color = '#fff';
     style.backgroundColor = uni.$u.color.warning;
   }
   return style;
 });
 
-const codeChange = text => {
+const codeChange = (text: string) => {
   tips.value = text;
 };
 
 const getCode = () => {
-  if (uCodeRef.value.canGetCode) {
+  if (uCodeRef.value?.canGetCode) {
     // 模拟向后端请求验证码
     uni.showLoading({
       title: '正在获取验证码',
@@ -66,8 +68,8 @@ const getCode = () => {
       uni.hideLoading();
       uni.$u.toast('验证码已发送');
       // 通知验证码组件内部开始倒计时
-      uCodeRef.value.start();
-    }, 2000);
+      uCodeRef.value?.start();
+    }, 1000);
   } else {
     uni.$u.toast('倒计时结束后再发送');
   }
@@ -75,9 +77,7 @@ const getCode = () => {
 
 const submit = () => {
   if (uni.$u.test.mobile(tel.value)) {
-    uni.$u.route({
-      url: 'pages/index/index',
-    });
+    uni.$u.route('/pages/index/index');
   }
 };
 </script>
