@@ -16,13 +16,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
+          cache: yarn
 
       # 安装依赖、打包
       - name: Install and Build
         run: |
-          pnpm install
-          pnpm build:h5
+          yarn install
+          yarn build:h5
 
       # 部署到 GitHub pages
       # - name: Deploy
