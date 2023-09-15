@@ -23,6 +23,6 @@ dist
 #user
 .hbuilderx
 unpackage
-pnpm-lock.yaml
+# pnpm-lock.yaml
 yarn.lock
 package-lock.json
