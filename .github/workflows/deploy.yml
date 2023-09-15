@@ -25,9 +25,9 @@ jobs:
           pnpm build:h5
 
       # 部署到 GitHub pages
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # secret 名
-          commit_message: 自动部署 # 部署时的 git 提交信息，自由填写
-          publish_dir: ./dist/build/h5 # 部署打包后的 dist 目录
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }} # secret 名
+      #     commit_message: 自动部署 # 部署时的 git 提交信息，自由填写
+      #     publish_dir: ./dist/build/h5 # 部署打包后的 dist 目录
