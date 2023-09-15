@@ -13,16 +13,16 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v3
 
+      - name: 安装pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Node环境
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'pnpm'
-
-      - name: 安装pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
 
       - name: 安装构建
         run: |
