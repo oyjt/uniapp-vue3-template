@@ -42,7 +42,7 @@ declare global {
 
   declare function parseFloat(string: string | number): number;
 
-  interface Uni {
+  declare interface Uni {
     $u: any
   }
 }

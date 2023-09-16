@@ -78,12 +78,5 @@
   {
     "enable": false
   },
-  "vueVersion": "3",
-  "h5":
-  {
-    "router":
-    {
-      "base": "./uniapp-vue3-template/"
-    }
-  }
+  "vueVersion": "3"
 }
