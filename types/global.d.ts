@@ -1,4 +1,4 @@
-import type { VNodeChild, ComponentPublicInstance, FunctionalComponent } from 'vue';
+import type { VNodeChild } from 'vue';
 
 declare global {
   // vue
@@ -45,10 +45,4 @@ declare global {
   declare interface Uni {
     $u: any
   }
-}
-
-declare module 'vue' {
-  type Hooks = App.AppInstance & Page.PageInstance;
-  interface ComponentCustomOptions extends Hooks {};
-  export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>;
 }

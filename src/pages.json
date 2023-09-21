@@ -1,42 +1,55 @@
 {
-	"easycom": {
-		"custom": {
-			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
-			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-	    "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue",
+  "easycom":
+  {
+    "custom":
+    {
+      "^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue",
       "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
-		}
-	},
-	"pages": [
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
+    }
+  },
+  "pages": [
+  {
+    "path": "pages/index/index",
+    "style":
     {
-			"path": "pages/login/index",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
+      "navigationBarTitleText": "首页"
+    }
+  },
+  {
+    "path": "pages/login/index",
+    "style":
     {
-			"path": "pages/list/index",
-			"style": {
-				"navigationBarTitleText": "列表"
-			}
-		},
+      "navigationStyle": "custom"
+    }
+  },
+  {
+    "path": "pages/list/index",
+    "style":
     {
-			"path": "pages/webview/index",
-			"style": {
-				"navigationBarTitleText": "网页"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+      "navigationBarTitleText": "列表"
+    }
+  },
+  {
+    "path": "pages/svga/index",
+    "style":
+    {
+      "navigationBarTitleText": "动画"
+    }
+  },
+  {
+    "path": "pages/webview/index",
+    "style":
+    {
+      "navigationBarTitleText": "网页"
+    }
+  }],
+  "globalStyle":
+  {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
 }

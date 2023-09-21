@@ -28,7 +28,7 @@
     "types/**/*.d.ts",
     "types/**/*.ts"
   ],
-  "exclude": ["dist", "node_modules", "unpackage"],
+  "exclude": ["dist", "node_modules", "uni_modules"],
   // uni-app Component type prompt
   "vueCompilerOptions": {
     "nativeTags": ["block", "component", "template", "slot"]

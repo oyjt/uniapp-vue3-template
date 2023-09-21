@@ -39,9 +39,10 @@
 
 <script setup lang="ts">
 import uCode from 'uview-plus/components/u-code/u-code.vue';
+import { setToken } from '@/utils/auth';
 
-const tel = ref<string>();
-const code = ref<string>();
+const tel = ref<string>('18502811111');
+const code = ref<string>('1234');
 const tips = ref<string>();
 const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
 
@@ -77,6 +78,7 @@ const getCode = () => {
 
 const submit = () => {
   if (uni.$u.test.mobile(tel.value)) {
+    setToken('1234567890');
     uni.$u.route('/pages/index/index');
   }
 };

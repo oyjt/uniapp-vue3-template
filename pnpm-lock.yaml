@@ -23,6 +23,12 @@ dependencies:
   pinia:
     specifier: 2.0.36
     version: 2.0.36(typescript@5.2.2)(vue@3.2.47)
+  svgaplayer-weapp:
+    specifier: ^1.0.0
+    version: 1.0.0
+  svgaplayerweb:
+    specifier: ^2.3.2
+    version: 2.3.2
   uview-plus:
     specifier: ^3.1.36
     version: 3.1.37
@@ -14964,6 +14970,14 @@ packages:
   /svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
     dev: true
+
+  /svgaplayer-weapp@1.0.0:
+    resolution: {integrity: sha512-zH3y9rBHcvoRVsKwuuiRQkOP0cPeyFMxz9NJQZF+uvqwH7uO/LKLS0vEvjrRh2WhfynoXWsxxSTzWpc4Ix2cJw==}
+    dev: false
+
+  /svgaplayerweb@2.3.2:
+    resolution: {integrity: sha512-QuTvNIgy3W6Mi4h74SczEHUtAwb8m3ax7Ai7xRLUuN6hjJh49RGtWOWq1IuF2I7ECcl0HAYn8FcTn99UDz9UiQ==}
+    dev: false
 
   /svgo@2.8.0:
     resolution: {integrity: sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg==}
