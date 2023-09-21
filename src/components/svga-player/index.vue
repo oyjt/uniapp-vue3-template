@@ -1,22 +1,6 @@
 <template>
   <view class="svga-player" :style="{ width, height }">
-    <!-- #ifdef H5||APP-PLUS -->
-    <view
-      class="c-svga"
-      :style="{ width, height }"
-      :svga-data="svgaData"
-      :change:svga-data="svga.render"
-      :fun="fun"
-      :change:fun="svga.callPlayer"
-    >
-      <div :id="myCanvasId"></div>
-    </view>
-    <!-- #endif -->
-    <!-- #ifdef MP -->
-    <view class="c-svga" :style="{ width, height }">
-      <canvas :id="myCanvasId" class="canvas" type="2d"></canvas>
-    </view>
-    <!-- #endif -->
+    <canvas :id="myCanvasId" class="canvas" type="2d"></canvas>
   </view>
 </template>
 
@@ -114,24 +98,17 @@ export default {
   },
   watch: {
     svgaData() {
-      // #ifdef MP
       this.render();
-      // #endif
     },
   },
   mounted() {
-    // #ifdef MP
     this.render();
-    // #endif
   },
   methods: {
     call(name, args) {
       this.fun = { name, args };
-      // #ifdef MP
       this.callPlayer(this.fun);
-      // #endif
     },
-    // #ifdef MP
     getContext() {
       return new Promise(resolve => {
         const { pixelRatio } = uni.getSystemInfoSync();
@@ -210,35 +187,15 @@ export default {
         this.player[name](args);
       }
     },
-    // #endif
-    // #ifndef MP
-    receiveRenderData(val) {
-      // console.log(val);
-      this.$emit(val.name, val.val);
-    },
-    // #endif
   },
 };
 </script>
 
-<!-- #ifndef MP -->
-<script lang="renderjs" src="./utils/render.js" module="svga"></script>
-<!-- #endif -->
-
 <style lang="scss" scoped>
 .svga-player {
-  /* #ifndef MP */
-  div {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* #endif */
-
   .canvas {
     width: 100%;
     height: 100%;
   }
 }
 </style>
-./utils/uuid.js
