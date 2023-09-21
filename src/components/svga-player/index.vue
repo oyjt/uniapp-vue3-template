@@ -23,7 +23,6 @@
  * 组件内方法统一使用 call(funName, args) 调用player实例方法 详见文档
  */
 import { Parser, Player } from 'svgaplayer-weapp';
-import uuid from './utils/uuid.js';
 
 export default {
   name: 'SvgaPlayer',
@@ -77,7 +76,7 @@ export default {
   computed: {
     myCanvasId() {
       if (!this.canvasId) {
-        return `c${uuid(18)}`;
+        return `c${uni.$u.guid(18)}`;
       } else {
         return this.canvasId;
       }
