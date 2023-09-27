@@ -10,18 +10,18 @@
     }
   },
   "pages": [
+    {
+      "path": "pages/login/index",
+      "style":
+      {
+        "navigationStyle": "custom"
+      }
+    },
   {
     "path": "pages/index/index",
     "style":
     {
       "navigationBarTitleText": "首页"
-    }
-  },
-  {
-    "path": "pages/login/index",
-    "style":
-    {
-      "navigationStyle": "custom"
     }
   },
   {
@@ -32,17 +32,16 @@
     }
   },
   {
-    "path": "pages/svga/index",
-    "style":
-    {
-      "navigationBarTitleText": "动画"
-    }
-  },
-  {
     "path": "pages/webview/index",
     "style":
     {
       "navigationBarTitleText": "网页"
+    }
+  },{
+    "path": "pages/user/index",
+    "style":
+    {
+      "navigationStyle": "custom"
     }
   }],
   "globalStyle":

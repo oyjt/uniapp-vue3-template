@@ -10,6 +10,5 @@ declare module 'vue' {
     PageNav: typeof import('./../src/components/page-nav/page-nav.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SvgaPlayer: typeof import('./../src/components/svga-player/index.vue')['default']
   }
 }
