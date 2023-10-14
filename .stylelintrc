@@ -18,7 +18,9 @@
     "**/*.ts",
     "**/*.json",
     "**/*.md",
-    "**/*.yaml"
+    "**/*.yaml",
+    "dist/*",
+    "uni_modules/*"
   ],
   "rules": {
     "import-notation": "string",
