@@ -1,8 +1,11 @@
-import antfu from '@antfu/eslint-config'
-import unocss from '@unocss/eslint-plugin'
+// import antfu from '@antfu/eslint-config'
+const antfu = require('@antfu/eslint-config').default
+const unocss = require('@unocss/eslint-plugin').default
 
-export default antfu({
-  {ignores: ['uni_modules'],}
+module.exports = antfu(
+  {
+    ignores: ['uni_modules'],
+  },
   {
     files: ['**/*.vue'],
     rules: {
@@ -21,4 +24,4 @@ export default antfu({
     },
   },
   unocss.configs.flat,
-})
+)
