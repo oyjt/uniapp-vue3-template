@@ -41,6 +41,7 @@
     "picocolors": "^1.0.0",
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.9",
+    "sass": "^1.69.3",
     "simple-git-hooks": "^2.9.0",
     "stylelint": "^15.10.3",
     "stylelint-config-recess-order": "^4.3.0",
