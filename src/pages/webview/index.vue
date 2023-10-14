@@ -1,18 +1,12 @@
 <template>
-  <web-view class="h-full" :src="url"></web-view>
+  <web-view class="h-full" :src="url" />
 </template>
 
 <script setup lang="ts">
 const url = ref<string>('');
 
-onLoad((params: AnyObject | undefined) => {
-  if (params?.title) {
-    uni.setNavigationBarTitle({
-      title: params.title,
-    });
-  }
-  if (params?.url) {
+onLoad((params: any) => {
+  if (params.url)
     url.value = params.url;
-  }
 });
 </script>

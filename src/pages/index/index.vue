@@ -1,13 +1,15 @@
 <template>
   <view class="flex flex-col items-center justify-center">
-    <up-image
+    <image
       class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
       src="/static/logo.png"
       width="200rpx"
       height="200rpx"
-    ></up-image>
+    />
     <view class="flex justify-center">
-      <up-text class="font-size-36rpx color-gray-700" :text="title"></up-text>
+      <text class="font-size-36rpx color-gray-700">
+        {{ title }}
+      </text>
     </view>
   </view>
 </template>
