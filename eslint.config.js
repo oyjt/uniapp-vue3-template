@@ -23,5 +23,5 @@ module.exports = antfu(
       "comma-dangle": ["error", "always"]
     },
   },
-  unocss.configs.flat,
+  unocss,
 )

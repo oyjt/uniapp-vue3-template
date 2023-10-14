@@ -65,7 +65,7 @@
     ]
   },
   "simple-git-hooks": {
-    "pre-commit": "lint-staged",
+    "pre-commit": "npx lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
   }
 }
