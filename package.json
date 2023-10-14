@@ -56,14 +56,10 @@
     "vue-tsc": "^1.8.19"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ],
+    "src/**/*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{scss,less,style,html}": "stylelint --fix",
     "*.vue": [
       "eslint --fix",
-      "stylelint --fix"
-    ],
-    "*.{scss,less,style,html}": [
       "stylelint --fix"
     ]
   },
