@@ -1,45 +1,37 @@
 import { getToken } from '@/utils/auth';
 
-const whiteList = ['/pages/index/index'];
+// 登录页面
+const loginPage = '/pages/common/login/index';
+// 页面白名单
+const whiteList = ['/', '/pages/common/login/index', '/pages/tab/home/index'];
 
-function hasPermission(path: string) {
-  return getToken() || whiteList.includes(path);
+// 检查地址白名单
+function checkWhite(url: string) {
+  const path = url.split('?')[0];
+  return whiteList.includes(path);
 }
 
-export function setupPermission() {
-  const { path } = uni.getLaunchOptionsSync();
+// 页面跳转验证拦截器
+const list = ['navigateTo', 'redirectTo', 'reLaunch', 'switchTab'];
+list.forEach((item) => {
+  uni.addInterceptor(item, {
+    invoke(to) {
+      if (getToken()) {
+        if (to.url === loginPage)
+          uni.reLaunch({ url: '/' });
 
-  if (!hasPermission(path)) {
-    uni.reLaunch({
-      url: '/pages/login/index',
-    });
-  }
-}
+        return true;
+      }
+      else {
+        if (checkWhite(to.url))
+          return true;
 
-// navigateTo intercept
-uni.addInterceptor('navigateTo', {
-  invoke(args) {
-    if (!hasPermission(args.url)) {
-      uni.reLaunch({
-        url: '/pages/login/index',
-      });
-    }
-  },
-  fail(err) {
-    console.error('navigateTo fail', err);
-  },
-});
-
-// switchTab intercept
-uni.addInterceptor('switchTab', {
-  invoke(args) {
-    if (!hasPermission(args.url)) {
-      uni.reLaunch({
-        url: '/pages/login/index',
-      });
-    }
-  },
-  fail(err) {
-    console.error('redirectTo fail', err);
-  },
+        uni.reLaunch({ url: loginPage });
+        return false;
+      }
+    },
+    fail(err) {
+      console.log(err);
+    },
+  });
 });

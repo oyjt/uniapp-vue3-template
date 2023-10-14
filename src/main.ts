@@ -1,17 +1,19 @@
 import { createSSRApp } from 'vue';
-
-// 引入uview-plus
 import uviewPlus from 'uview-plus';
 import App from '@/App.vue';
+
+// 引入uview-plus
+// 引入UnoCSS
+import 'uno.css';
 
 // 引入状态管理
 import setupStore from '@/store';
 
-// 引入UnoCSS
-import 'uno.css';
-
 // 引入请求封装
 import setupRequest from '@/utils/request';
+
+// 权限管理
+import '@/permission';
 
 // #ifdef VUE3
 export function createApp() {

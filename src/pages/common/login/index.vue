@@ -92,7 +92,7 @@ function getCode() {
 function submit() {
   if (uni.$u.test.mobile(tel.value)) {
     setToken('1234567890');
-    uni.$u.route('/pages/index/index');
+    uni.reLaunch({ url: '/pages/tab/home/index' });
   }
 }
 </script>

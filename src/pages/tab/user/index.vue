@@ -3,7 +3,7 @@
     <u-navbar title="" placeholder left-icon="" right-icon="camera-fill" />
     <view class="flex items-center bg-white pb-30rpx pl-30rpx pr-20rpx">
       <view class="mr-10rpx">
-        <u-avatar src="/static/logo.png" size="70" />
+        <u-avatar src="/static/images/logo.png" size="70" />
       </view>
       <view class="flex-1">
         <view class="pb-20rpx font-size-18rpx">

@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import { mpUpdate } from '@/utils/index'
-import { setupPermission } from '@/permission'
+import { mpUpdate } from '@/utils/index';
 
 onLaunch(() => {
-  console.log('App Launch')
+  console.log('App Launch');
   // #ifdef MP
-  mpUpdate()
+  mpUpdate();
   // #endif
-
-  setupPermission()
-})
+});
 onShow(() => {
-  console.log('App Show')
-})
+  console.log('App Show');
+});
 onHide(() => {
-  console.log('App Hide')
-})
+  console.log('App Hide');
+});
 </script>
 
 <style lang="scss">

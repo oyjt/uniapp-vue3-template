@@ -1,15 +1,15 @@
 const TokenKey = 'admin-token';
 const TokenPrefix = 'Bearer ';
-const isLogin = () => {
+function isLogin() {
   return !!uni.getStorageSync(TokenKey);
-};
-const getToken = () => {
+}
+function getToken() {
   return uni.getStorageSync(TokenKey);
-};
-const setToken = (token: string) => {
+}
+function setToken(token: string) {
   uni.setStorageSync(TokenKey, token);
-};
-const clearToken = () => {
+}
+function clearToken() {
   uni.removeStorageSync(TokenKey);
-};
+}
 export { TokenPrefix, isLogin, getToken, setToken, clearToken };

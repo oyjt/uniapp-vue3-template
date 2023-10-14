@@ -6,6 +6,5 @@ declare module '*.vue' {
   export default component;
 }
 
-declare module 'uview-plus'
-
-declare module 'uview-plus/libs/mixin/mpShare.js'
+declare module 'uview-plus';
+declare module 'uview-plus/libs/mixin/mpShare.js';
