@@ -1,12 +1,16 @@
 {
-  "name": "uni-vue3-project",
-  "version": "0.0.1",
+  "name": "uniapp-vue3-project",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "dev:h5": "uni",
+    "dev:h5-pro": "uni --mode production",
     "dev:mp-weixin": "uni -p mp-weixin",
+    "dev:mp-weixin-prod": "uni -p mp-weixin --mode production",
     "build:h5": "uni build",
+    "build:h5-prod": "uni build  --mode production",
     "build:mp-weixin": "uni build -p mp-weixin",
+    "build:mp-weixin-prod": "uni build -p mp-weixin --mode production",
     "type-check": "vue-tsc --noEmit",
     "eslint": "eslint --fix",
     "stylelint": "stylelint \"src/**/*.(vue|scss|css)\" --fix",
