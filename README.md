@@ -6,6 +6,8 @@
 
 本项目集众多项目的优点，打造最适合团队协作开发的项目模板。
 
+在线预览地址：[https://oyjt.github.io/uniapp-vue3-template/](https://oyjt.github.io/uniapp-vue3-template/)
+
 ### 特性
 
 - [x] 集成uview-plus3.0 ui库
