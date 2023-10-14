@@ -1,6 +1,6 @@
-import path from 'node:path';
-import fs from 'node:fs';
-import pc from 'picocolors';
+const path = require('node:path');
+const fs = require('node:fs');
+const pc = require('picocolors');
 
 const msgPath = path.resolve('.git/COMMIT_EDITMSG');
 const msg = fs.readFileSync(msgPath, 'utf-8').trim();
