@@ -24,7 +24,7 @@
     "z-paging": "^2.5.9"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "0.43.1",
+    "@antfu/eslint-config": "1.0.0-beta.27",
     "@dcloudio/types": "^3.3.3",
     "@dcloudio/uni-automator": "3.0.0-3081220230817001",
     "@dcloudio/uni-cli-shared": "3.0.0-3081220230817001",
