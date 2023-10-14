@@ -8,7 +8,7 @@
             size="35"
             :src="item"
             custom-style="margin: -3px 5px -3px 0"
-          ></u-avatar>
+          />
         </template>
       </u-cell>
     </view>
@@ -34,7 +34,7 @@ const urls: string[] = [
   'https://cdn.uviewui.com/uview/album/10.jpg',
 ];
 
-const queryList = (pageNo: number, pageSize: number) => {
+function queryList(pageNo: number, pageSize: number) {
   console.log('[ pageNo ] >', pageNo);
   console.log('[ pageSize ] >', pageSize);
   // 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
@@ -42,9 +42,9 @@ const queryList = (pageNo: number, pageSize: number) => {
   setTimeout(() => {
     // 1秒之后停止刷新动画
     const list = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 30; i++)
       list.push(urls[uni.$u.random(0, urls.length - 1)]);
-    }
+
     pagingRef.value?.complete(list);
   }, 1000);
   // this.$request
@@ -59,5 +59,5 @@ const queryList = (pageNo: number, pageSize: number) => {
   //     // 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
   //     pagingRef.value.complete(false);
   //   });
-};
+}
 </script>

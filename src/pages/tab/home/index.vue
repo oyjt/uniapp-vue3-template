@@ -2,7 +2,7 @@
   <view class="flex flex-col items-center justify-center">
     <image
       class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
-      src="/static/logo.png"
+      src="@/static/images/logo.png"
       width="200rpx"
       height="200rpx"
     />

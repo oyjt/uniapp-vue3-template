@@ -1,8 +1,6 @@
 {
-  "easycom":
-  {
-    "custom":
-    {
+  "easycom": {
+    "custom": {
       "^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
       "^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
       "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue",
@@ -11,41 +9,62 @@
   },
   "pages": [
     {
-      "path": "pages/login/index",
-      "style":
-      {
-        "navigationStyle": "custom"
+      "path": "pages/tab/home/index",
+      "style": {
+        "navigationBarTitleText": "首页"
       }
     },
-  {
-    "path": "pages/index/index",
-    "style":
     {
-      "navigationBarTitleText": "首页"
+      "path": "pages/tab/list/index",
+      "style": {
+        "navigationBarTitleText": "列表"
+      }
+    },
+    {
+      "path": "pages/tab/user/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
     }
+  ],
+  "subPackages": [
+    {
+      "root": "pages/common",
+      "pages": [
+        {
+          "path": "login/index",
+          "navigationStyle": "custom"
+        },
+        {
+          "path": "webview/index",
+          "navigationBarTitleText": "网页"
+        }
+      ]
+    }
+  ],
+  "preloadRule": {
+		"pages/tab/home/index": {
+			"network": "all",
+			"packages": ["pages/common"]
+		}
+	},
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/tab/home/index",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/tab/list/index",
+      "text": "列表"
+    }, {
+      "pagePath": "pages/tab/user/index",
+      "text": "我的"
+    }]
   },
-  {
-    "path": "pages/list/index",
-    "style":
-    {
-      "navigationBarTitleText": "列表"
-    }
-  },
-  {
-    "path": "pages/webview/index",
-    "style":
-    {
-      "navigationBarTitleText": "网页"
-    }
-  },{
-    "path": "pages/user/index",
-    "style":
-    {
-      "navigationStyle": "custom"
-    }
-  }],
-  "globalStyle":
-  {
+  "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",

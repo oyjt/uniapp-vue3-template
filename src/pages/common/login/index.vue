@@ -1,37 +1,49 @@
 <template>
   <view>
     <view class="login-form-wrap">
-      <view class="title">欢迎登录</view>
-      <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号" />
+      <view class="title">
+        欢迎登录
+      </view>
+      <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号">
       <view class="u-border-bottom my-40rpx flex">
-        <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码" />
+        <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码">
         <view>
-          <u-code ref="uCodeRef" @change="codeChange"></u-code>
-          <u-button :text="tips" type="success" size="mini" @click="getCode"></u-button>
+          <u-code ref="uCodeRef" @change="codeChange" />
+          <u-button :text="tips" type="success" size="mini" @click="getCode" />
         </view>
       </view>
-      <button :style="[inputStyle]" class="login-btn" @tap="submit">登录</button>
+      <button :style="[inputStyle]" class="login-btn" @tap="submit">
+        登录
+      </button>
 
       <view class="alternative">
-        <view class="password">密码登录</view>
-        <view class="issue">遇到问题</view>
+        <view class="password">
+          密码登录
+        </view>
+        <view class="issue">
+          遇到问题
+        </view>
       </view>
     </view>
     <view class="login-type-wrap">
       <view class="item wechat">
-        <view class="icon"
-          ><u-icon size="35" name="weixin-fill" color="rgb(83,194,64)"></u-icon
-        ></view>
+        <view class="icon">
+          <u-icon size="35" name="weixin-fill" color="rgb(83,194,64)" />
+        </view>
         微信
       </view>
       <view class="item QQ">
-        <view class="icon"><u-icon size="35" name="qq-fill" color="rgb(17,183,233)"></u-icon></view>
+        <view class="icon">
+          <u-icon size="35" name="qq-fill" color="rgb(17,183,233)" />
+        </view>
         QQ
       </view>
     </view>
     <view class="hint">
       登录代表同意
-      <text class="link">用户协议、隐私政策，</text>
+      <text class="link">
+        用户协议、隐私政策，
+      </text>
       并授权使用您的账号信息（如昵称、头像、收获地址）以便您统一管理
     </view>
   </view>
@@ -55,11 +67,11 @@ const inputStyle = computed<CSSStyleDeclaration>(() => {
   return style;
 });
 
-const codeChange = (text: string) => {
+function codeChange(text: string) {
   tips.value = text;
-};
+}
 
-const getCode = () => {
+function getCode() {
   if (uCodeRef.value?.canGetCode) {
     // 模拟向后端请求验证码
     uni.showLoading({
@@ -71,17 +83,18 @@ const getCode = () => {
       // 通知验证码组件内部开始倒计时
       uCodeRef.value?.start();
     }, 1000);
-  } else {
+  }
+  else {
     uni.$u.toast('倒计时结束后再发送');
   }
-};
+}
 
-const submit = () => {
+function submit() {
   if (uni.$u.test.mobile(tel.value)) {
     setToken('1234567890');
     uni.$u.route('/pages/index/index');
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
