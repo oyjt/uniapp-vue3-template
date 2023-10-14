@@ -10,7 +10,8 @@
     "type-check": "vue-tsc --noEmit",
     "eslint": "eslint --fix",
     "stylelint": "stylelint \"src/**/*.(vue|scss|css)\" --fix",
-    "cz": "git add . && npx czg"
+    "cz": "git add . && npx czg",
+    "postinstall": "simple-git-hooks"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-3081220230817001",
@@ -64,7 +65,7 @@
     ]
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged",
+    "pre-commit": "lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
   }
 }
