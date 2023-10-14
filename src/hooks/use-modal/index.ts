@@ -9,15 +9,13 @@ export default function useModal() {
         content,
         showCancel: false,
         confirmColor: '#1677FF',
-        success: res => {
-          if (res.confirm) resolve(res);
-        },
+        success: res => resolve(res),
         fail: () => reject(new Error('Alert 调用失败 !')),
         ...options,
-      });
-    });
-  };
+      })
+    })
+  }
   return {
     showModal,
-  };
+  }
 }

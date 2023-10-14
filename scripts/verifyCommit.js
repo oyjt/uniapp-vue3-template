@@ -1,6 +1,6 @@
-const path = require('node:path');
-const fs = require('node:fs');
-const pc = require('picocolors');
+import path from 'node:path';
+import fs from 'node:fs';
+import pc from 'picocolors';
 
 const msgPath = path.resolve('.git/COMMIT_EDITMSG');
 const msg = fs.readFileSync(msgPath, 'utf-8').trim();
@@ -15,6 +15,5 @@ if (!commitRE.test(msg)) {
       '推荐使用命令 npm run cz 生成符合规范的Git提交信息',
     )}\n`,
   );
-  // eslint-disable-next-line n/prefer-global/process
   process.exit(1);
 }

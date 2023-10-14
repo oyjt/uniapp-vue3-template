@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
-import { mpUpdate } from '@/utils/index';
-import { setupPermission } from '@/permission';
+import { mpUpdate } from '@/utils/index'
+import { setupPermission } from '@/permission'
 
 onLaunch(() => {
-  console.log('App Launch');
-  console.log('[ VITE_APP_ENV ] >', import.meta.env.VITE_APP_ENV);
+  console.log('App Launch')
   // #ifdef MP
-  mpUpdate();
+  mpUpdate()
   // #endif
 
-  setupPermission();
-});
+  setupPermission()
+})
 onShow(() => {
-  console.log('App Show');
-});
+  console.log('App Show')
+})
 onHide(() => {
-  console.log('App Hide');
-});
+  console.log('App Hide')
+})
 </script>
 
 <style lang="scss">
