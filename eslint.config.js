@@ -31,5 +31,5 @@ module.exports = antfu(
       "padded-blocks": ["error", "never"]
     },
   },
-  // unocss,
+  unocss,
 )
