@@ -1,4 +1,3 @@
-// import antfu from '@antfu/eslint-config'
 const antfu = require('@antfu/eslint-config').default
 const unocss = require('@unocss/eslint-plugin').default
 
