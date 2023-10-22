@@ -36,13 +36,19 @@ const useUserStore = defineStore('user', {
       this.setInfo(result);
     },
     // 异步登录并存储token
-    async login(loginForm: LoginParams) {
-      const result = await userLogin(loginForm);
-      const token = result?.token;
-      if (token) {
-        setToken(token);
-      }
-      return result;
+    login(loginForm: LoginParams) {
+      return new Promise(async (resolve, reject) => {
+        try {
+          const result = await userLogin(loginForm);
+          const token = result?.token;
+          if (token) {
+            setToken(token);
+          }
+          resolve(result);
+        } catch (error) {
+          reject(error)
+        }
+      });
     },
     // Logout
     async logout() {

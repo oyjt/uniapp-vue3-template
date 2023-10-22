@@ -13,6 +13,6 @@ enum URL {
 }
 
 export const getUserProfile = () => get<UserState>({ url: URL.profile });
-export const login = (data: LoginParams) => post<any>({ url: URL.login, data });
+export const login = (data: LoginParams) => post<LoginResult>({ url: URL.login, data });
 export const loginByCode = (data: LoginByCodeParams) => post<any>({ url: URL.loginByCode, data });
-export const logout = () => post<LoginResult>({ url: URL.logout });
+export const logout = () => post<any>({ url: URL.logout });

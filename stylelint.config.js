@@ -1,6 +1,16 @@
 module.exports = {
   "extends": ["stylelint-config-standard", "stylelint-config-standard-vue"],
   "plugins": ["stylelint-order"],
+  "overrides": [
+    {
+      "files": ["**/*.(scss|css|vue|html)"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["**/*.(html|vue)"],
+      "customSyntax": "postcss-html"
+    }
+  ],
   "ignoreFiles": [
     "**/*.js",
     "**/*.jsx",

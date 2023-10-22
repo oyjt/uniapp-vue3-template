@@ -9,4 +9,7 @@ export interface LoginByCodeParams {
 
 export interface LoginResult {
   token: string;
+  user_id: number;
+  user_name: string;
+  avatar: string;
 }
