@@ -1,5 +1,5 @@
 /** @type {import('cz-git').CommitizenGitOptions} */
-module.exports = {
+export default {
   "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "选择你要提交的类型 :",

@@ -2,6 +2,7 @@
   "name": "uniapp-vue3-project",
   "version": "1.0.2",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev:h5": "uni",
     "dev:h5-pro": "uni --mode production",
@@ -18,10 +19,10 @@
     "postinstall": "simple-git-hooks"
   },
   "dependencies": {
-    "@dcloudio/uni-app": "3.0.0-3081220230817001",
-    "@dcloudio/uni-components": "3.0.0-3081220230817001",
-    "@dcloudio/uni-h5": "3.0.0-3081220230817001",
-    "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
+    "@dcloudio/uni-app": "3.0.0-3090920231225001",
+    "@dcloudio/uni-components": "3.0.0-3090920231225001",
+    "@dcloudio/uni-h5": "3.0.0-3090920231225001",
+    "@dcloudio/uni-mp-weixin": "3.0.0-3090920231225001",
     "pinia": "2.0.36",
     "uniapp-vue3-project": "link:",
     "uview-plus": "^3.1.38",
@@ -31,10 +32,10 @@
   "devDependencies": {
     "@antfu/eslint-config": "2.6.1",
     "@dcloudio/types": "^3.4.3",
-    "@dcloudio/uni-automator": "3.0.0-3081220230817001",
-    "@dcloudio/uni-cli-shared": "3.0.0-3081220230817001",
-    "@dcloudio/uni-stacktracey": "3.0.0-3081220230817001",
-    "@dcloudio/vite-plugin-uni": "3.0.0-3081220230817001",
+    "@dcloudio/uni-automator": "3.0.0-3090920231225001",
+    "@dcloudio/uni-cli-shared": "3.0.0-3090920231225001",
+    "@dcloudio/uni-stacktracey": "3.0.0-3090920231225001",
+    "@dcloudio/vite-plugin-uni": "3.0.0-3090920231225001",
     "@types/node": "^20.8.10",
     "@typescript-eslint/parser": "^6.10.0",
     "@uni-helper/uni-app-types": "^0.5.9",

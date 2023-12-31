@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "extends": ["stylelint-config-standard", "stylelint-config-standard-vue"],
   "plugins": ["stylelint-order"],
   "overrides": [

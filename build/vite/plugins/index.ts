@@ -17,8 +17,8 @@ export default function createVitePlugins(isBuild: boolean) {
     AutoImportDeps(),
     // 自动按需引入组件(注意：需注册至 uni 之前，否则不会生效)
     AutoRegistryComponents(),
-    // uni支持
-    uniPlugin(),
+    // uni支持(兼容性写法，当type为module时，必须要这样写)
+    (uniPlugin as any).default(),
   ];
 
   if (isBuild) {

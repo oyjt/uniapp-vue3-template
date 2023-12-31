@@ -1,12 +1,11 @@
-const antfu = require('@antfu/eslint-config').default
+import antfu from '@antfu/eslint-config'
 
-module.exports = antfu(
-  {
-    ignores: ['uni_modules'],
-  },
+export default antfu(
   {
     unocss: true,
-    formatters: true,
+  },
+  {
+    ignores: ['uni_modules'],
   },
   {
     files: ['**/*.vue'],
