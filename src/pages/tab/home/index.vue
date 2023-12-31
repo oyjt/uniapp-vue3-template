@@ -7,7 +7,7 @@
       height="200rpx"
     />
     <view class="flex justify-center">
-      <text class="font-size-36rpx color-gray-700 hover:text-teal-600">
+      <text class="font-size-36rpx color-gray-700">
         {{ title }}
       </text>
     </view>
