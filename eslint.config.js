@@ -1,9 +1,12 @@
 const antfu = require('@antfu/eslint-config').default
-const unocss = require('@unocss/eslint-plugin').default
 
 module.exports = antfu(
   {
     ignores: ['uni_modules'],
+  },
+  {
+    unocss: true,
+    formatters: true,
   },
   {
     files: ['**/*.vue'],
@@ -30,5 +33,4 @@ module.exports = antfu(
       "padded-blocks": ["error", "never"]
     },
   },
-  unocss,
 )
