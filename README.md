@@ -26,6 +26,12 @@
 - [x] 支持持续集成
 - [x] 项目分包
 
+### VScode插件推荐
+- 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
+- uni-app 基本能力代码片段。[uni-app-snippets](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-snippets-vscode)
+- 一键创建页面、组件、分包，个人用不习惯。uni-create-view(https://marketplace.visualstudio.com/items?itemName=mrmaoddxxaa.create-uniapp-view)
+
+
 ### 目录结构
 项目中采用目前最新的技术方案来实现，目录结构清晰。
 ```

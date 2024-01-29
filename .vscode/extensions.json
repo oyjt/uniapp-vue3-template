@@ -1,0 +1,21 @@
+{
+  /*
+    推荐扩展。
+    一键安装方式：
+      1.点击左侧的扩展图标
+      2. 点击筛选扩展器图标
+      3.点击工作区推荐右侧的下载图标一键安装
+  */
+  "recommendations": [
+    "antfu.vite", // 在编辑器内预览/调试您的应用程序
+    "antfu.iconify", // hover 内联显示相应的图标
+    "antfu.unocss", // 一款零配置的 CSS 框架
+    "vue.volar", // Vue 3 的开发必备扩展
+    "dbaeumer.vscode-eslint", // ESLint 支持
+    "editorConfig.editorConfig", // EditorConfig 支持
+    "uni-helper.uni-highlight-vscode", // 对条件编译的代码注释部分提供了语法提示、高亮、折叠
+    "uni-helper.uni-app-snippets-vscode", // uni-app 基本能力代码片段。
+    "uni-helper.uni-ui-snippets-vscode" // uni-ui 基本能力代码片段
+    // "uni-helper.uni-helper-vscode" // Uni Helper 扩展包集合
+  ]
+}

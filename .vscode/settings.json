@@ -1,0 +1,34 @@
+{
+  // 禁用 prettier，使用 eslint 的代码格式化
+  "prettier.enable": false,
+  // 保存时自动格式化
+  "editor.formatOnSave": false,
+  // 保存时自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ],
+  // 消除json文件中的注释警告
+  "files.associations": {
+    "manifest.json": "jsonc",
+    "pages.json": "jsonc"
+  },
+  // 文件嵌套
+  "explorer.fileNesting.enabled": true,
+  // 文件嵌套规则
+  "explorer.fileNesting.patterns": {
+    "vite.config.*": "pages.config.*, manifest.config.*, uno.config.*, volar.config.*, *.env, .env.*"
+  }
+}
