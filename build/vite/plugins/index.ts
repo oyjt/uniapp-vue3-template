@@ -8,6 +8,8 @@ import { AutoImportDeps } from './autoImport';
 import { AutoRegistryComponents } from './component';
 import { ConfigUnoCSSPlugin } from './unocss';
 import { ConfigImageminPlugin } from './imagemin';
+// import { ReplaceUrlPlugin } from './replaceUrl';
+// import { CleanImagePlugin } from './cleanImage';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -22,8 +24,15 @@ export default function createVitePlugins(isBuild: boolean) {
   ];
 
   if (isBuild) {
-    // vite-plugin-imagemin
-    vitePlugins.push(ConfigImageminPlugin());
+    const buildPlugins: (PluginOption | PluginOption[])[] = [
+      // 图片压缩插件
+      ConfigImageminPlugin(),
+      // 图片资源自动转换为网络资源
+      // ReplaceUrlPlugin(),
+      // 自动清除本地图片
+      // CleanImagePlugin()
+    ];
+    vitePlugins.concat(buildPlugins);
   }
 
   return vitePlugins;
