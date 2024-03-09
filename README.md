@@ -25,6 +25,8 @@
 - [x] 支持token无痛刷新
 - [x] 支持持续集成
 - [x] 项目分包
+- [x] 集成小程序隐私协议授权组件
+- [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
 
 ### VScode插件推荐
 - 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
@@ -186,3 +188,45 @@ pnpm build:mp-weixin-prod
 ```bash
 pnpm cz
 ```
+
+### 注意事项
+1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
+2. 自动构建处理本地图片资源，使用了`vite-plugin-clean-build`和`vite-plugin-replace-image-url`这两个插件，默认不开启相关功能，如果需要使用再`build/vite/plugins/index.ts`文件中移除相关注释即可
+3. 使用`vite-plugin-replace-image-url`插件，想要图片自动替换生效，需要在项目中使用绝对路径引入图片资源，如下示例所示。
+
+    示例一：style中的图片使用
+    ```
+    <template>
+      <view :style="`background-image: url('${bgImg}')`">
+        ...
+      </view>
+    </template>
+    <script setup lang="ts">
+    import bgImg from '@/static/images/bg_img.png';
+    </script>
+    ```
+
+    示例二：js中的图片使用
+
+    ```
+    <script setup lang="ts">
+    import walletIcon from '@/static/images/icon_wallet.png';
+    const menuList = [
+      {
+        name: 'wallet',
+        title: '钱包',
+        icon: walletIcon,
+      },
+      ...
+    ];
+    </script>
+    ```
+
+    示例二：css中的图片使用
+    ```
+    <style lang="scss">
+    .icon {
+      background-image: url('@/static/images/icon.png')
+    }
+    </style>
+    ```
