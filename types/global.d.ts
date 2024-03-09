@@ -24,4 +24,6 @@ declare global {
   declare interface Uni {
     $u: any
   }
+
+  declare var wx: any;
 }

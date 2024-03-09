@@ -11,6 +11,10 @@
         {{ title }}
       </text>
     </view>
+    <!-- #ifdef MP-WEIXIN -->
+    <!-- 隐私协议组件 -->
+    <agree-privacy v-model="showAgreePrivacy" :disable-check-privacy="false" @agree="handleAgree" />
+    <!-- #endif -->
   </view>
 </template>
 
@@ -22,4 +26,10 @@ title.value = import.meta.env.VITE_APP_TITLE;
 
 const store = useUserStore();
 console.log('store.user_name', store.user_name);
+
+const showAgreePrivacy = ref(false);
+// 同意隐私协议
+function handleAgree() {
+  console.log('同意隐私政策');
+}
 </script>
