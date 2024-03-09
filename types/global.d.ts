@@ -15,7 +15,6 @@ declare global {
     VITE_APP_TITLE?: string;
     VITE_APP_BASE_API: string;
     VITE_DROP_CONSOLE: boolean;
-    VITE_CDN_URL: string;
   }
 
   declare function parseInt(s: string | number, radix?: number): number;
