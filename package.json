@@ -43,6 +43,7 @@
     "czg": "^1.9.0",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
+    "miniprogram-api-typings": "^3.12.2",
     "picocolors": "^1.0.0",
     "postcss-html": "^1.6.0",
     "postcss-scss": "^4.0.9",
