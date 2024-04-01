@@ -189,6 +189,13 @@ pnpm build:mp-weixin-prod
 pnpm cz
 ```
 
+### 更新uniapp版本
+
+更新uniapp相关依赖到最新正式版
+```bash
+npx @dcloudio/uvm@latest
+```
+
 ### 注意事项
 1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
 2. 自动构建处理本地图片资源，使用了`vite-plugin-clean-build`和`vite-plugin-replace-image-url`这两个插件，默认不开启相关功能，如果需要使用再`build/vite/plugins/index.ts`文件中移除相关注释即可
