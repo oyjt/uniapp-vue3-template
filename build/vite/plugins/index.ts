@@ -2,14 +2,15 @@
  * @name createVitePlugins
  * @description 封装plugins数组统一调用
  */
-import type { PluginOption } from 'vite';
 import uniPlugin from '@dcloudio/vite-plugin-uni';
+import type { PluginOption } from 'vite';
 import { AutoImportDeps } from './autoImport';
 import { AutoRegistryComponents } from './component';
 import { ConfigUnoCSSPlugin } from './unocss';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
 // import { CleanImagePlugin } from './cleanImage';
+import { VisualizerPlugin } from './visualizer';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -31,8 +32,10 @@ export default function createVitePlugins(isBuild: boolean) {
       // ReplaceUrlPlugin(),
       // 自动清除本地图片
       // CleanImagePlugin()
+      // 打包视图分析
+      VisualizerPlugin(),
     ];
-    vitePlugins.concat(buildPlugins);
+    vitePlugins.push(...buildPlugins);
   }
 
   return vitePlugins;
