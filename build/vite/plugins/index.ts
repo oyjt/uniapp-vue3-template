@@ -10,7 +10,6 @@ import { ConfigUnoCSSPlugin } from './unocss';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
 // import { CleanImagePlugin } from './cleanImage';
-import { VisualizerPlugin } from './visualizer';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -33,7 +32,7 @@ export default function createVitePlugins(isBuild: boolean) {
       // 自动清除本地图片
       // CleanImagePlugin()
       // 打包视图分析
-      VisualizerPlugin(),
+      // VisualizerPlugin(),
     ];
     vitePlugins.push(...buildPlugins);
   }
