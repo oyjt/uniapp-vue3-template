@@ -20,6 +20,7 @@
 - [x] 集成ESLint、StyleLint、EditorConfig代码格式规范
 - [x] Typescript支持
 - [x] 集成UnoCSS
+- [x] 集成iconify图标库
 - [x] 集成z-paging下拉刷新功能
 - [x] 添加页面跳转拦截，登录权限校验
 - [x] 支持token无痛刷新
