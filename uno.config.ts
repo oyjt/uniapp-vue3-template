@@ -2,6 +2,7 @@ import type { Preset, SourceCodeTransformer } from 'unocss';
 import {
   defineConfig,
   presetAttributify,
+  presetIcons,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
@@ -31,7 +32,17 @@ if (isApplet) {
 }
 
 export default defineConfig({
-  presets,
+  presets: [
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'middle',
+      },
+    }),
+    ...presets,
+  ],
   /**
    * 自定义快捷语句
    * @see https://github.com/unocss/unocss#shortcuts

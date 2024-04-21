@@ -12,16 +12,16 @@
           <u-button :text="tips" type="success" size="mini" @click="getCode" />
         </view>
       </view>
-      <button :style="[inputStyle]" class="login-btn" @tap="submit">
-        登录
+      <button class="login-btn" :style="[inputStyle]" @tap="submit">
+        登录 <text class="i-mdi-login" />
       </button>
 
       <view class="alternative">
         <view class="password">
           密码登录
         </view>
-        <view class="issue">
-          遇到问题
+        <view class="issue flex items-center">
+          遇到问题 <text class="i-mdi-help" />
         </view>
       </view>
     </view>
@@ -116,7 +116,7 @@ function submit() {
   }
 
   .login-btn {
-    @apply py-12rpx px-0 font-size-30rpx bg-#fdf3d0 border-none;
+    @apply flex items-center justify-center py-12rpx px-0 font-size-30rpx bg-#fdf3d0 border-none;
 
     color: $u-tips-color;
 
