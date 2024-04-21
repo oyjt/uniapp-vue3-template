@@ -99,65 +99,52 @@ function submit() {
 
 <style lang="scss" scoped>
 .login-form-wrap {
-  margin: 80rpx auto 0;
-  width: 600rpx;
+  @apply mt-80rpx mx-auto mb-0 w-600rpx;
 
   .title {
-    margin-bottom: 100rpx;
-    font-size: 60rpx;
-    text-align: left;
-    font-weight: 500;
+    @apply mb-100rpx font-size-60rpx text-left font-500;
   }
 
   input {
-    padding-bottom: 6rpx;
-    margin-bottom: 10rpx;
-    text-align: left;
+    @apply pb-6rpx mb-10rpx text-left;
   }
 
   .tips {
-    margin-top: 8rpx;
-    margin-bottom: 60rpx;
+    @apply mt-8rpx mb-60rpx;
+
     color: $u-info;
   }
 
   .login-btn {
-    padding: 12rpx 0;
-    font-size: 30rpx;
+    @apply py-12rpx px-0 font-size-30rpx bg-#fdf3d0 border-none;
+
     color: $u-tips-color;
-    background-color: rgb(253 243 208);
-    border: none;
 
     &::after {
-      border: none;
+      @apply border-none;
     }
   }
 
   .alternative {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30rpx;
+    @apply flex justify-between mt-30rpx;
+
     color: $u-tips-color;
   }
 }
 
 .login-type-wrap {
-  display: flex;
-  justify-content: space-between;
-  padding: 350rpx 150rpx 150rpx;
+  @apply flex justify-between pt-350rpx px-150rpx pb-150rpx;
 
   .item {
-    display: flex;
-    align-items: center;
-    font-size: 28rpx;
+    @apply flex items-center flex-col font-size-28rpx;
+
     color: $u-content-color;
-    flex-direction: column;
   }
 }
 
 .hint {
-  padding: 20rpx 40rpx;
-  font-size: 20rpx;
+  @apply px-40rpx py-20rpx font-size-20rpx;
+
   color: $u-tips-color;
 
   .link {

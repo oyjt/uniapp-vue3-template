@@ -6,10 +6,10 @@
         <u-avatar src="/static/images/logo.png" size="70" />
       </view>
       <view class="flex-1">
-        <view class="pb-20rpx font-size-18rpx">
+        <view class="pb-20rpx font-size-36rpx">
           uni-app
         </view>
-        <view class="u-tips-color font-size-14rpx">
+        <view class="u-tips-color font-size-28rpx">
           微信号:uni-app
         </view>
       </view>

@@ -1,7 +1,7 @@
 import { createSSRApp } from 'vue';
 
 // 引入UnoCSS
-import 'uno.css';
+import 'virtual:uno.css';
 
 // 引入uview-plus
 import uviewPlus from 'uview-plus';

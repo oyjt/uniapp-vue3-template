@@ -2,14 +2,12 @@ import type { Preset, SourceCodeTransformer } from 'unocss';
 import {
   defineConfig,
   presetAttributify,
-  presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
 import {
   presetApplet,
   presetRemRpx,
-  transformerApplet,
   transformerAttributify,
 } from 'unocss-applet';
 
@@ -26,10 +24,10 @@ if (isApplet) {
   presets.push(presetApplet());
   presets.push(presetRemRpx()); // 如果需要使用 rem 转 rpx 单位，需要启用此插件
   transformers.push(transformerAttributify({ ignoreAttributes: ['block'] }));
-  transformers.push(transformerApplet());
 } else {
-  presets.push(presetUno());
-  presets.push(presetAttributify());
+  presets.push(presetApplet())
+  presets.push(presetAttributify())
+  presets.push(presetRemRpx({ mode: 'rpx2rem' }))
 }
 
 export default defineConfig({
@@ -38,20 +36,30 @@ export default defineConfig({
    * 自定义快捷语句
    * @see https://github.com/unocss/unocss#shortcuts
    */
-  shortcuts: [
-    ['center', 'flex justify-center items-center'],
-    [
-      'btn',
-      'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50',
-    ],
-    [
-      'icon-btn',
-      'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none',
-    ],
-  ],
+  shortcuts: {
+    'u-bg': 'bg-gray-100 dark:bg-black',
+    'u-bg-2': 'bg-white dark:bg-[#1C1C1E]',
+    'u-border': 'border-[#EBEDF0] dark:border-[#3A3A3C]',
+    'u-active': 'bg-[#F2F3F5] dark:!bg-[#3A3A3C]',
+    'u-active-h5': 'active:bg-[#F2F3F5] active:dark:bg-[#3A3A3C]',
+    'u-text-color': 'text-[#323233] dark:text-[#F5F5F5]',
+    'u-text-color-2': 'text-[#969799] dark:text-[#707070]',
+    'u-text-color-3': 'text-[#C8C9CC] dark:text-[#4D4D4D]',
+    'bg-primary': 'bg-light-blue-500 dark:bg-light-blue-600',
+  },
   transformers: [
     transformerDirectives(), // 启用 @apply 功能
     transformerVariantGroup(), // 启用 () 分组功能
     ...transformers,
+  ],
+  rules: [
+    [
+      'p-safe',
+      {
+        padding: 'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
+      },
+    ],
+    ['pt-safe', { 'padding-top': 'env(safe-area-inset-top)' }],
+    ['pb-safe', { 'padding-bottom': 'env(safe-area-inset-bottom)' }],
   ],
 });
