@@ -51,6 +51,7 @@
 
 <script setup lang="ts">
 import uCode from 'uview-plus/components/u-code/u-code.vue';
+import type { CSSProperties } from 'vue';
 import { setToken } from '@/utils/auth';
 
 const tel = ref<string>('18502811111');
@@ -58,8 +59,8 @@ const code = ref<string>('1234');
 const tips = ref<string>();
 const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
 
-const inputStyle = computed<CSSStyleDeclaration>(() => {
-  const style = {} as CSSStyleDeclaration;
+const inputStyle = computed<CSSProperties>(() => {
+  const style = {} as CSSProperties;
   if (tel.value && code.value) {
     style.color = '#fff';
     style.backgroundColor = uni.$u.color.warning;
