@@ -12,10 +12,10 @@ export default function useModal() {
         success: res => resolve(res),
         fail: () => reject(new Error('Alert 调用失败 !')),
         ...options,
-      })
-    })
-  }
+      });
+    });
+  };
   return {
     showModal,
-  }
+  };
 }

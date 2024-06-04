@@ -6,8 +6,8 @@ import {
   login as userLogin,
   logout as userLogout,
 } from '@/api/user/index';
-import { clearToken, setToken } from '@/utils/auth';
 import type { LoginParams } from '@/api/user/types';
+import { clearToken, setToken } from '@/utils/auth';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
@@ -37,17 +37,16 @@ const useUserStore = defineStore('user', {
     },
     // 异步登录并存储token
     login(loginForm: LoginParams) {
-      return new Promise(async (resolve, reject) => {
-        try {
-          const result = await userLogin(loginForm);
-          const token = result?.token;
+      return new Promise((resolve, reject) => {
+        userLogin(loginForm).then((res) => {
+          const token = res.token;
           if (token) {
             setToken(token);
           }
-          resolve(result);
-        } catch (error) {
-          reject(error)
-        }
+          resolve(res);
+        }).catch((error) => {
+          reject(error);
+        });
       });
     },
     // Logout
@@ -65,7 +64,8 @@ const useUserStore = defineStore('user', {
             if (result.code) {
               const res = await loginByCode({ code: result.code });
               resolve(res);
-            } else {
+            }
+            else {
               reject(new Error(result.errMsg));
             }
           },

@@ -13,7 +13,7 @@
     "build:mp-weixin": "uni build -p mp-weixin",
     "build:mp-weixin-prod": "uni build -p mp-weixin --mode production",
     "type-check": "vue-tsc --noEmit",
-    "eslint": "eslint --fix",
+    "eslint": "eslint \"src/**/*.{js,jsx,ts,tsx,vue}\" --fix",
     "stylelint": "stylelint \"src/**/*.(vue|scss|css)\" --fix",
     "cz": "git add . && npx czg",
     "postinstall": "simple-git-hooks"

@@ -4,12 +4,18 @@
       <u--image :show-loading="true" src="./static/logo.png" width="70px" height="70px" />
       <view class="nav-info">
         <view class="nav-info__title">
-          <text class="nav-info__title__text">uview-plus3</text>
+          <text class="nav-info__title__text">
+            uview-plus3
+          </text>
         </view>
-        <text class="nav-slogan">多平台快速开发的UI框架</text>
+        <text class="nav-slogan">
+          多平台快速开发的UI框架
+        </text>
       </view>
     </view>
-    <text class="nav-desc">{{ desc }}</text>
+    <text class="nav-desc">
+      {{ desc }}
+    </text>
   </view>
 </template>
 

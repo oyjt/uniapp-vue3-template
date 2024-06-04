@@ -1,3 +1,3 @@
 export interface AppState {
-  systemInfo: UniApp.GetSystemInfoResult;
+  systemInfo: UniApp.GetSystemInfoResult
 }

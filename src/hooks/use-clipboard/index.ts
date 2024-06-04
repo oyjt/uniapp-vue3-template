@@ -3,8 +3,8 @@
  */
 
 interface SetClipboardDataOptions {
-  data: string;
-  showToast?: boolean;
+  data: string
+  showToast?: boolean
 }
 
 export default function useClipboard() {
