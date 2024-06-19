@@ -24,4 +24,10 @@ declare global {
   declare interface Uni {
     $u: any
   }
+
+  namespace JSX {
+    interface IntrinsicElements {
+      view: _View;
+    }
+  }
 }
