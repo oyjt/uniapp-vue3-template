@@ -12,7 +12,6 @@ import {
   transformerAttributify,
 } from 'unocss-applet';
 
-// eslint-disable-next-line n/prefer-global/process
 const isApplet = process.env?.UNI_PLATFORM?.startsWith('mp-') ?? false;
 const presets: Preset[] = [];
 const transformers: SourceCodeTransformer[] = [];
@@ -25,10 +24,11 @@ if (isApplet) {
   presets.push(presetApplet());
   presets.push(presetRemRpx()); // 如果需要使用 rem 转 rpx 单位，需要启用此插件
   transformers.push(transformerAttributify({ ignoreAttributes: ['block'] }));
-} else {
-  presets.push(presetApplet())
-  presets.push(presetAttributify())
-  presets.push(presetRemRpx({ mode: 'rpx2rem' }))
+}
+else {
+  presets.push(presetApplet());
+  presets.push(presetAttributify());
+  presets.push(presetRemRpx({ mode: 'rpx2rem' }));
 }
 
 export default defineConfig({
