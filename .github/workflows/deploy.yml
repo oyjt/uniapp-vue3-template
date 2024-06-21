@@ -2,7 +2,7 @@ name: deploy
 
 on:
   push:
-    branches: ['main'] # master 分支有 push 时触发
+    branches: [main] # master 分支有 push 时触发
     paths-ignore: # 下列文件的变更不触发部署，可以自行添加
       - README.md
 
@@ -11,18 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 安装pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
 
       - name: Node环境
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
-          cache: 'pnpm'
+          node-version: 20
+          cache: pnpm
 
       - name: 安装构建
         run: |
@@ -31,7 +31,7 @@ jobs:
 
       # 部署到 GitHub pages
       - name: 部署
-        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+        uses: peaceiris/actions-gh-pages@v4 # 使用部署到 GitHub pages 的 action
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # secret 名
           commit_message: 自动部署 # 部署时的 git 提交信息，自由填写

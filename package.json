@@ -1,8 +1,8 @@
 {
   "name": "uniapp-vue3-project",
+  "type": "module",
   "version": "1.0.5",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev:h5": "uni",
     "dev:h5-pro": "uni --mode production",
@@ -49,7 +49,7 @@
     "@iconify-json/mdi": "^1.1.66",
     "@types/node": "^20.14.0",
     "@typescript-eslint/parser": "^7.11.0",
-    "@uni-helper/uni-app-types": "^0.5.9",
+    "@uni-helper/uni-app-types": "0.5.9",
     "@unocss/eslint-plugin": "^0.59.4",
     "@unocss/preset-icons": "^0.59.4",
     "@vue/runtime-core": "^3.4.27",
@@ -80,6 +80,10 @@
     "vite-plugin-replace-image-url": "^1.1.1",
     "vue-tsc": "^2.0.19"
   },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint --fix",
     "*.{scss,less,style,html}": "stylelint --fix",
@@ -87,9 +91,5 @@
       "eslint --fix",
       "stylelint --fix"
     ]
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
-    "commit-msg": "node scripts/verifyCommit.js"
   }
 }
