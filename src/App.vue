@@ -3,7 +3,7 @@ import { mpUpdate } from '@/utils/index';
 
 onLaunch(() => {
   console.log('App Launch');
-  // #ifdef MP
+  // #ifdef MP-WEIXIN
   mpUpdate();
   // #endif
 });

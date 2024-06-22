@@ -34,76 +34,67 @@ export default {
 
 <style lang="scss" scoped>
 .nav-wrap {
-  position: relative;
-  padding: 15px;
+  @apply relative p-15px;
 }
 
 .lang {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  @apply absolute top-15rpx right-15px;
 }
 
 .nav-title {
   /* #ifndef APP-NVUE */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  @apply flex justify-start items-center;
 
   /* #endif */
-  flex-direction: row;
+  @apply flex-row;
 }
 
 .nav-info {
-  margin-left: 15px;
+  @apply ml-15px;
 
   &__title {
     /* #ifndef APP-NVUE */
-    display: flex;
+    @apply flex;
 
     /* #endif */
-    flex-direction: row;
-    align-items: center;
+    @apply flex-row items-center;
 
     &__text {
       /* #ifndef APP-NVUE */
-      display: flex;
-      font-size: 25px;
-      text-align: left;
+      @apply flex text-25px text-left;
 
       /* #endif */
+      @apply font-bold;
+
       color: $u-main-color;
-      font-weight: bold;
     }
 
     &__jump {
-      margin-left: 20px;
-      font-size: 12px;
+      @apply ml-20px text-12px font-normal;
+
       color: $u-primary;
-      font-weight: normal;
     }
   }
 }
 
 .logo {
-  width: 70px;
-  height: 70px;
+  @apply w-70px h-70px;
 
   /* #ifndef APP-NVUE */
-  height: auto;
+  @apply h-auto;
 
   /* #endif */
 }
 
 .nav-slogan {
-  font-size: 14px;
+  @apply text-14px;
+
   color: $u-tips-color;
 }
 
 .nav-desc {
-  margin-top: 10px;
-  font-size: 14px;
+  @apply mt-10px text-14px lh-normal;
+
   color: $u-content-color;
-  line-height: 20px;
 }
 </style>

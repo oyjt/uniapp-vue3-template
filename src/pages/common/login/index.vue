@@ -89,7 +89,6 @@ function getCode() {
     uni.$u.toast('倒计时结束后再发送');
   }
 }
-
 function submit() {
   if (uni.$u.test.mobile(tel.value)) {
     setToken('1234567890');
@@ -103,7 +102,7 @@ function submit() {
   @apply mt-80rpx mx-auto mb-0 w-600rpx;
 
   .title {
-    @apply mb-100rpx font-size-60rpx text-left font-500;
+    @apply mb-100rpx text-60rpx text-left font-500;
   }
 
   input {
@@ -117,7 +116,7 @@ function submit() {
   }
 
   .login-btn {
-    @apply flex items-center justify-center py-12rpx px-0 font-size-30rpx bg-#fdf3d0 border-none;
+    @apply flex items-center justify-center py-12rpx px-0 text-30rpx bg-#fdf3d0 border-none;
 
     color: $u-tips-color;
 
@@ -137,14 +136,14 @@ function submit() {
   @apply flex justify-between pt-350rpx px-150rpx pb-150rpx;
 
   .item {
-    @apply flex items-center flex-col font-size-28rpx;
+    @apply flex items-center flex-col text-28rpx;
 
     color: $u-content-color;
   }
 }
 
 .hint {
-  @apply px-40rpx py-20rpx font-size-20rpx;
+  @apply px-40rpx py-20rpx text-20rpx;
 
   color: $u-tips-color;
 

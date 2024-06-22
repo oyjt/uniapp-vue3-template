@@ -28,23 +28,23 @@
 - [x] 项目分包
 - [x] 集成小程序隐私协议授权组件
 - [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
+- [x] 集成包体积视图分析插件
 
 ### VScode插件推荐
 - 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
 - uni-app 基本能力代码片段。[uni-app-snippets](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-snippets-vscode)
 - 一键创建页面、组件、分包，个人用不习惯。uni-create-view(https://marketplace.visualstudio.com/items?itemName=mrmaoddxxaa.create-uniapp-view)
 
-
 ### 目录结构
 项目中采用目前最新的技术方案来实现，目录结构清晰。
 ```
-uniapp-vue3-project     
+uniapp-vue3-project
 ├ build                 vite插件统一管理
-│  ├ vite               
-│  └ constant.ts        
+│  ├ vite
+│  └ constant.ts
 ├ scripts               一些脚本
-│  └ verifyCommit.js    
-├ src                   
+│  └ verifyCommit.js
+├ src
 │  ├ api                接口管理
 │  ├ components         公共组件
 │  ├ hooks              常用hooks封装
@@ -52,32 +52,32 @@ uniapp-vue3-project
 │  ├ static             静态资源
 │  ├ store              状态管理
 │  ├ utils              一些工具
-│  ├ App.vue            
-│  ├ main.ts            
-│  ├ manifest.json      
-│  ├ pages.json         
+│  ├ App.vue
+│  ├ main.ts
+│  ├ manifest.json
+│  ├ pages.json
 │  ├ permission.ts      页面访问权限控制
-│  └ uni.scss           
+│  └ uni.scss
 ├ types                 全局typescript类型文件
-│  ├ auto-imports.d.ts  
-│  ├ components.d.ts    
-│  ├ global.d.ts        
-│  └ module.d.ts        
-├ README.md             
-├ eslint.config.js      
-├ index.html            
-├ package.json          
-├ pnpm-lock.yaml        
-├ tsconfig.json         
-├ uno.config.ts         
-└ vite.config.ts        
+│  ├ auto-imports.d.ts
+│  ├ components.d.ts
+│  ├ global.d.ts
+│  └ module.d.ts
+├ README.md
+├ eslint.config.js
+├ index.html
+├ package.json
+├ pnpm-lock.yaml
+├ tsconfig.json
+├ uno.config.ts
+└ vite.config.ts
 ```
 
 #### vite插件管理
 ```
-build                  
-├ vite                 
-│  ├ plugins           
+build
+├ vite
+│  ├ plugins
 │  │  ├ autoImport.ts  自动导入api
 │  │  ├ component.ts   自动导入组件
 │  │  ├ imagemin.ts    图片压缩
@@ -89,74 +89,74 @@ build
 
 #### 接口管理
 ```
-api            
+api
 ├ common       通用api
-│  ├ index.ts  
-│  └ types.ts  
+│  ├ index.ts
+│  └ types.ts
 ├ user         用户相关api
-│  ├ index.ts  
-│  └ types.ts  
+│  ├ index.ts
+│  └ types.ts
 └ index.ts     入口文件
 ```
 
 #### hooks管理
 ```
-hooks            
+hooks
 ├ use-clipboard  剪切板
-│  └ index.ts    
+│  └ index.ts
 ├ use-loading    loading
-│  └ index.ts    
+│  └ index.ts
 ├ use-modal      模态框
-│  └ index.ts    
+│  └ index.ts
 ├ use-share      分享
-│  └ index.ts    
+│  └ index.ts
 └ index.ts       入口文件
 ```
 
 ### 页面管理
 ```
-pages              
+pages
 ├ common           公共页面（分包common）
-│  ├ login         
-│  │  └ index.vue  
-│  └ webview       
-│     └ index.vue  
+│  ├ login
+│  │  └ index.vue
+│  └ webview
+│     └ index.vue
 └ tab              主页面（主包）
-   ├ home          
-   │  └ index.vue  
-   ├ list          
-   │  └ index.vue  
-   └ user          
-      └ index.vue  
+   ├ home
+   │  └ index.vue
+   ├ list
+   │  └ index.vue
+   └ user
+      └ index.vue
 ```
 
 #### 状态管理
 ```
-store             
-├ modules         
+store
+├ modules
 │  ├ app          app状态
-│  │  ├ index.ts  
-│  │  └ types.ts  
+│  │  ├ index.ts
+│  │  └ types.ts
 │  └ user         用户状态
-│     ├ index.ts  
-│     └ types.ts  
+│     ├ index.ts
+│     └ types.ts
 └ index.ts        入口文件
 ```
 
 ### 工具方法
 ```
-utils                 
+utils
 ├ auth                token相关方法
-│  └ index.ts         
+│  └ index.ts
 ├ common              通用方法
-│  └ index.ts         
+│  └ index.ts
 ├ modals              弹窗相关方法
-│  └ index.ts         
+│  └ index.ts
 ├ request             网络请求相关方法
-│  ├ index.ts         
-│  ├ interceptors.ts  
-│  ├ status.ts        
-│  └ type.ts          
+│  ├ index.ts
+│  ├ interceptors.ts
+│  ├ status.ts
+│  └ type.ts
 └ index.ts            入口文件
 ```
 
@@ -199,6 +199,7 @@ npx @dcloudio/uvm@latest
 
 ### 注意事项
 1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
+2. 微信小程序开发者工具中内置的打包分析不准确，本项目使用了`rollup-plugin-visualizer`来分析小程序包体积，默认不开启，有需要的移除相关注释即可
 2. 自动构建处理本地图片资源，使用了`vite-plugin-clean-build`和`vite-plugin-replace-image-url`这两个插件，默认不开启相关功能，如果需要使用再`build/vite/plugins/index.ts`文件中移除相关注释即可
 3. 使用`vite-plugin-replace-image-url`插件，想要图片自动替换生效，需要在项目中使用绝对路径引入图片资源，如下示例所示。
 
