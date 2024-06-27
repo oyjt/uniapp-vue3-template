@@ -1,24 +1,27 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "target": "es2016",
+    "jsx": "preserve",
+    "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "module": "ESNext",
-    "target": "es2016",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "miniprogram-api-typings"]
+    "resolveJsonModule": true,
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "miniprogram-api-typings"],
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "vueCompilerOptions": {
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"]
   },
   "include": [
     "src/**/*.ts",
@@ -28,10 +31,5 @@
     "types/**/*.d.ts",
     "types/**/*.ts"
   ],
-  "exclude": ["dist", "node_modules", "uni_modules"],
-  // uni-app Component type prompt
-  "vueCompilerOptions": {
-    "nativeTags": ["block", "component", "template", "slot"]
-  }
+  "exclude": ["dist", "node_modules", "uni_modules"]
 }
-
