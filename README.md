@@ -247,4 +247,6 @@ npx @dcloudio/uvm@latest
 
 如果你觉得这个项目对你有帮助，你可以请作者喝饮料🍹
 
-![](./src/static/images/pay.png)
+<p align='center'>
+<img alt="微信收款码" src="./src/static/images/pay.png" height="330" style="display:inline-block; height:330px;">
+</p>
