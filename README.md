@@ -242,3 +242,12 @@ npx @dcloudio/uvm@latest
 5. 本项目中`permission.ts`中的拦截代码在小程序中的`tab`切换中无效，下面是官方给出的回复及解决方案。
 
 > 拦截uni.switchTab本身没有问题。但是在微信小程序端点击tabbar的底层逻辑并不是触发uni.switchTab。所以误认为拦截无效，此类场景的解决方案是在tabbar页面的页面生命周期onShow中处理。
+
+### 捐赠
+
+如果你觉得这个项目对你有帮助，你可以请作者喝饮料🍹
+
+<p align='center'>
+<img alt="微信收款码" src="./screenshots/pay-1.png" height="330" style="display:inline-block; height:330px;">
+<img alt="支付宝收款码" src="./screenshots/pay-2.png" height="330" style="display:inline-block; height:330px; margin-left:10px;">
+</p>
