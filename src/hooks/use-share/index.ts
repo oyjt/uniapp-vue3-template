@@ -2,10 +2,10 @@
  * 小程序分享
  */
 interface UseShareOptions {
-  title?: string
-  path?: string
-  query?: string
-  imageUrl?: string
+  title?: string;
+  path?: string;
+  query?: string;
+  imageUrl?: string;
 }
 
 export default function useShare(options?: UseShareOptions) {

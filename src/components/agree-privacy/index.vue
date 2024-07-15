@@ -38,15 +38,15 @@
 
 <script setup lang="ts">
 interface AgreePrivacyProps {
-  modelValue: boolean
+  modelValue: boolean;
   // 标题
-  title: string
+  title: string;
   // 副标题
-  subTitle: string
+  subTitle: string;
   // 禁止自动检测隐私
-  disableCheckPrivacy: boolean
+  disableCheckPrivacy: boolean;
   // 按钮id 必填项不填写时授权按钮id必须为agree-btn
-  agreePrivacyId: string
+  agreePrivacyId: string;
 }
 
 const props = withDefaults(defineProps<AgreePrivacyProps>(), {
