@@ -23,7 +23,7 @@ if (isApplet) {
    */
   presets.push(presetApplet());
   presets.push(presetRemRpx()); // 如果需要使用 rem 转 rpx 单位，需要启用此插件
-  transformers.push(transformerAttributify({ ignoreAttributes: ['block'] }));
+  transformers.push(transformerAttributify({ ignoreAttributes: ['block'], deleteAttributes: false }));
 }
 else {
   presets.push(presetApplet());
