@@ -53,7 +53,9 @@
 import uCode from 'uview-plus/components/u-code/u-code.vue';
 import type { CSSProperties } from 'vue';
 import { setToken } from '@/utils/auth';
+import { useUserStore } from '@/store';
 
+const userStore = useUserStore();
 const tel = ref<string>('18502811111');
 const code = ref<string>('1234');
 const tips = ref<string>();
@@ -89,11 +91,22 @@ function getCode() {
     uni.$u.toast('倒计时结束后再发送');
   }
 }
-function submit() {
-  if (uni.$u.test.mobile(tel.value)) {
-    setToken('1234567890');
-    uni.reLaunch({ url: '/pages/tab/home/index' });
+async function submit() {
+  if (!uni.$u.test.mobile(Number(tel.value))) {
+    uni.$u.toast('请输入正确的手机号');
+    return;
   }
+  if (!code.value) {
+    uni.$u.toast('请输入验证码');
+    return;
+  }
+  // 登录请求
+  const res = await userStore.login({ phone: tel.value, code: code.value }).catch(() => {
+    uni.$u.toast('登录失败');
+  });
+  if (!res) return;
+  setToken('1234567890');
+  uni.reLaunch({ url: '/pages/tab/home/index' });
 }
 </script>
 

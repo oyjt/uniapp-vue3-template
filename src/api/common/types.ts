@@ -1,3 +1,11 @@
+export interface CommonParams {
+  [key: string]: any;
+}
+
+export interface CommonResult {
+  [key: string]: any;
+}
+
 export interface UploadImageResult {
   file: string;
   url: string;

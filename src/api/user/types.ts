@@ -1,3 +1,7 @@
+export interface ProfileParams {
+  user_id?: string;
+}
+
 export interface LoginParams {
   phone: string;
   code: string;
@@ -5,6 +9,10 @@ export interface LoginParams {
 
 export interface LoginByCodeParams {
   code: string;
+}
+
+export interface LoginByCodeResult {
+  [key: string]: any;
 }
 
 export interface LoginResult {

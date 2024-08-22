@@ -3,11 +3,13 @@ import type {
   HttpRequestConfig,
   HttpResponse,
 } from 'uview-plus/libs/luch-request/index';
+import Request from 'uview-plus/libs/luch-request/index';
 import { showMessage } from './status';
 import { getToken } from '@/utils/auth';
 import storage from '@/utils/storage';
 import useUserStore from '@/store/modules/user';
 
+const http = new Request();
 // 是否正在刷新token的标记
 let isRefreshing: boolean = false;
 // 重试队列，每一项将是一个待执行的函数形式
@@ -18,7 +20,7 @@ function requestInterceptors() {
    * 请求拦截
    * @param {object} http
    */
-  uni.$u.http.interceptors.request.use(
+  http.interceptors.request.use(
     (config: HttpRequestConfig) => {
       // 可使用async await 做异步操作
       // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
@@ -60,9 +62,8 @@ function requestInterceptors() {
       }
       return config;
     },
-    (
-      config: any, // 可使用async await 做异步操作
-    ) => Promise.reject(config),
+    (config: any) => // 可使用async await 做异步操作
+      Promise.reject(config),
   );
 }
 function responseInterceptors() {
@@ -70,7 +71,7 @@ function responseInterceptors() {
    * 响应拦截
    * @param {object} http
    */
-  uni.$u.http.interceptors.response.use(
+  http.interceptors.response.use(
     async (response: HttpResponse) => {
       /* 对响应成功做点什么 可使用async await 做异步操作 */
       const data = response.data;
@@ -96,13 +97,13 @@ function responseInterceptors() {
           requestQueue = [];
           isRefreshing = false;
           // 重新执行本次请求
-          return uni.$u.http.request(config);
+          return http.request(config);
         }
         else {
           return new Promise((resolve) => {
             // 将resolve放进队列，用一个函数形式来保存，等登录后直接执行
             requestQueue.push(() => {
-              resolve(uni.$u.http.request(config));
+              resolve(http.request(config));
             });
           });
         }
@@ -128,6 +129,7 @@ function responseInterceptors() {
         return Promise.reject(response.data);
       }
       showMessage('网络连接异常,请稍后再试!');
+      return Promise.reject(response);
     },
   );
 }

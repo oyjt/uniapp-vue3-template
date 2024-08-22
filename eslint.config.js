@@ -49,6 +49,7 @@ export default antfu(
         },
         multilineDetection: 'brackets',
       }],
+      'antfu/if-newline': 'off',
     },
   },
 );
