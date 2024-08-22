@@ -53,9 +53,9 @@
 import uCode from 'uview-plus/components/u-code/u-code.vue';
 import type { CSSProperties } from 'vue';
 import { setToken } from '@/utils/auth';
-import { useUserStore } from '@/store';
+// import { useUserStore } from '@/store';
 
-const userStore = useUserStore();
+// const userStore = useUserStore();
 const tel = ref<string>('18502811111');
 const code = ref<string>('1234');
 const tips = ref<string>();
@@ -101,10 +101,10 @@ async function submit() {
     return;
   }
   // 登录请求
-  const res = await userStore.login({ phone: tel.value, code: code.value }).catch(() => {
-    uni.$u.toast('登录失败');
-  });
-  if (!res) return;
+  // const res = await userStore.login({ phone: tel.value, code: code.value }).catch(() => {
+  //   uni.$u.toast('登录失败');
+  // });
+  // if (!res) return;
   setToken('1234567890');
   uni.reLaunch({ url: '/pages/tab/home/index' });
 }
