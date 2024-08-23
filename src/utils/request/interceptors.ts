@@ -1,21 +1,20 @@
 import type {
   HttpError,
+  HttpRequestAbstract,
   HttpRequestConfig,
   HttpResponse,
 } from 'uview-plus/libs/luch-request/index';
-import Request from 'uview-plus/libs/luch-request/index';
 import { showMessage } from './status';
 import { getToken } from '@/utils/auth';
 import storage from '@/utils/storage';
 import useUserStore from '@/store/modules/user';
 
-const http = new Request();
 // 是否正在刷新token的标记
 let isRefreshing: boolean = false;
 // 重试队列，每一项将是一个待执行的函数形式
 let requestQueue: (() => void)[] = [];
 
-function requestInterceptors() {
+function requestInterceptors(http: HttpRequestAbstract) {
   /**
    * 请求拦截
    * @param {object} http
@@ -66,7 +65,7 @@ function requestInterceptors() {
       Promise.reject(config),
   );
 }
-function responseInterceptors() {
+function responseInterceptors(http: HttpRequestAbstract) {
   /**
    * 响应拦截
    * @param {object} http

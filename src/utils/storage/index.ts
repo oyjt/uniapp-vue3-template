@@ -18,8 +18,7 @@ const storage = {
   },
   getJSON(key: any) {
     const value = this.get(key);
-    if (value != null)
-      return JSON.parse(value);
+    if (value) return JSON.parse(value);
   },
   remove(key: string) {
     uni.removeStorageSync(key);

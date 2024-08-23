@@ -13,8 +13,8 @@ export function setupRequest() {
     defaultConfig.baseURL = import.meta.env.VITE_APP_BASE_API;
     return defaultConfig;
   });
-  requestInterceptors();
-  responseInterceptors();
+  requestInterceptors(http);
+  responseInterceptors(http);
 }
 
 export function request<T = any>(config: HttpRequestConfig): Promise<T> {

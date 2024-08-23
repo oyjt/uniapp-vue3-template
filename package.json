@@ -1,7 +1,7 @@
 {
   "name": "uniapp-vue3-project",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "license": "MIT",
   "scripts": {
     "dev:h5": "uni",
