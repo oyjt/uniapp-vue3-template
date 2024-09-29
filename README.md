@@ -196,6 +196,15 @@ pnpm cz
 ```bash
 npx @dcloudio/uvm@latest
 ```
+或者执行下面的命令
+```bash
+pnpm uvm
+```
+
+在升级完后，会自动添加很多无用依赖，执行下面的代码减小保体积
+```
+pnpm uvm-rm
+```
 
 ### 注意事项
 1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
