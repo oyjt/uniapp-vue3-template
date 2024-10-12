@@ -10,12 +10,14 @@ import useUserStore from './modules/user';
 // 安装pinia状态管理插件
 function setupStore(app: App) {
   const store = createPinia();
-  store.use(createPersistedState({
+
+  const piniaPersist = createPersistedState({
     storage: {
       getItem: uni.getStorageSync,
       setItem: uni.setStorageSync,
     },
-  }));
+  });
+  store.use(piniaPersist);
 
   app.use(store);
 }

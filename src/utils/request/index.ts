@@ -1,8 +1,8 @@
 // 引入配置
 import type { HttpRequestConfig, HttpResponse } from 'uview-plus/libs/luch-request/index';
+import type { IResponse } from './type';
 import Request from 'uview-plus/libs/luch-request/index';
 import { requestInterceptors, responseInterceptors } from './interceptors';
-import type { IResponse } from './type';
 
 const http = new Request();
 
@@ -10,7 +10,7 @@ const http = new Request();
 export function setupRequest() {
   http.setConfig((defaultConfig: HttpRequestConfig) => {
     /* defaultConfig 为默认全局配置 */
-    defaultConfig.baseURL = import.meta.env.VITE_APP_BASE_API;
+    defaultConfig.baseURL = import.meta.env.VITE_API_BASE_URL;
     return defaultConfig;
   });
   requestInterceptors(http);

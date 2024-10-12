@@ -85,10 +85,8 @@
     "vite-plugin-clean-build": "^1.2.1",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-replace-image-url": "^1.2.1",
+    "vite-plugin-restart": "^0.4.1",
     "vue-tsc": "^2.1.6"
-  },
-  "resolutions": {
-    "bin-wrapper": "npm:bin-wrapper-china"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",

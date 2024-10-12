@@ -4,6 +4,7 @@
  */
 import uniPlugin from '@dcloudio/vite-plugin-uni';
 import type { PluginOption } from 'vite';
+import ViteRestart from 'vite-plugin-restart';
 import { AutoImportDeps } from './autoImport';
 import { AutoRegistryComponents } from './component';
 import { ConfigUnoCSSPlugin } from './unocss';
@@ -21,6 +22,10 @@ export default function createVitePlugins(isBuild: boolean) {
     AutoRegistryComponents(),
     // uni支持(兼容性写法，当type为module时，必须要这样写)
     (uniPlugin as any).default(),
+    ViteRestart({
+      // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
+      restart: ['vite.config.ts'],
+    }),
   ];
 
   if (isBuild) {
