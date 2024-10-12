@@ -10,7 +10,7 @@
       "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "miniprogram-api-typings"],
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "miniprogram-api-typings", "uview-plus/types"],
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,

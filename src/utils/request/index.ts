@@ -11,6 +11,11 @@ export function setupRequest() {
   http.setConfig((defaultConfig: HttpRequestConfig) => {
     /* defaultConfig 为默认全局配置 */
     defaultConfig.baseURL = import.meta.env.VITE_API_BASE_URL;
+    // #ifdef H5
+    if (import.meta.env.VITE_APP_PROXY === 'true') {
+      defaultConfig.baseURL = import.meta.env.VITE_API_PREFIX;
+    }
+    // #endif
     return defaultConfig;
   });
   requestInterceptors(http);

@@ -50,6 +50,7 @@ export default antfu(
         multilineDetection: 'brackets',
       }],
       'antfu/if-newline': 'off',
+      'perfectionist/sort-imports': 'off',
     },
   },
 );

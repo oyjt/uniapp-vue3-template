@@ -1,8 +1,9 @@
 import type { UserConfig } from 'vite';
-import { resolve } from 'node:path';
+import process from 'node:process';
+import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
-import createVitePlugins from './build/vite/plugins';
-import proxy from './build/vite/proxy';
+import createVitePlugins from './build/plugins/index';
+import { createViteProxy } from './build/config/index';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }): UserConfig => {
@@ -12,7 +13,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
   const { UNI_PLATFORM } = process.env;
   console.log('UNI_PLATFORM -> ', UNI_PLATFORM); // 得到 mp-weixin, h5, app 等
 
-  const env = loadEnv(mode, resolve(process.cwd(), 'env'));
+  const env = loadEnv(mode, fileURLToPath(new URL('./env', import.meta.url)));
   console.log('环境变量 env -> ', env);
 
   const isBuild = process.env.NODE_ENV === 'production';
@@ -23,7 +24,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       // https://cn.vitejs.dev/config/#resolve-alias
       alias: {
         // 设置别名
-        '@': resolve(__dirname, './src'),
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
     // vite 相关配置
@@ -32,7 +33,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       hmr: true,
       host: true,
       open: true,
-      proxy: proxy(env),
+      proxy: createViteProxy(env),
     },
     // 设置scss的api类型为modern-compiler
     css: {
@@ -45,15 +46,8 @@ export default defineConfig(({ command, mode }): UserConfig => {
       },
     },
     plugins: createVitePlugins(isBuild),
-    build: {
-      // 开发环境不用压缩
-      minify: isBuild ? 'terser' : false,
-      terserOptions: {
-        compress: {
-          drop_console: env.VITE_DROP_CONSOLE === 'true',
-          drop_debugger: true,
-        },
-      },
+    esbuild: {
+      drop: env.VITE_DROP_CONSOLE ? ['console', 'debugger'] : [],
     },
   };
 });

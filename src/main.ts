@@ -16,7 +16,6 @@ import setupRequest from '@/utils/request';
 // 权限管理
 import '@/permission';
 
-// #ifdef VUE3
 export function createApp() {
   const app = createSSRApp(App);
   app.use(uviewPlus);
@@ -29,4 +28,3 @@ export function createApp() {
     app,
   };
 }
-// #endif

@@ -7,7 +7,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
 [![GitHub forks](https://img.shields.io/github/forks/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
 ![node version](https://img.shields.io/badge/node-%3E%3D18-green)
-![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
+![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D8-green)
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)
 ![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)
 
@@ -218,6 +218,9 @@ pnpm uvm
 ```
 pnpm uvm-rm
 ```
+
+### `v3` 代码块
+在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板，可以大大加快页面生成。
 
 ### 注意事项
 1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
