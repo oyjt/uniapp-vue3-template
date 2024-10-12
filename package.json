@@ -24,7 +24,7 @@
     "type-check": "vue-tsc --noEmit",
     "eslint": "eslint \"src/**/*.{js,jsx,ts,tsx,vue}\" --fix",
     "stylelint": "stylelint \"src/**/*.(vue|scss|css)\" --fix",
-    "cz": "git add . && czg",
+    "cz": "git add . && npx czg",
     "postinstall": "simple-git-hooks"
   },
   "dependencies": {
