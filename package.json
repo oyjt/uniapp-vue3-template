@@ -3,6 +3,12 @@
   "type": "module",
   "version": "1.1.0",
   "description": "uniapp 团队协作开发实践模板(Vue3)",
+  "author": {
+    "name": "cnpath",
+    "zhName": "江阳小道",
+    "email": "oyjt001@gmail.com",
+    "github": "https://github.com/oyjt"
+  },
   "license": "MIT",
   "repository": "https://github.com/oyjt/uniapp-vue3-template",
   "engines": {
@@ -79,6 +85,9 @@
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-replace-image-url": "^1.2.1",
     "vue-tsc": "^2.1.6"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
