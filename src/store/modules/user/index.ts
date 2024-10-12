@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia';
-import type { UserState, providerType } from './types';
-import { UserApi } from '@/api';
 import type { LoginParams } from '@/api/user/types';
+import type { providerType, UserState } from './types';
+import { UserApi } from '@/api';
 import { clearToken, setToken } from '@/utils/auth';
+import { defineStore } from 'pinia';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
@@ -72,6 +72,7 @@ const useUserStore = defineStore('user', {
       });
     },
   },
+  persist: true,
 });
 
 export default useUserStore;

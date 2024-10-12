@@ -1,4 +1,17 @@
-### 使用uniapp+vite+vue3+uview-plus3.0 搭建的微信小程序快速开发模版
+<h1 align="center">
+  <a href="https://github.com/oyjt/uniapp-vue3-template" target="_blank">uniapp 团队协作开发实践模板(Vue3)</a>
+</h1>
+
+<div align="center">
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
+[![GitHub forks](https://img.shields.io/github/forks/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
+![node version](https://img.shields.io/badge/node-%3E%3D18-green)
+![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D7.30-green)
+![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)
+![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)
+
+</div>
 
 使用uniapp+vite+vue3+typescript+uview-plus3.0 搭建的H5和微信小程序快速开发模版
 

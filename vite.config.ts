@@ -22,6 +22,16 @@ export default defineConfig((): UserConfig => {
       open: true,
       proxy,
     },
+    // 设置scss的api类型为modern-compiler
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          // 消除一些不必要的警告
+          silenceDeprecations: ['legacy-js-api'],
+        },
+      },
+    },
     plugins: createVitePlugins(isBuild),
   };
 });
