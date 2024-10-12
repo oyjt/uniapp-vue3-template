@@ -52,11 +52,13 @@
 项目中采用目前最新的技术方案来实现，目录结构清晰。
 ```
 uniapp-vue3-project
-├ build                 vite插件统一管理
-│  ├ vite
-│  └ constant.ts
+├ build                 vite配置统一管理
+│  ├ config
+│  └ plugins
+├ env                   环境变量
 ├ scripts               一些脚本
-│  └ verifyCommit.js
+│  ├ postupgrade.js     依赖库清理
+│  └ verifyCommit.js    git提交检验
 ├ src
 │  ├ api                接口管理
 │  ├ components         公共组件
@@ -67,37 +69,44 @@ uniapp-vue3-project
 │  ├ utils              一些工具
 │  ├ App.vue
 │  ├ main.ts
-│  ├ manifest.json
-│  ├ pages.json
+│  ├ manifest.json      项目配置
+│  ├ pages.json         页面配置
 │  ├ permission.ts      页面访问权限控制
-│  └ uni.scss
+│  └ uni.scss           全局scss变量
 ├ types                 全局typescript类型文件
 │  ├ auto-imports.d.ts
 │  ├ components.d.ts
 │  ├ global.d.ts
 │  └ module.d.ts
+├ LICENSE
 ├ README.md
-├ eslint.config.js
+├ cz.config.js          cz-git配置
+├ eslint.config.js      eslint配置
 ├ index.html
 ├ package.json
 ├ pnpm-lock.yaml
+├ stylelint.config.js   stylelint配置
 ├ tsconfig.json
-├ uno.config.ts
-└ vite.config.ts
+├ uno.config.ts         unocss配置
+└ vite.config.ts        vite配置
 ```
 
 #### vite插件管理
 ```
 build
-├ vite
-│  ├ plugins
-│  │  ├ autoImport.ts  自动导入api
-│  │  ├ component.ts   自动导入组件
-│  │  ├ imagemin.ts    图片压缩
-│  │  ├ index.ts       入口文件
-│  │  └ unocss.ts      unocss插件
-│  └ proxy.ts          跨域代理配置
-└ constant.ts          一些常量
+├ config            vite配置
+│  ├ index.ts       入口文件
+│  └ proxy.ts       跨域代理配置
+└ plugins           vite插件
+   ├ autoImport.ts  自动导入api
+   ├ cleanImage.ts  自动清理图片文件
+   ├ component.ts   自动导入组件
+   ├ imagemin.ts    图片压缩
+   ├ index.ts       入口文件
+   ├ replaceUrl.ts  自动替换图片地址为CDN地址
+   ├ unocss.ts      unocss配置
+   └ visualizer.ts  包体积视图分析
+
 ```
 
 #### 接口管理
@@ -189,9 +198,13 @@ pnpm dev:mp-weixin
 ### 发布
 
 ```bash
-# 构建测试环境
+# 构建开发环境
 pnpm build:h5
 pnpm build:mp-weixin
+
+# 构建测试环境
+pnpm build:h5-test
+pnpm build:mp-weixin-test
 
 # 构建生产环境
 pnpm build:h5-prod
