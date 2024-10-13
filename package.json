@@ -1,11 +1,10 @@
 {
   "name": "uniapp-vue3-project",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "uniapp 团队协作开发实践模板(Vue3)",
   "author": {
-    "name": "oyjt",
-    "zhName": "江阳小道",
+    "name": "江阳小道",
     "email": "oyjt001@gmail.com",
     "github": "https://github.com/oyjt"
   },
