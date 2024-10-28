@@ -13,7 +13,7 @@
 
 </div>
 
-使用uniapp+vite+vue3+typescript+uview-plus3.0 搭建的H5和微信小程序快速开发模版
+使用uniapp+vite+vue3+typescript+uview-plus3.0 搭建的适合团队协作的快速开发模版
 
 [uview-plus官方文档](https://uiadmin.net/uview-plus/)
 
