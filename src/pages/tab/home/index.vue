@@ -11,7 +11,6 @@
         {{ title }}
       </text>
     </view>
-    <up-notice-bar text="1212894839438439483948" />
     <!-- #ifdef MP-WEIXIN -->
     <!-- 隐私协议组件 -->
     <agree-privacy v-model="showAgreePrivacy" :disable-check-privacy="false" @agree="handleAgree" />
