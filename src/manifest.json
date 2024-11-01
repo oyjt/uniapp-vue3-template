@@ -60,9 +60,7 @@
     {
       "urlCheck": false
     },
-    "usingComponents": true,
-    /* 合并组件虚拟节点外层属性（目前仅支持 style、class 属性） */
-    "mergeVirtualHostAttributes": true
+    "usingComponents": true
   },
   "mp-alipay":
   {
