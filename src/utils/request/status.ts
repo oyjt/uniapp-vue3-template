@@ -1,3 +1,8 @@
+/**
+ * 根据状态码，生成对应的错误信息
+ * @param {number|string} status 状态码
+ * @returns {string} 错误信息
+ */
 export const showMessage = (status: number | string): string => {
   let message = '';
   switch (status) {
