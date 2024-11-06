@@ -282,6 +282,13 @@ pnpm uvm-rm
 
 > 拦截uni.switchTab本身没有问题。但是在微信小程序端点击tabbar的底层逻辑并不是触发uni.switchTab。所以误认为拦截无效，此类场景的解决方案是在tabbar页面的页面生命周期onShow中处理。
 
+6. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖。
+```
+This @babel/plugin-proposal-private-property-in-object version is not meant to
+be imported.
+```
+此时升级微信开发者工具，或者安装`@babel/plugin-proposal-private-property-in-object`依赖即可解决问题。
+
 ### 捐赠
 
 如果你觉得这个项目对你有帮助，你可以请作者喝饮料🍹
