@@ -1,5 +1,8 @@
 /**
  * Dialog 提示框
+ * @example
+ * const {showModal} = useModal()
+ * showModal('提示内容')
  */
 export default function useModal() {
   const showModal = (content: string, options: UniApp.ShowModalOptions) => {

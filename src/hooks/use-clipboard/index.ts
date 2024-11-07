@@ -1,12 +1,17 @@
-/**
- * 剪切板
- */
-
 interface SetClipboardDataOptions {
   data: string;
   showToast?: boolean;
 }
 
+/**
+ * 剪切板
+ * @example
+ * const {setClipboardData, getClipboardData} = useClipboard()
+ * // 设置剪切板
+ * setClipboardData({data: '1234567890'})
+ * // 获取剪切板
+ * const data = await getClipboardData()
+ */
 export default function useClipboard() {
   const setClipboardData = ({ data, showToast = true }: SetClipboardDataOptions) => {
     return new Promise<string>((resolve, reject) => {

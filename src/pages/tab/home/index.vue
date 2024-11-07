@@ -20,6 +20,16 @@
 
 <script setup lang="ts">
 import { useUserStore } from '@/store';
+import { useShare } from '@/hooks';
+
+// 分享使用示例
+const { onShareAppMessage, onShareTimeline } = useShare({
+  title: '首页',
+  path: 'pages/tab/home/index',
+  imageUrl: '',
+});
+onShareAppMessage();
+onShareTimeline();
 
 const title = ref<string>();
 title.value = import.meta.env.VITE_APP_TITLE;
