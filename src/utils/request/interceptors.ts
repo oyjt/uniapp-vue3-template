@@ -124,10 +124,10 @@ function responseInterceptors(http: HttpRequestAbstract) {
     (response: HttpError) => {
       if (response.statusCode) {
         // 请求已发出，但是不在2xx的范围
-        showMessage(response.statusCode);
+        console.error(showMessage(response.statusCode));
         return Promise.reject(response.data);
       }
-      showMessage('网络连接异常,请稍后再试!');
+      console.error(showMessage('网络连接异常,请稍后再试!'));
       return Promise.reject(response);
     },
   );
