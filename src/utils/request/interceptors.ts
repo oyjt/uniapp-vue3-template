@@ -81,7 +81,7 @@ function responseInterceptors(http: HttpRequestAbstract) {
 
       // 请求成功则返回结果
       if (data.code === 200)
-        return data || {};
+        return response || {};
 
       // 登录状态失效，重新登录
       if (data.code === 401) {

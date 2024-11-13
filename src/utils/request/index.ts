@@ -28,7 +28,7 @@ export function request<T = any>(config: HttpRequestConfig): Promise<T> {
       console.log('[ res ] >', res);
       const { result } = res.data;
       resolve(result as T);
-    }).catch((err) => {
+    }).catch((err: any) => {
       console.error('[ err ] >', err);
       reject(err);
     });
