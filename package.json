@@ -59,11 +59,14 @@
     "postinstall": "simple-git-hooks"
   },
   "dependencies": {
+    "@alova/adapter-uniapp": "^2.0.9",
+    "@alova/shared": "^1.1.0",
     "@dcloudio/uni-app": "3.0.0-4020920240930001",
     "@dcloudio/uni-app-plus": "3.0.0-4020920240930001",
     "@dcloudio/uni-components": "3.0.0-4020920240930001",
     "@dcloudio/uni-h5": "3.0.0-4020920240930001",
     "@dcloudio/uni-mp-weixin": "3.0.0-4020920240930001",
+    "alova": "^3.2.3",
     "dayjs": "^1.11.13",
     "pinia": "2.2.4",
     "pinia-plugin-persistedstate": "^4.1.1",
