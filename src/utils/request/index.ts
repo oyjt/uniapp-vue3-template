@@ -1,6 +1,6 @@
 // 引入配置
 import type { HttpRequestConfig, HttpResponse } from 'uview-plus/libs/luch-request/index';
-import type { IResponse } from './type';
+import type { IResponse } from './types';
 import Request from 'uview-plus/libs/luch-request/index';
 import { requestInterceptors, responseInterceptors } from './interceptors';
 

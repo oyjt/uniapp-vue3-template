@@ -1,5 +1,4 @@
-import type { LoginParams } from '@/api/user/types';
-
+import type { LoginReq } from '@/api/user/types';
 import type { providerType, UserState } from './types';
 import { UserApi } from '@/api';
 import { clearToken, setToken } from '@/utils/auth';
@@ -33,7 +32,7 @@ const useUserStore = defineStore('user', {
       this.setInfo(result);
     },
     // 异步登录并存储token
-    login(loginForm: LoginParams) {
+    login(loginForm: LoginReq) {
       return new Promise((resolve, reject) => {
         UserApi.login(loginForm).then((res) => {
           const token = res.token;
