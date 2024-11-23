@@ -25,12 +25,6 @@
     "manifest.json": "jsonc",
     "pages.json": "jsonc"
   },
-  // 文件嵌套
-  "explorer.fileNesting.enabled": true,
-  // 文件嵌套规则
-  "explorer.fileNesting.patterns": {
-    "vite.config.*": "pages.config.*, manifest.config.*, uno.config.*, volar.config.*, *.env, .env.*"
-  },
   // 消除Unknown at rule @apply警告
   "css.customData": [".vscode/unocss.json"]
 }

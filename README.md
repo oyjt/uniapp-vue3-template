@@ -57,8 +57,8 @@ uniapp-vue3-project
 │  └ plugins
 ├ env                   环境变量
 ├ scripts               一些脚本
-│  ├ postupgrade.js     依赖库清理
-│  └ verifyCommit.js    git提交检验
+│  ├ post-upgrade.js     依赖库清理
+│  └ verify-commit.js    git提交检验
 ├ src
 │  ├ api                接口管理
 │  ├ components         公共组件

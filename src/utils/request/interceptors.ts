@@ -4,10 +4,10 @@ import type {
   HttpRequestConfig,
   HttpResponse,
 } from 'uview-plus/libs/luch-request/index';
-import { showMessage } from './status';
+import useUserStore from '@/store';
 import { getToken } from '@/utils/auth';
 import storage from '@/utils/storage';
-import useUserStore from '@/store/modules/user';
+import { showMessage } from './status';
 
 // 重试队列，每一项将是一个待执行的函数形式
 let requestQueue: (() => void)[] = [];

@@ -50,9 +50,9 @@
 </template>
 
 <script setup lang="ts">
-import uCode from 'uview-plus/components/u-code/u-code.vue';
 import type { CSSProperties } from 'vue';
 import { setToken } from '@/utils/auth';
+import uCode from 'uview-plus/components/u-code/u-code.vue';
 // import { useUserStore } from '@/store';
 
 // const userStore = useUserStore();

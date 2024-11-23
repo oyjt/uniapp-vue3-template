@@ -1,3 +1,4 @@
+import App from '@/App.vue';
 import { createSSRApp } from 'vue';
 
 // 引入UnoCSS
@@ -5,7 +6,6 @@ import 'virtual:uno.css';
 
 // 引入uview-plus
 import uviewPlus from 'uview-plus';
-import App from '@/App.vue';
 
 // 引入状态管理
 import setupStore from '@/store';

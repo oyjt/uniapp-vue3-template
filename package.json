@@ -31,7 +31,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "uvm": "npx @dcloudio/uvm@latest",
-    "uvm-rm": "node ./scripts/postupgrade.js",
+    "uvm-rm": "node ./scripts/post-upgrade.js",
     "dev:h5": "uni",
     "dev:h5:ssr": "uni --ssr",
     "dev:h5-test": "uni --mode test",
@@ -53,8 +53,10 @@
     "build:app-android": "uni build -p app-android",
     "build:app-ios": "uni build -p app-ios",
     "type-check": "vue-tsc --noEmit",
-    "eslint": "eslint \"src/**/*.{js,jsx,ts,tsx,vue}\" --fix",
-    "stylelint": "stylelint \"src/**/*.(vue|scss|css)\" --fix",
+    "eslint": "eslint \"src/**/*.{js,jsx,ts,tsx,vue}\"",
+    "eslint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx,vue}\" --fix",
+    "stylelint": "stylelint \"src/**/*.{vue,scss,css,sass,less}\"",
+    "stylelint:fix": "stylelint \"src/**/*.{vue,scss,css,sass,less}\" --fix",
     "cz": "git add . && npx czg",
     "postinstall": "simple-git-hooks"
   },
@@ -121,11 +123,11 @@
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
-    "commit-msg": "node scripts/verifyCommit.js"
+    "commit-msg": "node ./scripts/verify-commit.js"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{scss,less,style,html}": "stylelint --fix",
+    "*.{scss,css,style,html}": "stylelint --fix",
     "*.vue": [
       "eslint --fix",
       "stylelint --fix"
