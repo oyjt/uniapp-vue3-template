@@ -178,7 +178,7 @@ utils
 │  ├ index.ts
 │  ├ interceptors.ts
 │  ├ status.ts
-│  └ type.ts
+│  └ types.ts
 └ index.ts            入口文件
 ```
 
