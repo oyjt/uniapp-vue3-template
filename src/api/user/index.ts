@@ -1,19 +1,18 @@
 /**
  * 用户信息相关接口
  */
-import type { LoginByCodeParams, LoginByCodeResult, LoginParams, LoginResult, ProfileParams } from './types';
+import type { LoginByCodeReq, LoginByCodeRes, LoginReq, LoginRes, ProfileReq, ProfileRes } from './types';
 import { get, post } from '@/utils/request';
-import type { UserState } from '@/store/modules/user/types';
-import type { CommonResult } from '@/api/common/types';
+import type { CommonRes } from '@/api/common/types';
 
-enum URL {
-  login = '/user/login',
-  loginByCode = '/user/loginByCode',
-  logout = '/user/logout',
-  profile = '/user/profile',
-}
+/** 获取用户信息 */
+export const profile = (params?: ProfileReq) => get<ProfileRes>('/user/profile', { params });
 
-export const getUserProfile = (params?: ProfileParams) => get<UserState>({ url: URL.profile, params });
-export const login = (data: LoginParams) => post<LoginResult>({ url: URL.login, data });
-export const loginByCode = (data: LoginByCodeParams) => post<LoginByCodeResult>({ url: URL.loginByCode, data });
-export const logout = () => post<CommonResult>({ url: URL.logout });
+/** 登录 */
+export const login = (data: LoginReq) => post<LoginRes>('/user/login', { data, custom: { auth: false } });
+
+/** 验证码登录 */
+export const loginByCode = (data: LoginByCodeReq) => post<LoginByCodeRes>('/user/loginByCode', { data });
+
+/** 退出登录 */
+export const logout = () => post<CommonRes>('/user/logout');

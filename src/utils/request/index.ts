@@ -35,20 +35,20 @@ export function request<T = any>(config: HttpRequestConfig): Promise<T> {
   });
 }
 
-export function get<T = any>(config: HttpRequestConfig): Promise<T> {
-  return request({ ...config, method: 'GET' });
+export function get<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'GET' });
 }
 
-export function post<T = any>(config: HttpRequestConfig): Promise<T> {
-  return request({ ...config, method: 'POST' });
+export function post<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'POST' });
 }
 
-export function upload<T = any>(config: HttpRequestConfig): Promise<T> {
-  return request({ ...config, method: 'UPLOAD' });
+export function upload<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'UPLOAD' });
 }
 
-export function download<T = any>(config: HttpRequestConfig): Promise<T> {
-  return request({ ...config, method: 'DOWNLOAD' });
+export function download<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'DOWNLOAD' });
 }
 
 export default setupRequest;

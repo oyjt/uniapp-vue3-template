@@ -29,7 +29,7 @@ const useUserStore = defineStore('user', {
     },
     // 获取用户信息
     async info() {
-      const result = await UserApi.getUserProfile();
+      const result = await UserApi.profile();
       this.setInfo(result);
     },
     // 异步登录并存储token
