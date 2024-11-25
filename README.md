@@ -6,10 +6,10 @@
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
 [![GitHub forks](https://img.shields.io/github/forks/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
-![node version](https://img.shields.io/badge/node-%3E%3D18-green)
-![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D8-green)
-![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)
-![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)
+[![node version](https://img.shields.io/badge/node-%3E%3D18-green)](https://github.com/oyjt/uniapp-vue3-template)
+[![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D8-green)](https://github.com/oyjt/uniapp-vue3-template)
+[![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
+[![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
 
 </div>
 
@@ -43,7 +43,7 @@
 - [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
 - [x] 集成包体积视图分析插件
 
-### VScode插件推荐
+### VSCode插件推荐
 - 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
 - uni-app 基本能力代码片段。[uni-app-snippets](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-snippets-vscode)
 - 一键创建页面、组件、分包，个人用不习惯。uni-create-view(https://marketplace.visualstudio.com/items?itemName=mrmaoddxxaa.create-uniapp-view)
