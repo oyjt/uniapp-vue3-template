@@ -24,7 +24,8 @@
       "path": "pages/tab/user/index",
       "style": {
         "navigationStyle": "custom"
-      }
+      },
+      "needLogin": true
     }
   ],
   "subPackages": [
@@ -33,11 +34,23 @@
       "pages": [
         {
           "path": "login/index",
-          "navigationStyle": "custom"
+          "style": {
+            "navigationBarTitleText": "登录",
+            "navigationStyle": "custom"
+          }
         },
         {
           "path": "webview/index",
-          "navigationBarTitleText": "网页"
+          "style": {
+            "navigationBarTitleText": "网页"
+          }
+        },
+        {
+          "path": "404/index",
+          "style": {
+            "navigationBarTitleText": "404",
+            "navigationStyle": "custom"
+          }
         }
       ]
     }

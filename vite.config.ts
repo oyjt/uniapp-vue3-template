@@ -2,8 +2,8 @@ import type { UserConfig } from 'vite';
 import process from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
-import createVitePlugins from './build/plugins/index';
 import { createViteProxy } from './build/config/index';
+import createVitePlugins from './build/plugins/index';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }): UserConfig => {

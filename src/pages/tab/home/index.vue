@@ -8,8 +8,13 @@
     />
     <view class="flex justify-center">
       <text class="font-size-36rpx color-gray-700">
-        {{ title }}
+        {{ $t('index.demo') }}
       </text>
+    </view>
+    <view class="mt-100rpx">
+      <lang-select>
+        <button>切换语言</button>
+      </lang-select>
     </view>
     <!-- #ifdef MP-WEIXIN -->
     <!-- 隐私协议组件 -->
