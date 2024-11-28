@@ -1,7 +1,7 @@
 import type { App } from 'vue';
 import { createI18n } from 'vue-i18n';
-import en from './en.json';
-import zhHans from './zh-Hans.json';
+import en from './langs/en';
+import zhHans from './langs/zh-Hans';
 
 const i18n = createI18n({
   legacy: false, // 必须设置false才能使用Composition API

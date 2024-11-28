@@ -62,17 +62,23 @@
     }
   },
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "color": "#1b233b",
+    "selectedColor": "#21d59d",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [{
+      "iconPath": "static/images/tabbar/icon_home.png",
+      "selectedIconPath": "static/images/tabbar/icon_home_selected.png",
       "pagePath": "pages/tab/home/index",
       "text": "首页"
     }, {
+      "iconPath": "static/images/tabbar/icon_list.png",
+      "selectedIconPath": "static/images/tabbar/icon_list_selected.png",
       "pagePath": "pages/tab/list/index",
       "text": "列表"
     }, {
+      "iconPath": "static/images/tabbar/icon_me.png",
+      "selectedIconPath": "static/images/tabbar/icon_me_selected.png",
       "pagePath": "pages/tab/user/index",
       "text": "我的"
     }]

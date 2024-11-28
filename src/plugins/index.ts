@@ -1,5 +1,5 @@
 import type { App } from 'vue';
-import setupI18n from '@/locale';
+import setupI18n from '@/locales';
 import setupStore from '@/store';
 import setupRequest from '@/utils/request';
 import setupPermission from './permission';
