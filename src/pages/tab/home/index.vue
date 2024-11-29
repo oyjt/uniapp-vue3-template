@@ -27,8 +27,8 @@
 <script setup lang="ts">
 // #ifdef MP-WEIXIN
 import { useShare } from '@/hooks';
-import { useUserStore } from '@/store';
 // #endif
+import { useUserStore } from '@/store';
 
 // #ifdef MP-WEIXIN
 // 分享使用示例
@@ -44,16 +44,17 @@ onShareTimeline();
 const title = ref<string>();
 title.value = import.meta.env.VITE_APP_TITLE;
 
-const store = useUserStore();
-console.log('store.user_name', store.user_name);
-
 const showAgreePrivacy = ref(false);
+
+const userStore = useUserStore();
+console.log('userStore.user_name', userStore.user_name);
 
 // 同意隐私协议
 function handleAgree() {
   console.log('同意隐私政策');
 }
 
+// 打开github
 function toGithub() {
   if (window?.open) {
     window.open('https://github.com/oyjt/uniapp-vue3-template');
