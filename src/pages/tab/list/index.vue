@@ -16,22 +16,20 @@
 </template>
 
 <script setup lang="ts">
-import zPaging from 'z-paging/components/z-paging/z-paging.vue';
-
 const pagingRef = ref<InstanceType<typeof zPaging> | null>(null);
 const dataList = ref<string[]>([]);
 
 const urls: string[] = [
-  'https://cdn.uviewui.com/uview/album/1.jpg',
-  'https://cdn.uviewui.com/uview/album/2.jpg',
-  'https://cdn.uviewui.com/uview/album/3.jpg',
-  'https://cdn.uviewui.com/uview/album/4.jpg',
-  'https://cdn.uviewui.com/uview/album/5.jpg',
-  'https://cdn.uviewui.com/uview/album/6.jpg',
-  'https://cdn.uviewui.com/uview/album/7.jpg',
-  'https://cdn.uviewui.com/uview/album/8.jpg',
-  'https://cdn.uviewui.com/uview/album/9.jpg',
-  'https://cdn.uviewui.com/uview/album/10.jpg',
+  'https://picsum.photos/100/100?random=1',
+  'https://picsum.photos/100/100?random=2',
+  'https://picsum.photos/100/100?random=3',
+  'https://picsum.photos/100/100?random=4',
+  'https://picsum.photos/100/100?random=5',
+  'https://picsum.photos/100/100?random=6',
+  'https://picsum.photos/100/100?random=7',
+  'https://picsum.photos/100/100?random=8',
+  'https://picsum.photos/100/100?random=9',
+  'https://picsum.photos/100/100?random=10',
 ];
 
 function queryList(pageNo: number, pageSize: number) {
