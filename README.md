@@ -6,10 +6,10 @@
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
 [![GitHub forks](https://img.shields.io/github/forks/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
-![node version](https://img.shields.io/badge/node-%3E%3D18-green)
-![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D8-green)
-![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)
-![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)
+[![node version](https://img.shields.io/badge/node-%3E%3D18-green)](https://github.com/oyjt/uniapp-vue3-template)
+[![pnpm version](https://img.shields.io/badge/pnpm-%3E%3D8-green)](https://github.com/oyjt/uniapp-vue3-template)
+[![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
+[![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
 
 </div>
 
@@ -23,30 +23,34 @@
 
 ### 特性
 
-- [x] 集成uview-plus3.0 ui库
+- [x] 集成`uview-plus3.0 ui`库
 - [x] 支持多环境打包构建
-- [x] 使用pinia状态管理
-- [x] 封装网络请求，并支持Typescript
+- [x] 使用`pinia`状态管理
+- [x] 封装网络请求，并支持`Typescript`
 - [x] 支持路径别名
-- [x] 支持自动加载组件和API
-- [x] 自动校验git提交代码格式
-- [x] 集成ESLint、StyleLint、EditorConfig代码格式规范
-- [x] Typescript支持
-- [x] 集成UnoCSS
-- [x] 集成iconify图标库
-- [x] 集成z-paging下拉刷新功能
+- [x] 支持自动加载组件和`API`
+- [x] 自动校验`git`提交代码格式
+- [x] 集成`ESLint`、`StyleLint`、`EditorConfig`代码格式规范
+- [x] `Typescript`支持
+- [x] 集成`UnoCSS`
+- [x] 集成`iconify`图标库
+- [x] 集成`z-paging`下拉刷新功能
 - [x] 添加页面跳转拦截，登录权限校验
-- [x] 支持token无痛刷新
+- [x] 支持`token`无感刷新
 - [x] 支持持续集成
 - [x] 项目分包
 - [x] 集成小程序隐私协议授权组件
 - [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
 - [x] 集成包体积视图分析插件
+- [x] 支持国际化
 
-### VScode插件推荐
+### VSCode插件推荐
 - 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
 - uni-app 基本能力代码片段。[uni-app-snippets](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-snippets-vscode)
-- 一键创建页面、组件、分包，个人用不习惯。uni-create-view(https://marketplace.visualstudio.com/items?itemName=mrmaoddxxaa.create-uniapp-view)
+- 一键创建页面、组件、分包，个人用不习惯。[uni-create-view](https://marketplace.visualstudio.com/items?itemName=mrmaoddxxaa.create-uniapp-view)
+
+### uniapp插件推荐
+- [uniapp 插件精选（https://github.com/oyjt/awesome-uniapp）](https://github.com/oyjt/awesome-uniapp)
 
 ### 目录结构
 项目中采用目前最新的技术方案来实现，目录结构清晰。
@@ -57,13 +61,16 @@ uniapp-vue3-project
 │  └ plugins
 ├ env                   环境变量
 ├ scripts               一些脚本
-│  ├ postupgrade.js     依赖库清理
-│  └ verifyCommit.js    git提交检验
+│  ├ post-upgrade.js     依赖库清理
+│  └ verify-commit.js    git提交检验
 ├ src
 │  ├ api                接口管理
 │  ├ components         公共组件
 │  ├ hooks              常用hooks封装
+│  ├ locale             国际化语言管理
 │  ├ pages              页面管理
+│  ├ plugins            插件管理
+│  ├ router             路由管理
 │  ├ static             静态资源
 │  ├ store              状态管理
 │  ├ utils              一些工具
@@ -71,7 +78,6 @@ uniapp-vue3-project
 │  ├ main.ts
 │  ├ manifest.json      项目配置
 │  ├ pages.json         页面配置
-│  ├ permission.ts      页面访问权限控制
 │  └ uni.scss           全局scss变量
 ├ types                 全局typescript类型文件
 │  ├ auto-imports.d.ts
@@ -130,6 +136,8 @@ hooks
 │  └ index.ts
 ├ use-modal      模态框
 │  └ index.ts
+├ use-permission 校验权限
+│  └ index.ts
 ├ use-share      分享
 │  └ index.ts
 └ index.ts       入口文件
@@ -178,7 +186,7 @@ utils
 │  ├ index.ts
 │  ├ interceptors.ts
 │  ├ status.ts
-│  └ type.ts
+│  └ types.ts
 └ index.ts            入口文件
 ```
 
@@ -236,6 +244,40 @@ pnpm uvm-rm
 在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板，可以大大加快页面生成。
 > 原理：基于 VSCode 代码块生成。
 
+### 登录鉴权
+1. 页面如果需要登录才能访问，只需在 `pages.json` 文件中需要鉴权的页面下设置 `needLogin` 属性设置为 `true` 即可，比如
+```
+{
+  "pages": [
+    {
+      "path": "pages/test/test",
+      "needLogin": true,
+      "style": {
+        "navigationBarTitleText": "",
+      },
+    }
+  ]
+}
+```
+
+2. 如果有`tab`页面需要登录才能访问，上面的设置在小程序中点击`tabbar`时无效，因为在小程序中点击tabbar不会触发`uni.switchTab`方法，下面是官方给出的回复及解决方案。
+
+> 拦截uni.switchTab本身没有问题。但是在微信小程序端点击tabbar的底层逻辑并不是触发uni.switchTab。所以误认为拦截无效，此类场景的解决方案是在tabbar页面的页面生命周期onShow中处理。
+
+可参考`pages/tab/user/index.vue`中的代码，核心代码如下：
+```
+<script setup lang="ts">
+// 引入鉴权hooks
+import { usePermission } from "@/hooks";
+
+onShow(async () => {
+  console.log("tabbar page onShow");
+  const hasPermission = await usePermission();
+  console.log(hasPermission ? "已登录" : "未登录，拦截跳转");
+});
+</script>
+```
+
 ### 注意事项
 1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
 2. 微信小程序开发者工具中内置的打包分析不准确，本项目使用了`rollup-plugin-visualizer`来分析小程序包体积，默认不开启，有需要的移除相关注释即可
@@ -278,9 +320,6 @@ pnpm uvm-rm
     }
     </style>
     ```
-5. 本项目中`permission.ts`中的拦截代码在小程序中的`tab`切换中无效，下面是官方给出的回复及解决方案。
-
-> 拦截uni.switchTab本身没有问题。但是在微信小程序端点击tabbar的底层逻辑并不是触发uni.switchTab。所以误认为拦截无效，此类场景的解决方案是在tabbar页面的页面生命周期onShow中处理。
 
 6. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖。
 ```

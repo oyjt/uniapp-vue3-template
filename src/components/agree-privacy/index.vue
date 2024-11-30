@@ -146,40 +146,40 @@ onMounted(() => {
 <style scoped lang="scss">
 .button {
   position: relative;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   //height: 80rpx;
   padding: 10px 20px;
   font-size: 14px;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 18rpx;
-  box-sizing: border-box;
-  flex-direction: row;
   font-weight: 500;
   line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 18rpx;
   //border-width: 1px;
   //border-style: solid;
 }
 
 .button-lg {
   position: relative;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   //height: 80rpx;
   padding: 12px 22px;
   font-size: 14px;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 20rpx;
-  box-sizing: border-box;
-  flex-direction: row;
   font-weight: 700;
   line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 20rpx;
   //border-width: 1px;
   //border-style: solid;
 }
@@ -197,10 +197,10 @@ onMounted(() => {
 button {
   padding: 0;
   margin: 0;
+  line-height: inherit;
   background-color: transparent;
   border-radius: 0;
   outline: none;
-  line-height: inherit;
 }
 
 button::after {
@@ -208,7 +208,7 @@ button::after {
 }
 
 .text-decoration {
-  text-decoration: underline;
   color: #07c160;
+  text-decoration: underline;
 }
 </style>

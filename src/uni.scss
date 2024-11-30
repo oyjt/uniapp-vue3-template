@@ -1,1 +1,54 @@
 @import 'uview-plus/theme.scss';
+
+/* 颜色变量 */
+
+/* 行为相关颜色 */
+$u-primary: #21d59d;
+$u-primary-dark: #76a3fd;
+$u-success: #3ed268;
+$u-warning: #fe9831;
+$u-error: #fa4e62;
+
+/* 文字基本颜色 */
+$u-main-color: #1b233b;
+$u-content-color: #60687e;
+$u-tips-color: #7e869a;
+$u-light-color: #bdc3d2;
+$u-disabled-color: #dce0eb;
+
+/* 背景颜色 */
+$u-bg-color: #f1f7f7;
+
+/* 边框颜色 */
+$u-border-color: #f2f7f7;
+
+/* 尺寸变量 */
+
+/* 文字尺寸 */
+$u-font-sm: 24rpx;
+$u-font-base: 28rpx;
+$u-font-lg: 32rpx;
+
+/* 图片尺寸 */
+$u-img-sm: 40rpx;
+$u-img-base: 52rpx;
+$u-img-lg: 80rpx;
+
+/* Border Radius */
+$u-border-radius-sm: 4rpx;
+$u-border-radius-base: 6rpx;
+$u-border-radius-lg: 12rpx;
+$u-border-radius-circle: 50%;
+
+/* 水平间距 */
+$u-spacing-row-sm: 10rpx;
+$u-spacing-row-base: 20rpx;
+$u-spacing-row-lg: 30rpx;
+
+/* 垂直间距 */
+$u-spacing-col-sm: 8rpx;
+$u-spacing-col-base: 16rpx;
+$u-spacing-col-lg: 24px;
+
+/* 透明度 */
+$u-opacity-disabled: 0.3;

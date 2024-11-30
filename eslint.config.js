@@ -3,23 +3,20 @@ import antfu from '@antfu/eslint-config';
 export default antfu(
   {
     unocss: true,
-  },
-  {
-    ignores: ['uni_modules'],
-  },
-  {
-    files: ['**/*.vue'],
-    rules: {
-      'vue/block-order': [
-        'error',
-        {
-          order: ['template', 'script', 'style'],
-        },
-      ],
-    },
+    ignores: [
+      './dist/*',
+      './.vscode/*',
+      './.idea/*',
+      '**/uni_modules/*',
+      'README.md',
+    ],
   },
   {
     rules: {
+      // vue顶级标签的顺序
+      'vue/block-order': ['error', {
+        order: ['template', 'script', 'style'],
+      }],
       // 需要尾随逗号
       'comma-dangle': ['error', 'only-multiline'],
       // 允许console
@@ -34,9 +31,6 @@ export default antfu(
       'node/prefer-global/process': 'off',
       // 禁止未使用的捕获组
       'regexp/no-unused-capturing-group': 'off',
-      // 对所有控制语句强制实施一致的大括号样式
-      // curly: ["error", "multi", "consistent"],
-      'curly': 'off',
       // 允许接口和类型别名中的成员之间使用三个分隔符
       'style/member-delimiter-style': ['error', {
         multiline: {
@@ -49,8 +43,8 @@ export default antfu(
         },
         multilineDetection: 'brackets',
       }],
+      // if 语句后需要换行
       'antfu/if-newline': 'off',
-      'perfectionist/sort-imports': 'off',
     },
   },
 );

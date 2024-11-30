@@ -2,8 +2,8 @@
  * @name createVitePlugins
  * @description 封装plugins数组统一调用
  */
-import uniPlugin from '@dcloudio/vite-plugin-uni';
 import type { PluginOption } from 'vite';
+import uniPlugin from '@dcloudio/vite-plugin-uni';
 import ViteRestart from 'vite-plugin-restart';
 import { AutoImportDeps } from './autoImport';
 import { AutoRegistryComponents } from './component';

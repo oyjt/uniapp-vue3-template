@@ -12,4 +12,4 @@ function setToken(token: string) {
 function clearToken() {
   uni.removeStorageSync(TokenKey);
 }
-export { TokenPrefix, isLogin, getToken, setToken, clearToken };
+export { clearToken, getToken, isLogin, setToken, TokenPrefix };

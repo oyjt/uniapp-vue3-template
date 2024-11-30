@@ -14,6 +14,9 @@ declare global {
   declare interface ViteEnv {
     VITE_APP_TITLE?: string;
     VITE_APP_BASE_API: string;
+    VITE_APP_PORT: number;
+    VITE_APP_PROXY: boolean;
+    VITE_API_PREFIX: string;
     VITE_DROP_CONSOLE: boolean;
   }
 

@@ -5,8 +5,8 @@
 <script setup lang="ts">
 const url = ref<string>('');
 
-onLoad((params: any) => {
-  if (params.url)
-    url.value = params.url;
+onLoad((options: any) => {
+  if (options.url)
+    url.value = decodeURIComponent(options.url);
 });
 </script>

@@ -1,12 +1,12 @@
-import type { IResponse } from './type';
-import { getToken } from '@/utils/auth';
 import type { uniappRequestAdapter } from '@alova/adapter-uniapp';
+import type { IResponse } from './types';
+import { useUserStore } from '@/store';
+import { getToken } from '@/utils/auth';
 import AdapterUniapp from '@alova/adapter-uniapp';
 import { createAlova } from 'alova';
-import { showMessage } from './status';
-import VueHook from 'alova/vue';
 import { createServerTokenAuthentication } from 'alova/client';
-import { useUserStore } from '@/store';
+import VueHook from 'alova/vue';
+import { showMessage } from './status';
 
 /**
  * @description: 请求结果设置
@@ -105,15 +105,15 @@ const alovaInstance = createAlova({
 
 export const request = alovaInstance;
 
-export function get<T>({ url = '', params = {}, config = {} }): Promise<T> {
-  return request.Get<T>(url, { ...params, ...config });
+export function get<T>(url = '', config = {}): Promise<T> {
+  return request.Get<T>(url, config);
 }
 
-export function post<T>({ url = '', data = {}, config = {} }): Promise<T> {
+export function post<T>(url = '', data = {}, config = {}): Promise<T> {
   return request.Post<T>(url, data, config);
 }
 
-export function upload<T>({ url = '', data = {}, config = {} }): Promise<T> {
+export function upload<T>(url = '', data = {}, config = {}): Promise<T> {
   return request.Post<T>(url, data, {
     // 设置请求方式为上传，适配器内将调用uni.uploadFile
     requestType: 'upload',
@@ -121,11 +121,10 @@ export function upload<T>({ url = '', data = {}, config = {} }): Promise<T> {
   });
 }
 
-export function download<T>({ url = '', params = {}, config = {} }): Promise<T> {
+export function download<T>(url = '', config = {}): Promise<T> {
   return request.Get<T>(url, {
     // 设置请求方式为下载，适配器内将调用uni.downloadFile
     requestType: 'download',
-    ...params,
     ...config,
   });
 }

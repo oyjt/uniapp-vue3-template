@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { useClipboard } from '@/hooks';
+import { useClipboard, usePermission } from '@/hooks';
 
 const { setClipboardData, getClipboardData } = useClipboard();
 
@@ -55,4 +55,10 @@ const toCopy = async () => {
   const data = await getClipboardData();
   console.log('[ data ] >', data);
 };
+
+// 登录鉴权，微信小程序端点击tabbar的底层逻辑不触发uni.switchTab，需要在页面onShow生命周期中校验权限
+onShow(async () => {
+  const hasPermission = await usePermission();
+  console.log(hasPermission ? '已登录' : '未登录，拦截跳转');
+});
 </script>

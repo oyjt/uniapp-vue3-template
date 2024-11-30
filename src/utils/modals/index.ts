@@ -1,28 +1,4 @@
-interface IShowToastOptions {
-  title?: string;
-  icon?: 'success' | 'loading' | 'error' | 'none';
-  image?: string;
-  duration?: number;
-  position?: 'top' | 'center' | 'bottom';
-  mask?: boolean;
-}
-
-interface ILoadingOptions {
-  show?: (content?: string) => void;
-  hide?: () => void;
-}
-
-interface IShowModalOptions {
-  title?: string;
-  content?: string;
-  showCancel?: boolean;
-  cancelText?: string;
-  cancelColor?: string;
-  confirmText?: string;
-  confirmColor?: string;
-  editable?: boolean;
-  placeholderText?: string;
-}
+import type { ILoadingOptions, IShowModalOptions, IShowToastOptions } from './types';
 
 /**
  * 轻提示

@@ -1,9 +1,4 @@
-interface UseShareOptions {
-  title?: string;
-  path?: string;
-  query?: string;
-  imageUrl?: string;
-}
+import type { ShareOptions } from './types';
 
 /**
  * 小程序分享
@@ -17,14 +12,14 @@ interface UseShareOptions {
  * onShareAppMessage()
  * onShareTimeline()
  */
-export default function useShare(options?: UseShareOptions) {
+export default function useShare(options?: ShareOptions) {
   // #ifdef MP-WEIXIN
   const title = options?.title ?? '';
   const path = options?.path ?? '';
   const query = options?.query ?? '';
   const imageUrl = options?.imageUrl ?? '';
 
-  const shareApp = (params: UseShareOptions = {}) => {
+  const shareApp = (params: ShareOptions = {}) => {
     onShareAppMessage(() => {
       return {
         title,
@@ -35,7 +30,7 @@ export default function useShare(options?: UseShareOptions) {
     });
   };
 
-  const shareTime = (params: UseShareOptions = {}) => {
+  const shareTime = (params: ShareOptions = {}) => {
     onShareTimeline(() => {
       return {
         title,

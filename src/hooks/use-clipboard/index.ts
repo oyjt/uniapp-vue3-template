@@ -1,8 +1,3 @@
-interface SetClipboardDataOptions {
-  data: string;
-  showToast?: boolean;
-}
-
 /**
  * 剪切板
  * @example
@@ -13,7 +8,7 @@ interface SetClipboardDataOptions {
  * const data = await getClipboardData()
  */
 export default function useClipboard() {
-  const setClipboardData = ({ data, showToast = true }: SetClipboardDataOptions) => {
+  const setClipboardData = ({ data, showToast = true }: UniApp.SetClipboardDataOptions) => {
     return new Promise<string>((resolve, reject) => {
       uni.setClipboardData({
         data,

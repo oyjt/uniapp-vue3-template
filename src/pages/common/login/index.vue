@@ -50,9 +50,10 @@
 </template>
 
 <script setup lang="ts">
-import uCode from 'uview-plus/components/u-code/u-code.vue';
 import type { CSSProperties } from 'vue';
+import { HOME_PATH, isTabBarPath, LOGIN_PATH, removeQueryString } from '@/router';
 import { setToken } from '@/utils/auth';
+import uCode from 'uview-plus/components/u-code/u-code.vue';
 // import { useUserStore } from '@/store';
 
 // const userStore = useUserStore();
@@ -60,6 +61,7 @@ const tel = ref<string>('18502811111');
 const code = ref<string>('1234');
 const tips = ref<string>();
 const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
+let redirect = HOME_PATH;
 
 const inputStyle = computed<CSSProperties>(() => {
   const style = {} as CSSProperties;
@@ -106,8 +108,19 @@ async function submit() {
   // });
   // if (!res) return;
   setToken('1234567890');
-  uni.reLaunch({ url: '/pages/tab/home/index' });
+  setTimeout(() => {
+    uni.$u.route({
+      type: isTabBarPath(redirect) ? 'switchTab' : 'redirectTo',
+      url: redirect,
+    });
+  }, 800);
 }
+
+onLoad((options: any) => {
+  if (options.redirect && removeQueryString(options.redirect) !== LOGIN_PATH) {
+    redirect = decodeURIComponent(options.redirect);
+  }
+});
 </script>
 
 <style lang="scss" scoped>
