@@ -145,8 +145,8 @@ function responseInterceptors(http: HttpRequestAbstract) {
         return Promise.reject(data);
       }
       else {
-        // 否则返回一个pending中的promise
-        return new Promise(() => {});
+        // 不处理的话，原封不动直接给到reponse给调用者处理
+        return Promise.resolve(response);
       }
     },
     (response: HttpError) => {
