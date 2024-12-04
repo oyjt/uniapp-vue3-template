@@ -125,30 +125,38 @@ function responseInterceptors(http: HttpRequestAbstract) {
         refreshToken(http, config);
       }
 
+      // 隐藏loading
+      if (custom?.loading) {
+        uni.hideLoading();
+      }
+
+      // 请求成功则返回结果
       if (data.code === 200) {
         return response || {};
       }
-      else if (config.method === 'UPLOAD' && response.statusCode === 200) {
-        return response;
-      }
-      else if (custom?.toast) {
-        // 如果开发者需要显示toast，则显示错误信息
-        uni.$u.toast(data.msg || '未知错误');
-        // 如果开发者需要进一步报错信息，则返回错误信息
-        Promise.reject(data);
+
+      // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
+      if (custom?.toast !== false) {
+        uni.$u.toast(data.message);
       }
 
-      // 不处理的话，原封不动直接给到reponse给调用者处理
-      return Promise.resolve(response);
+      // 如果需要catch返回，则进行reject
+      if (custom?.catch) {
+        return Promise.reject(data);
+      }
+      else {
+        // 不处理的话，原封不动直接给到reponse给调用者处理
+        return Promise.resolve(response);
+      }
     },
     (response: HttpError) => {
       // 自定义参数
       const custom = response.config?.custom;
 
       // 隐藏loading
-      // if (custom?.loading !== false) {
-      //   uni.hideLoading();
-      // }
+      if (custom?.loading !== false) {
+        uni.hideLoading();
+      }
 
       // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
       if (custom?.toast !== false) {
