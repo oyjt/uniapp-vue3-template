@@ -140,14 +140,8 @@ function responseInterceptors(http: HttpRequestAbstract) {
         uni.$u.toast(data.message);
       }
 
-      // 如果需要catch返回，则进行reject
-      if (custom?.catch) {
-        return Promise.reject(data);
-      }
-      else {
-        // 不处理的话，原封不动直接给到reponse给调用者处理
-        return Promise.resolve(response);
-      }
+      // 请求失败则抛出错误
+      return Promise.reject(data);
     },
     (response: HttpError) => {
       // 自定义参数
