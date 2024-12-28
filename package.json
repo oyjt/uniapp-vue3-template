@@ -119,6 +119,12 @@
     "vite-plugin-restart": "^0.4.1",
     "vue-tsc": "^2.1.6"
   },
+  "pnpm": {
+    "neverBuiltDependencies": [
+      "canvas",
+      "node-gyp"
+    ]
+  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "node ./scripts/verify-commit.js"
