@@ -5,7 +5,7 @@ import {
   removeQueryString,
   routes,
 } from '@/router';
-import { getToken } from '@/utils/auth';
+import { isLogin } from '@/utils/auth';
 
 // 白名单路由
 const whiteList = ['/'];
@@ -29,7 +29,7 @@ export function hasPerm(path = '') {
   }
   // 在白名单中或有token，直接放行
   const hasPermission
-    = whiteList.includes(removeQueryString(path)) || getToken();
+    = whiteList.includes(removeQueryString(path)) || isLogin();
   if (!hasPermission) {
     // 将用户的目标路径传递过去，这样可以实现用户登录之后，直接跳转到目标页面
     uni.redirectTo({
