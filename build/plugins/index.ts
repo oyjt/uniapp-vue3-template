@@ -6,11 +6,11 @@ import type { PluginOption } from 'vite';
 import uniPlugin from '@dcloudio/vite-plugin-uni';
 import ViteRestart from 'vite-plugin-restart';
 import { AutoImportDeps } from './autoImport';
-import { AutoRegistryComponents } from './component';
-import { ConfigUnoCSSPlugin } from './unocss';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
 // import { CleanImagePlugin } from './cleanImage';
+import { AutoRegistryComponents } from './component';
+import { ConfigUnoCSSPlugin } from './unocss';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -35,7 +35,7 @@ export default function createVitePlugins(isBuild: boolean) {
       // 图片资源自动转换为网络资源
       // ReplaceUrlPlugin(),
       // 自动清除本地图片
-      // CleanImagePlugin()
+      // CleanImagePlugin(),
       // 打包视图分析
       // VisualizerPlugin(),
     ];
