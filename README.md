@@ -43,6 +43,7 @@
 - [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
 - [x] 集成包体积视图分析插件
 - [x] 支持国际化
+- [x] 集成`alova`网络请求（具体使用请切换到`feature/alova`分支）
 
 ### VSCode插件推荐
 - 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
