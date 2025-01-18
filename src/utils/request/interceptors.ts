@@ -48,6 +48,7 @@ const refreshToken = async (http: HttpRequestAbstract, config: HttpRequestConfig
   if (!isRefreshing) {
     // 修改登录状态为true
     isRefreshing = true;
+    // 等待登录完成
     await useUserStore().authLogin();
     // 登录完成之后，开始执行队列请求
     requestQueue.forEach(cb => cb());
@@ -57,14 +58,13 @@ const refreshToken = async (http: HttpRequestAbstract, config: HttpRequestConfig
     // 重新执行本次请求
     return http.request(config);
   }
-  else {
-    return new Promise((resolve) => {
-      // 将resolve放进队列，用一个函数形式来保存，等登录后直接执行
-      requestQueue.push(() => {
-        resolve(http.request(config));
-      });
+
+  return new Promise<HttpResponse<any>>((resolve) => {
+    // 将resolve放进队列，用一个函数形式来保存，等登录后直接执行
+    requestQueue.push(() => {
+      resolve(http.request(config));
     });
-  }
+  });
 };
 
 function requestInterceptors(http: HttpRequestAbstract) {
@@ -111,56 +111,53 @@ function responseInterceptors(http: HttpRequestAbstract) {
    * 响应拦截
    * @param {object} http
    */
-  http.interceptors.response.use(
-    async (response: HttpResponse) => {
-      /* 对响应成功做点什么 可使用async await 做异步操作 */
-      const data = response.data;
-      // 配置参数
-      const config = response.config;
-      // 自定义参数
-      const custom = config?.custom;
+  http.interceptors.response.use((response: HttpResponse) => {
+    /* 对响应成功做点什么 可使用async await 做异步操作 */
+    const data = response.data;
+    // 配置参数
+    const config = response.config;
+    // 自定义参数
+    const custom = config?.custom;
 
-      // 登录状态失效，重新登录
-      if (data.code === 401) {
-        refreshToken(http, config);
-      }
+    // 登录状态失效，重新登录
+    if (data.code === 401) {
+      return refreshToken(http, config);
+    }
 
-      // 隐藏loading
-      if (custom?.loading) {
-        uni.hideLoading();
-      }
+    // 隐藏loading
+    if (custom?.loading) {
+      uni.hideLoading();
+    }
 
-      // 请求成功则返回结果
-      if (data.code === 200) {
-        return response || {};
-      }
+    // 请求成功则返回结果
+    if (data.code === 200) {
+      return response || {};
+    }
 
-      // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
-      if (custom?.toast !== false) {
-        uni.$u.toast(data.message);
-      }
+    // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
+    if (custom?.toast !== false) {
+      uni.$u.toast(data.message);
+    }
 
-      // 请求失败则抛出错误
-      return Promise.reject(data);
-    },
-    (response: HttpError) => {
-      // 自定义参数
-      const custom = response.config?.custom;
+    // 请求失败则抛出错误
+    return Promise.reject(data);
+  }, (response: HttpError) => {
+    // 自定义参数
+    const custom = response.config?.custom;
 
-      // 隐藏loading
-      if (custom?.loading !== false) {
-        uni.hideLoading();
-      }
+    // 隐藏loading
+    if (custom?.loading !== false) {
+      uni.hideLoading();
+    }
 
-      // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
-      if (custom?.toast !== false) {
-        const message = response.statusCode ? showMessage(response.statusCode) : '网络连接异常,请稍后再试!';
-        uni.$u.toast(message);
-      }
+    // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
+    if (custom?.toast !== false) {
+      const message = response.statusCode ? showMessage(response.statusCode) : '网络连接异常,请稍后再试!';
+      uni.$u.toast(message);
+    }
 
-      return Promise.reject(response);
-    },
-  );
+    return Promise.reject(response);
+  });
 }
 
 export { requestInterceptors, responseInterceptors };
