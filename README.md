@@ -1,8 +1,4 @@
-<h1 align="center">
-  <a href="https://github.com/oyjt/uniapp-vue3-template" target="_blank">uniapp 团队协作开发实践模板(Vue3)</a>
-</h1>
-
-<div align="center">
+# uniapp 团队协作开发实践模板(Vue3)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
 [![GitHub forks](https://img.shields.io/github/forks/oyjt/uniapp-vue3-template?style=flat&logo=github)](https://github.com/oyjt/uniapp-vue3-template)
@@ -11,9 +7,8 @@
 [![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
 [![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
 
-</div>
 
-使用uniapp+vite+vue3+typescript+uview-plus3.0 搭建的适合团队协作的快速开发模版
+使用uniapp+vite+vue3+typescript+uview-plus+unocss 搭建的适合团队协作的快速开发模版
 
 [uview-plus官方文档](https://uiadmin.net/uview-plus/)
 
@@ -37,18 +32,12 @@
 - [x] 集成`z-paging`下拉刷新功能
 - [x] 添加页面跳转拦截，登录权限校验
 - [x] 支持`token`无感刷新
-- [x] 支持持续集成
 - [x] 项目分包
 - [x] 集成小程序隐私协议授权组件
 - [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
 - [x] 集成包体积视图分析插件
 - [x] 支持国际化
 - [x] 集成`alova`网络请求（具体使用请切换到`feature/alova`分支）
-
-### VSCode插件推荐
-- 可以为pages.json、manifest.json等提供语法提示和校验工作。[uni-app-schemas](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-schemas-vscode)
-- uni-app 基本能力代码片段。[uni-app-snippets](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-app-snippets-vscode)
-- 一键创建页面、组件、分包，个人用不习惯。[uni-create-view](https://marketplace.visualstudio.com/items?itemName=mrmaoddxxaa.create-uniapp-view)
 
 ### uniapp插件推荐
 - [uniapp 插件精选（https://github.com/oyjt/awesome-uniapp）](https://github.com/oyjt/awesome-uniapp)

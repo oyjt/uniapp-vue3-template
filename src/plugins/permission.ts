@@ -18,7 +18,7 @@ routes.forEach((item) => {
 /**
  * 权限校验
  * @param {string} path
- * @returns
+ * @returns {boolean} 是否有权限
  */
 export function hasPerm(path = '') {
   if (!isPathExists(path) && path !== '/') {

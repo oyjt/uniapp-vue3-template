@@ -7,12 +7,12 @@ import setupUI from './ui';
 export default {
   install(app: App) {
     // UI扩展配置
-    app.use(setupUI);
+    setupUI(app);
     // 状态管理
-    app.use(setupStore);
+    setupStore(app);
     // 国际化
-    app.use(setupI18n);
+    setupI18n(app);
     // 路由拦截
-    app.use(setupPermission);
+    setupPermission();
   },
 };

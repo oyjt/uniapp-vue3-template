@@ -169,7 +169,7 @@ onLoad((options: any) => {
 }
 
 .hint {
-  @apply px-40rpx py-20rpx text-20rpx;
+  @apply px-40rpx py-20rpx text-24rpx;
 
   color: $u-tips-color;
 

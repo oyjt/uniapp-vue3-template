@@ -80,7 +80,7 @@ function initData() {
   initTitle.value = props.title || initTitle.value;
   initSubTitle.value
     = props.subTitle
-    || `亲爱的用户，感谢您一直以来的支持!为了更好地保护您的权益，同时遵守相关监管要求，请认真阅读${initPrivacyContractName.value}，特向您说明如下:`;
+      || `亲爱的用户，感谢您一直以来的支持!为了更好地保护您的权益，同时遵守相关监管要求，请认真阅读${initPrivacyContractName.value}，特向您说明如下:`;
 }
 
 // 检测是否授权

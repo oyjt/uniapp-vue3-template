@@ -65,5 +65,7 @@ export default {
       },
     ],
     'selector-type-no-unknown': [true, { ignoreTypes: ['page', 'radio', 'checkbox', 'scroll-view'] }],
+    'at-rule-no-deprecated': null,
+    'declaration-property-value-no-unknown': null,
   },
 };

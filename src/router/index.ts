@@ -46,7 +46,7 @@ export const routes = parseRoutes(pagesJson);
 
 /**
  * 当前路由
- * @returns {string}
+ * @returns {string} 当前路由
  */
 export function currentRoute() {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
@@ -58,7 +58,7 @@ export function currentRoute() {
 /**
  * 去除查询字符串
  * @param {string} path
- * @returns
+ * @returns {string} 去除查询字符串后的路径
  */
 export function removeQueryString(path = '') {
   return path.split('?')[0];
@@ -67,7 +67,7 @@ export function removeQueryString(path = '') {
 /**
  * 路径是否存在
  * @param {string} path
- * @returns
+ * @returns {boolean} 路径是否存在
  */
 export function isPathExists(path = '') {
   const cleanPath = removeQueryString(path);
@@ -77,7 +77,7 @@ export function isPathExists(path = '') {
 /**
  * 是否是tabbar页面路径
  * @param {string} path
- * @returns
+ * @returns {boolean} 是否是tabbar页面
  */
 export function isTabBarPath(path = '') {
   const cleanPath = removeQueryString(path);
