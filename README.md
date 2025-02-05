@@ -37,8 +37,8 @@
 - [x] 项目构建自动删除本地图片并替换本地图片路径为线上图片
 - [x] 集成包体积视图分析插件
 - [x] 支持国际化
-- [x] 集成`alova`网络请求（具体使用请切换到`feature/alova`分支）
-- [x] 集成`axios`网络请求（具体使用请切换到`feature/axios`分支）
+- [x] 集成`alova`网络请求（具体使用请切换到 [feature/alova](https://github.com/oyjt/uniapp-vue3-template/tree/feature/alova) 分支）
+- [x] 集成`axios`网络请求（具体使用请切换到 [feature/axios](https://github.com/oyjt/uniapp-vue3-template/tree/feature/axios) 分支）
 
 ### uniapp插件推荐
 - [uniapp 插件精选（https://github.com/oyjt/awesome-uniapp）](https://github.com/oyjt/awesome-uniapp)
