@@ -38,6 +38,7 @@
 - [x] 集成包体积视图分析插件
 - [x] 支持国际化
 - [x] 集成`alova`网络请求（具体使用请切换到`feature/alova`分支）
+- [x] 集成`axios`网络请求（具体使用请切换到`feature/axios`分支）
 
 ### uniapp插件推荐
 - [uniapp 插件精选（https://github.com/oyjt/awesome-uniapp）](https://github.com/oyjt/awesome-uniapp)
