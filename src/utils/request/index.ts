@@ -1,30 +1,32 @@
-// 引入配置
-import type { HttpRequestConfig, HttpResponse } from 'uview-plus/libs/luch-request/index';
-import type { IResponse } from './types';
-import Request from 'uview-plus/libs/luch-request/index';
+import type { AxiosResponse } from 'axios';
+import type { IRequestConfig, IResponse } from './types';
+import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter';
+import axios from 'axios';
 import { requestInterceptors, responseInterceptors } from './interceptors';
 
-const http = new Request();
-
 // 引入拦截器配置
-export function setupRequest() {
-  http.setConfig((defaultConfig: HttpRequestConfig) => {
-    /* defaultConfig 为默认全局配置 */
-    defaultConfig.baseURL = import.meta.env.VITE_API_BASE_URL;
-    // #ifdef H5
-    if (import.meta.env.VITE_APP_PROXY === 'true') {
-      defaultConfig.baseURL = import.meta.env.VITE_API_PREFIX;
-    }
-    // #endif
-    return defaultConfig;
+export function request<T = any>(config?: IRequestConfig): Promise<T> {
+  let baseURL = import.meta.env.VITE_API_BASE_URL;
+  // #ifdef H5
+  if (import.meta.env.VITE_APP_PROXY === 'true') {
+    baseURL = import.meta.env.VITE_API_PREFIX;
+  }
+  // #endif
+  const instance = axios.create({
+    baseURL,
+    timeout: 10000,
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+    },
+    ...config,
+    adapter: createUniAppAxiosAdapter(),
   });
-  requestInterceptors(http);
-  responseInterceptors(http);
-}
 
-export function request<T = any>(config: HttpRequestConfig): Promise<T> {
+  requestInterceptors(instance);
+  responseInterceptors(instance);
+
   return new Promise((resolve, reject) => {
-    http.request(config).then((res: HttpResponse<IResponse<T>>) => {
+    instance.request(config!).then((res: AxiosResponse<IResponse<T>>) => {
       console.log('[ res ] >', res);
       const { result } = res.data;
       resolve(result as T);
@@ -33,22 +35,39 @@ export function request<T = any>(config: HttpRequestConfig): Promise<T> {
       reject(err);
     });
   });
+};
+
+export function get<T = any>(url: string, config?: IRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'get' });
 }
 
-export function get<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
-  return request({ ...config, url, method: 'GET' });
+export function post<T = any>(url: string, config?: IRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'post' });
 }
 
-export function post<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
-  return request({ ...config, url, method: 'POST' });
+// 将data转换为FormData
+const transformFromData = (data: { [key: string]: string }) => {
+  const formData = new FormData();
+  for (const key in data) {
+    data[key] && formData.append(key, data[key]);
+  }
+  return formData;
+};
+
+export function upload<T = any>(url: string, config?: IRequestConfig): Promise<T> {
+  if (config?.data) {
+    config.data = transformFromData(config?.data);
+  }
+  return request({
+    headers: {
+      'Content-Type': 'multipart/form-data;charset=UTF-8',
+    },
+    ...config,
+    url,
+    method: 'upload',
+  });
 }
 
-export function upload<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
-  return request({ ...config, url, method: 'UPLOAD' });
+export function download<T = any>(url: string, config?: IRequestConfig): Promise<T> {
+  return request({ ...config, url, method: 'download' });
 }
-
-export function download<T = any>(url: string, config?: HttpRequestConfig): Promise<T> {
-  return request({ ...config, url, method: 'DOWNLOAD' });
-}
-
-export default setupRequest;

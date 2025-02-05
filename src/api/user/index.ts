@@ -9,7 +9,7 @@ import { get, post } from '@/utils/request';
 export const profile = (params?: ProfileReq) => get<ProfileRes>('/user/profile', { params });
 
 /** 登录 */
-export const login = (data: LoginReq) => post<LoginRes>('/user/login', { data, custom: { auth: false } });
+export const login = (data: LoginReq) => post<LoginRes>('/user/login', { data, isToken: false });
 
 /** 验证码登录 */
 export const loginByCode = (data: LoginByCodeReq) => post<LoginByCodeRes>('/user/loginByCode', { data });
