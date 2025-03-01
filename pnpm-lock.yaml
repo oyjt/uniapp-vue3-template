@@ -38,6 +38,9 @@ importers:
       vue:
         specifier: 3.4.21
         version: 3.4.21(typescript@5.7.3)
+      vue-i18n:
+        specifier: 9.1.9
+        version: 9.1.9(vue@3.4.21(typescript@5.7.3))
       z-paging:
         specifier: ^2.8.4
         version: 2.8.4
@@ -6706,6 +6709,12 @@ packages:
 
   vue-flow-layout@0.0.5:
     resolution: {integrity: sha512-lZlqQ/Se1trGMtBMneZDWaiQiQBuxU8ivZ+KpJMem5zKROFpzuPq9KqyWABbSYbxq0qhqZs1I4DBwrY041rtOA==}
+
+  vue-i18n@9.1.9:
+    resolution: {integrity: sha512-JeRdNVxS2OGp1E+pye5XB6+M6BBkHwAv9C80Q7+kzoMdUDGRna06tjC0vCB/jDX9aWrl5swxOMFcyAr7or8XTA==}
+    engines: {node: '>= 10'}
+    peerDependencies:
+      vue: ^3.0.0
 
   vue-router@4.5.0:
     resolution: {integrity: sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w==}
@@ -14781,6 +14790,14 @@ snapshots:
       vue: 3.4.37(typescript@5.7.3)
     transitivePeerDependencies:
       - typescript
+
+  vue-i18n@9.1.9(vue@3.4.21(typescript@5.7.3)):
+    dependencies:
+      '@intlify/core-base': 9.1.9
+      '@intlify/shared': 9.1.9
+      '@intlify/vue-devtools': 9.1.9
+      '@vue/devtools-api': 6.6.4
+      vue: 3.4.21(typescript@5.7.3)
 
   vue-router@4.5.0(vue@3.4.21(typescript@5.7.3)):
     dependencies:

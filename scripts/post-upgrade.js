@@ -17,7 +17,6 @@ const dependencies = [
   '@dcloudio/uni-mp-toutiao',
   '@dcloudio/uni-mp-xhs',
   '@dcloudio/uni-quickapp-webview',
-  'vue-i18n',
 ];
 
 // 使用exec执行命令
