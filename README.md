@@ -39,6 +39,7 @@
 - [x] 支持国际化
 - [x] 集成`alova`网络请求（具体使用请切换到 [feature/alova](https://github.com/oyjt/uniapp-vue3-template/tree/feature/alova) 分支）
 - [x] 集成`axios`网络请求（具体使用请切换到 [feature/axios](https://github.com/oyjt/uniapp-vue3-template/tree/feature/axios) 分支）
+- [x] 支持新的`wot-design-uni`库（具体使用请切换到[feature/wot-design-uni](https://github.com/oyjt/uniapp-vue3-template/tree/feature/wot-design-uni)分支），[wot-design-uni官方文档](https://wot-design-uni.cn/)
 
 ### uniapp插件推荐
 - [uniapp 插件精选（https://github.com/oyjt/awesome-uniapp）](https://github.com/oyjt/awesome-uniapp)
