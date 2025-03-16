@@ -1,105 +1,98 @@
 <template>
-  <view>
-    <view class="login-form-wrap">
+  <view class="container">
+    <view class="login-box">
       <view class="title">
-        欢迎登录
+        登录
       </view>
-      <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号">
-      <view class="u-border-bottom my-40rpx flex">
-        <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码">
-        <view>
-          <u-code ref="uCodeRef" @change="codeChange" />
-          <u-button :text="tips" type="success" size="mini" @click="getCode" />
+      <view class="form">
+        <input v-model="tel" class="border-bottom" type="number" placeholder="请输入手机号">
+        <view class="border-bottom my-40rpx flex">
+          <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码">
+          <wd-button type="success" size="small" @click="getCode">
+            {{ tips }}
+          </wd-button>
         </view>
       </view>
-      <button class="login-btn" :style="[inputStyle]" @tap="submit">
-        登录 <text class="i-mdi-login" />
-      </button>
-
-      <view class="alternative">
-        <view class="password">
-          密码登录
-        </view>
-        <view class="issue flex items-center">
-          遇到问题 <text class="i-mdi-help" />
-        </view>
+      <view class="tips">
+        未注册的手机号验证后将自动注册
       </view>
-    </view>
-    <view class="login-type-wrap">
-      <view class="item wechat">
-        <view class="icon">
-          <u-icon size="35" name="weixin-fill" color="rgb(83,194,64)" />
-        </view>
-        微信
+      <wd-button block type="primary" @click="login">
+        登录
+      </wd-button>
+      <view class="agreement">
+        登录代表你已同意
+        <text class="link" @click="toAgreement('user')">
+          《用户协议》
+        </text>
+        和
+        <text class="link" @click="toAgreement('privacy')">
+          《隐私政策》
+        </text>
       </view>
-      <view class="item QQ">
-        <view class="icon">
-          <u-icon size="35" name="qq-fill" color="rgb(17,183,233)" />
-        </view>
-        QQ
-      </view>
-    </view>
-    <view class="hint">
-      登录代表同意
-      <text class="link">
-        用户协议、隐私政策，
-      </text>
-      并授权使用您的账号信息（如昵称、头像、收获地址）以便您统一管理
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties } from 'vue';
 import { HOME_PATH, isTabBarPath, LOGIN_PATH, removeQueryString } from '@/router';
-import { setToken } from '@/utils/auth';
-import uCode from 'uview-plus/components/u-code/u-code.vue';
 // import { useUserStore } from '@/store';
+import { setToken } from '@/utils/auth';
 
 // const userStore = useUserStore();
-const tel = ref<string>('18502811111');
-const code = ref<string>('1234');
-const tips = ref<string>();
-const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
+
+const tel = ref('');
+const code = ref('');
+const tips = ref('获取验证码');
+const seconds = ref(60);
+const timer = ref<NodeJS.Timer>();
+
+let canGetCode = true;
 let redirect = HOME_PATH;
 
-const inputStyle = computed<CSSProperties>(() => {
-  const style = {} as CSSProperties;
-  if (tel.value && code.value) {
-    style.color = '#fff';
-    style.backgroundColor = uni.$u.color.warning;
-  }
-  return style;
-});
-
-function codeChange(text: string) {
-  tips.value = text;
-}
-
-function getCode() {
-  if (uCodeRef.value?.canGetCode) {
-    // 模拟向后端请求验证码
-    uni.showLoading({
-      title: '正在获取验证码',
+// 获取验证码
+const getCode = () => {
+  if (!canGetCode) return;
+  if (!tel.value) {
+    uni.showToast({
+      title: '请输入手机号',
+      icon: 'none',
     });
-    setTimeout(() => {
-      uni.hideLoading();
-      uni.$u.toast('验证码已发送');
-      // 通知验证码组件内部开始倒计时
-      uCodeRef.value?.start();
-    }, 1000);
+    return;
   }
-  else {
-    uni.$u.toast('倒计时结束后再发送');
+  if (!/^1[3-9]\d{9}$/.test(tel.value)) {
+    uni.showToast({
+      title: '手机号格式不正确',
+      icon: 'none',
+    });
+    return;
   }
-}
-async function submit() {
-  if (!uni.$u.test.mobile(Number(tel.value))) {
-    uni.$u.toast('请输入正确的手机号');
+  canGetCode = false;
+  timer.value = setInterval(() => {
+    seconds.value--;
+    tips.value = `${seconds.value}秒后重新获取`;
+    if (seconds.value <= 0) {
+      clearInterval(timer.value);
+      tips.value = '获取验证码';
+      seconds.value = 60;
+      canGetCode = true;
+    }
+  }, 1000);
+};
+
+// 登录
+const login = async () => {
+  if (!tel.value) {
+    uni.showToast({
+      title: '请输入手机号',
+      icon: 'none',
+    });
     return;
   }
   if (!code.value) {
-    uni.$u.toast('请输入验证码');
+    uni.showToast({
+      title: '请输入验证码',
+      icon: 'none',
+    });
     return;
   }
   // 登录请求
@@ -109,12 +102,21 @@ async function submit() {
   // if (!res) return;
   setToken('1234567890');
   setTimeout(() => {
-    uni.$u.route({
-      type: isTabBarPath(redirect) ? 'switchTab' : 'redirectTo',
-      url: redirect,
-    });
+    if (isTabBarPath(redirect)) {
+      uni.switchTab({ url: redirect });
+    }
+    else {
+      uni.redirectTo({ url: redirect });
+    }
   }, 800);
-}
+};
+
+// 查看协议
+const toAgreement = (type: string) => {
+  uni.navigateTo({
+    url: `/pages/common/webview/index?type=${type}`,
+  });
+};
 
 onLoad((options: any) => {
   if (options.redirect && removeQueryString(options.redirect) !== LOGIN_PATH) {
@@ -124,57 +126,90 @@ onLoad((options: any) => {
 </script>
 
 <style lang="scss" scoped>
-.login-form-wrap {
-  @apply mt-80rpx mx-auto mb-0 w-600rpx;
+.container {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0 60rpx;
+  background-color: #fff;
+}
+
+.login-box {
+  padding-top: 200rpx;
 
   .title {
-    @apply mb-100rpx text-60rpx text-left font-500;
+    margin-bottom: 100rpx;
+    font-size: 48rpx;
+    font-weight: 600;
   }
 
-  input {
-    @apply pb-6rpx mb-10rpx text-left;
-  }
-
-  .tips {
-    @apply mt-8rpx mb-60rpx;
-
-    color: $u-info;
-  }
-
-  .login-btn {
-    @apply flex items-center justify-center py-12rpx px-0 text-30rpx bg-#fdf3d0 border-none;
-
-    color: $u-tips-color;
-
-    &::after {
-      @apply border-none;
+  .form {
+    input {
+      height: 88rpx;
+      font-size: 32rpx;
     }
   }
 
-  .alternative {
-    @apply flex justify-between mt-30rpx;
-
-    color: $u-tips-color;
+  .tips {
+    margin: 20rpx 0 60rpx;
+    font-size: 24rpx;
+    color: #909399;
   }
 }
 
-.login-type-wrap {
-  @apply flex justify-between pt-350rpx px-150rpx pb-150rpx;
+.other-login {
+  margin-top: 120rpx;
+
+  .title {
+    margin-bottom: 60rpx;
+    font-size: 28rpx;
+    color: #595959;
+    text-align: center;
+  }
 
   .item {
-    @apply flex items-center flex-col text-28rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40rpx;
 
-    color: $u-content-color;
+    text {
+      margin-top: 20rpx;
+      font-size: 24rpx;
+      color: #595959;
+    }
   }
 }
 
-.hint {
-  @apply px-40rpx py-20rpx text-24rpx;
-
-  color: $u-tips-color;
+.agreement {
+  position: fixed;
+  bottom: 80rpx;
+  left: 0;
+  width: 100%;
+  font-size: 24rpx;
+  color: #595959;
+  text-align: center;
 
   .link {
-    color: $u-warning;
+    color: #f0883a;
   }
+}
+
+.border-bottom {
+  border-bottom: solid 0.5px #d9d9d9
+}
+
+.my-40rpx {
+  margin: 40rpx 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

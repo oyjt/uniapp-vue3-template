@@ -3,10 +3,11 @@ import type {
   HttpRequestAbstract,
   HttpRequestConfig,
   HttpResponse,
-} from 'uview-plus/libs/luch-request/index';
+} from 'luch-request';
 import { useUserStore } from '@/store';
 import { getToken } from '@/utils/auth';
 import storage from '@/utils/storage';
+import { Toast } from '../modals';
 import { showMessage } from './status';
 
 // 重试队列，每一项将是一个待执行的函数形式
@@ -136,7 +137,7 @@ function responseInterceptors(http: HttpRequestAbstract) {
 
     // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
     if (custom?.toast !== false) {
-      uni.$u.toast(data.message);
+      Toast(data.message);
     }
 
     // 请求失败则抛出错误
@@ -153,7 +154,7 @@ function responseInterceptors(http: HttpRequestAbstract) {
     // 如果没有显式定义custom的toast参数为false的话，默认对报错进行toast弹出提示
     if (custom?.toast !== false) {
       const message = response.statusCode ? showMessage(response.statusCode) : '网络连接异常,请稍后再试!';
-      uni.$u.toast(message);
+      Toast(message);
     }
 
     return Promise.reject(response);

@@ -1,35 +1,23 @@
 <template>
-  <div class="not-found">
-    <u-navbar left-icon-size="40rpx" @left-click="handleBack" />
-    <u-empty
-      mode="page"
-      text-size="20"
-      text="页面不存在"
-      icon="/static/images/404.png"
-      width="380"
-      height="380"
-    />
-  </div>
+  <view class="container">
+    <wd-navbar left-icon="arrow-left" @click-left="handleBack" />
+    <wd-empty image="/static/images/404.png" description="页面不存在" />
+  </view>
 </template>
 
-<script lang="ts" setup>
-import { HOME_PATH } from '@/router';
-
-function handleBack() {
-  uni.$u.route({
-    type: 'switchTab',
-    url: HOME_PATH,
+<script setup lang="ts">
+const handleBack = () => {
+  uni.switchTab({
+    url: '/pages/tab/home/index',
   });
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.not-found {
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  overflow: auto;
+  min-height: 100vh;
+  background-color: #fff;
 }
 </style>

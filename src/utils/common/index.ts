@@ -26,3 +26,16 @@ export function mpUpdate() {
     });
   });
 }
+
+/**
+ * @description 取一个区间数
+ * @param {number} min 最小值
+ * @param {number} max 最大值
+ */
+export function random(min: number, max: number) {
+  if (min >= 0 && max > 0 && max >= min) {
+    const gab = max - min + 1;
+    return Math.floor(Math.random() * gab + min);
+  }
+  return 0;
+}

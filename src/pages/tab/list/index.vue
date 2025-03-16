@@ -1,21 +1,18 @@
 <template>
   <z-paging ref="pagingRef" v-model="dataList" @query="queryList">
     <view v-for="(item, index) in dataList" :key="index">
-      <u-cell :title="`列表长度-${index + 1}`">
+      <wd-cell custom-title-class="lh-40px" :title="`列表长度-${index + 1}`">
         <template #icon>
-          <u-avatar
-            shape="square"
-            size="35"
-            :src="item"
-            custom-style="margin: -3px 5px -3px 0"
-          />
+          <wd-img class="mr-10px" round width="40" height="40" :src="item" />
         </template>
-      </u-cell>
+      </wd-cell>
     </view>
   </z-paging>
 </template>
 
 <script setup lang="ts">
+import { random } from '@/utils';
+
 const pagingRef = ref<InstanceType<typeof zPaging> | null>(null);
 const dataList = ref<string[]>([]);
 
@@ -41,7 +38,7 @@ function queryList(pageNo: number, pageSize: number) {
     // 1秒之后停止刷新动画
     const list = [];
     for (let i = 0; i < 30; i++)
-      list.push(urls[uni.$u.random(0, urls.length - 1)]);
+      list.push(urls[random(0, urls.length - 1)]);
 
     pagingRef.value?.complete(list);
   }, 1000);

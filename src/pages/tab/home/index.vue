@@ -16,7 +16,7 @@
     </view>
     <view class="mt-50rpx">
       <view center cursor-pointer @click="toGithub">
-        <up-text mode="link" text="点击跳转项目地址" :href="githubLink" />
+        <wd-text decoration="underline" text="点击跳转项目地址" />
         <view class="i-mdi-github text-40rpx" />
       </view>
     </view>
@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import { useUserStore } from '@/store';
+import { Toast } from '@/utils';
 
 const githubLink = 'https://github.com/oyjt/uniapp-vue3-template';
 
@@ -37,7 +38,7 @@ function toGithub() {
     window.open(githubLink);
   }
   else {
-    uni.$u.toast('请使用浏览器打开');
+    Toast('请使用浏览器打开');
   }
 }
 </script>
