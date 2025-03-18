@@ -1,31 +1,34 @@
 <template>
-  <view class="container">
-    <view class="login-box">
-      <view class="title">
+  <view class="box-border min-h-screen bg-white px-60rpx">
+    <view class="pt-200rpx">
+      <view class="mb-100rpx text-48rpx font-600">
         登录
       </view>
-      <view class="form">
-        <input v-model="tel" class="border-bottom" type="number" placeholder="请输入手机号">
-        <view class="border-bottom my-40rpx flex">
-          <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码">
-          <wd-button type="success" size="small" @click="getCode">
-            {{ tips }}
-          </wd-button>
+      <view>
+        <wd-input v-model="tel" type="number" placeholder="请输入手机号" />
+        <view class="my-40rpx">
+          <wd-input v-model="code" type="number" placeholder="请输入验证码">
+            <template #suffix>
+              <wd-button type="success" size="small" @click="getCode">
+                {{ tips }}
+              </wd-button>
+            </template>
+          </wd-input>
         </view>
       </view>
-      <view class="tips">
+      <view class="my-20rpx mb-60rpx text-24rpx text-gray-400">
         未注册的手机号验证后将自动注册
       </view>
       <wd-button block type="primary" @click="login">
         登录
       </wd-button>
-      <view class="agreement">
+      <view class="fixed bottom-80rpx left-0 w-full text-center text-24rpx text-gray-600">
         登录代表你已同意
-        <text class="link" @click="toAgreement('user')">
+        <text class="text-orange-500" @click="toAgreement('user')">
           《用户协议》
         </text>
         和
-        <text class="link" @click="toAgreement('privacy')">
+        <text class="text-orange-500" @click="toAgreement('privacy')">
           《隐私政策》
         </text>
       </view>
@@ -124,92 +127,3 @@ onLoad((options: any) => {
   }
 });
 </script>
-
-<style lang="scss" scoped>
-.container {
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 0 60rpx;
-  background-color: #fff;
-}
-
-.login-box {
-  padding-top: 200rpx;
-
-  .title {
-    margin-bottom: 100rpx;
-    font-size: 48rpx;
-    font-weight: 600;
-  }
-
-  .form {
-    input {
-      height: 88rpx;
-      font-size: 32rpx;
-    }
-  }
-
-  .tips {
-    margin: 20rpx 0 60rpx;
-    font-size: 24rpx;
-    color: #909399;
-  }
-}
-
-.other-login {
-  margin-top: 120rpx;
-
-  .title {
-    margin-bottom: 60rpx;
-    font-size: 28rpx;
-    color: #595959;
-    text-align: center;
-  }
-
-  .item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 40rpx;
-
-    text {
-      margin-top: 20rpx;
-      font-size: 24rpx;
-      color: #595959;
-    }
-  }
-}
-
-.agreement {
-  position: fixed;
-  bottom: 80rpx;
-  left: 0;
-  width: 100%;
-  font-size: 24rpx;
-  color: #595959;
-  text-align: center;
-
-  .link {
-    color: #f0883a;
-  }
-}
-
-.border-bottom {
-  border-bottom: solid 0.5px #d9d9d9
-}
-
-.my-40rpx {
-  margin: 40rpx 0;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
