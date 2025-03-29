@@ -20,7 +20,7 @@ const dependencies = [
 ];
 
 // 使用exec执行命令
-exec(`pnpm un ${dependencies.join(' ')}`, (error, stdout, stderr) => {
+exec(`pnpm remove ${dependencies.join(' ')}`, (error, stdout, stderr) => {
   if (error) {
     // 如果有错误，打印错误信息
     console.error(`执行出错: ${error}`);
