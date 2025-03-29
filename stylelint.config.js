@@ -1,15 +1,13 @@
 export default {
-  extends: ['stylelint-config-standard', 'stylelint-config-standard-vue', 'stylelint-config-recess-order'],
-  plugins: ['stylelint-order'],
-  overrides: [
-    {
-      files: ['**/*.(scss|css|vue|html)'],
-      customSyntax: 'postcss-scss',
-    },
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-standard-vue',
+    'stylelint-config-recess-order',
   ],
   ignoreFiles: [
-    'dist/*',
-    'uni_modules/*',
+    'dist/**',
+    'src/uni_modules/**',
+    'node_modules/**',
   ],
   rules: {
     // 禁止空代码
