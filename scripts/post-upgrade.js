@@ -17,6 +17,8 @@ const dependencies = [
   '@dcloudio/uni-mp-toutiao',
   '@dcloudio/uni-mp-xhs',
   '@dcloudio/uni-quickapp-webview',
+  // vue 已经内置了 @vue/runtime-core，这里移除掉
+  '@vue/runtime-core',
 ];
 
 // 使用exec执行命令
