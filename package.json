@@ -91,7 +91,6 @@
     "@uni-helper/uni-app-types": "1.0.0-alpha.6",
     "@unocss/eslint-plugin": "^0.63.6",
     "@unocss/preset-icons": "^0.63.6",
-    "@vue/runtime-core": "^3.4.21",
     "czg": "^1.11.0",
     "eslint": "^9.18.0",
     "lint-staged": "^15.4.1",
