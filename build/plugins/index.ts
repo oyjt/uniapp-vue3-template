@@ -8,7 +8,6 @@ import ViteRestart from 'vite-plugin-restart';
 import { AutoImportDeps } from './autoImport';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
-// import { CleanImagePlugin } from './cleanImage';
 import { AutoRegistryComponents } from './component';
 import { ConfigUnoCSSPlugin } from './unocss';
 
@@ -30,8 +29,6 @@ export default function createVitePlugins(isBuild: boolean) {
 
   if (isBuild) {
     const buildPlugins: (PluginOption | PluginOption[])[] = [
-      // 图片压缩插件
-      // ConfigImageminPlugin(),
       // 图片资源自动转换为网络资源
       // ReplaceUrlPlugin(),
       // 自动清除本地图片
