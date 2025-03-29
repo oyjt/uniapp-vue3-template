@@ -4,10 +4,13 @@ export default antfu(
   {
     unocss: true,
     ignores: [
-      './dist/*',
-      './.vscode/*',
-      './.idea/*',
-      '**/uni_modules/*',
+      'dist/**',
+      '.vscode/**',
+      '.idea/**',
+      'node_modules/**',
+      'src/uni_modules/**',
+      'src/manifest.json',
+      'src/pages.json',
       'README.md',
     ],
   },
