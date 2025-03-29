@@ -99,7 +99,6 @@ build
    ├ autoImport.ts  自动导入api
    ├ cleanImage.ts  自动清理图片文件
    ├ component.ts   自动导入组件
-   ├ imagemin.ts    图片压缩
    ├ index.ts       入口文件
    ├ replaceUrl.ts  自动替换图片地址为CDN地址
    ├ unocss.ts      unocss配置
@@ -271,10 +270,9 @@ onShow(async () => {
 ```
 
 ### 注意事项
-1. 如果项目中不需要压缩图片，可以移除`vite-plugin-imagemin`插件后再初始化，以避免由于网路问题造成初始化报错的情况
-2. 微信小程序开发者工具中内置的打包分析不准确，本项目使用了`rollup-plugin-visualizer`来分析小程序包体积，默认不开启，有需要的移除相关注释即可
-3. 自动构建处理本地图片资源，使用了`vite-plugin-clean-build`和`vite-plugin-replace-image-url`这两个插件，默认不开启相关功能，如果需要使用再`build/vite/plugins/index.ts`文件中移除相关注释即可
-4. 使用`vite-plugin-replace-image-url`插件，想要图片自动替换生效，需要在项目中使用绝对路径引入图片资源，如下示例所示。
+1. 微信小程序开发者工具中内置的打包分析不准确，本项目使用了`rollup-plugin-visualizer`来分析小程序包体积，默认不开启，有需要的移除相关注释即可
+2. 自动构建处理本地图片资源，使用了`vite-plugin-clean-build`和`vite-plugin-replace-image-url`这两个插件，默认不开启相关功能，如果需要使用再`build/vite/plugins/index.ts`文件中移除相关注释即可
+3. 使用`vite-plugin-replace-image-url`插件，想要图片自动替换生效，需要在项目中使用绝对路径引入图片资源，如下示例所示。
 
     示例一：style中的图片使用
     ```
@@ -313,7 +311,7 @@ onShow(async () => {
     </style>
     ```
 
-6. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖。
+4. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖。
 ```
 This @babel/plugin-proposal-private-property-in-object version is not meant to
 be imported.
