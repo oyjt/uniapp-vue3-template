@@ -22,7 +22,7 @@ const transformers: SourceCodeTransformer[] = []
 if (isApplet) {
   presets.push(presetApplet() as Preset<any>)
   presets.push(presetRemRpx() as Preset<any>)
-  transformers.push(transformerAttributify({ ignoreAttributes: ['block'] }) as unknown as SourceCodeTransformer)
+  transformers.push(transformerAttributify({ ignoreAttributes: ['block'], deleteAttributes: false }) as unknown as SourceCodeTransformer)
 }
 else {
   presets.push(presetApplet() as Preset<any>)
