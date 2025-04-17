@@ -1,47 +1,47 @@
 <template>
   <view>
-    <view class="login-form-wrap">
-      <view class="title">
+    <view class="mx-auto mb-0 mt-80rpx w-600rpx">
+      <view class="mb-100rpx text-left text-60rpx font-500">
         欢迎登录
       </view>
       <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号">
       <view class="u-border-bottom my-40rpx flex">
-        <input v-model="code" class="flex-1" type="number" placeholder="请输入验证码">
+        <input v-model="code" class="mb-10rpx flex-1 pb-6rpx text-left" type="number" placeholder="请输入验证码">
         <view>
           <u-code ref="uCodeRef" @change="codeChange" />
           <u-button :text="tips" type="success" size="mini" @click="getCode" />
         </view>
       </view>
-      <button class="login-btn" :style="[inputStyle]" @tap="submit">
-        登录 <text class="i-mdi-login" />
+      <button class="flex items-center justify-center border-none bg-#fdf3d0 px-0 py-12rpx text-30rpx c-[$u-tips-color]" :style="[inputStyle]" @tap="submit">
+        登录 <text class="i-lucide-arrow-right-to-line" />
       </button>
 
-      <view class="alternative">
+      <view class="mt-30rpx flex justify-between c-[$u-tips-color]">
         <view class="password">
           密码登录
         </view>
         <view class="issue flex items-center">
-          遇到问题 <text class="i-mdi-help" />
+          遇到问题 <text class="i-lucide-circle-help" />
         </view>
       </view>
     </view>
-    <view class="login-type-wrap">
-      <view class="item wechat">
+    <view class="flex justify-between px-150rpx pb-150rpx pt-350rpx">
+      <view class="flex flex-col items-center text-28rpx c-[$u-content-color]">
         <view class="icon">
           <u-icon size="35" name="weixin-fill" color="rgb(83,194,64)" />
         </view>
         微信
       </view>
-      <view class="item QQ">
+      <view class="flex flex-col items-center text-28rpx c-[$u-content-color]">
         <view class="icon">
           <u-icon size="35" name="qq-fill" color="rgb(17,183,233)" />
         </view>
         QQ
       </view>
     </view>
-    <view class="hint">
+    <view class="px-40rpx py-20rpx text-24rpx c-[$u-tips-color]">
       登录代表同意
-      <text class="link">
+      <text class="c-[$u-warning]">
         用户协议、隐私政策，
       </text>
       并授权使用您的账号信息（如昵称、头像、收获地址）以便您统一管理
@@ -124,57 +124,5 @@ onLoad((options: any) => {
 </script>
 
 <style lang="scss" scoped>
-.login-form-wrap {
-  @apply mt-80rpx mx-auto mb-0 w-600rpx;
 
-  .title {
-    @apply mb-100rpx text-60rpx text-left font-500;
-  }
-
-  input {
-    @apply pb-6rpx mb-10rpx text-left;
-  }
-
-  .tips {
-    @apply mt-8rpx mb-60rpx;
-
-    color: $u-info;
-  }
-
-  .login-btn {
-    @apply flex items-center justify-center py-12rpx px-0 text-30rpx bg-#fdf3d0 border-none;
-
-    color: $u-tips-color;
-
-    &::after {
-      @apply border-none;
-    }
-  }
-
-  .alternative {
-    @apply flex justify-between mt-30rpx;
-
-    color: $u-tips-color;
-  }
-}
-
-.login-type-wrap {
-  @apply flex justify-between pt-350rpx px-150rpx pb-150rpx;
-
-  .item {
-    @apply flex items-center flex-col text-28rpx;
-
-    color: $u-content-color;
-  }
-}
-
-.hint {
-  @apply px-40rpx py-20rpx text-24rpx;
-
-  color: $u-tips-color;
-
-  .link {
-    color: $u-warning;
-  }
-}
 </style>

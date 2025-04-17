@@ -1,10 +1,12 @@
+import { presetWind } from '@unocss/preset-wind3';
 import {
   defineConfig,
   presetIcons,
-  transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
-import presetWeapp from 'unocss-preset-weapp';
+import presetAnimations from 'unocss-preset-animations';
+import { presetShadcn } from 'unocss-preset-shadcn';
+import { presetWeapp } from 'unocss-preset-weapp';
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
 
 const { presetWeappAttributify, transformerAttributify } = extractorAttributify();
@@ -24,6 +26,18 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
     }),
+    presetWind(),
+    presetAnimations(),
+    presetShadcn(
+      {
+        // 自定义主题色
+        color: 'zinc',
+      },
+      {
+        // 如果使用reka-ui，需要添加这一行（shadcn-vue基于reka-ui）
+        componentLibrary: 'reka',
+      },
+    ),
   ],
   /**
    * 自定义快捷语句
@@ -34,10 +48,6 @@ export default defineConfig({
     'center': 'flex justify-center items-center',
   },
   transformers: [
-    // 启用 @apply 功能
-    transformerDirectives({
-      enforce: 'pre',
-    }),
     // https://unocss.dev/transformers/variant-group
     // 启用 () 分组功能
     transformerVariantGroup(),
@@ -47,4 +57,15 @@ export default defineConfig({
     transformerClass(),
     // https://unocss.dev/transformers/directives
   ],
+  // shadcn-vue 必须要下面的配置
+  content: {
+    pipeline: {
+      include: [
+        // the default
+        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+        // include js/ts files
+        '(components|src)/**/*.{js,ts}',
+      ],
+    },
+  },
 });

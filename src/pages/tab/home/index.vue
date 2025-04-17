@@ -1,11 +1,6 @@
 <template>
   <view class="flex flex-col items-center justify-center">
-    <image
-      class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
-      src="@/static/images/logo.png"
-      width="200rpx"
-      height="200rpx"
-    />
+    <image class="mb-50rpx mt-200rpx h-200rpx w-200rpx" src="@/static/images/logo.png" width="200rpx" height="200rpx" />
     <view class="px-30rpx text-center">
       <view class="font-size-36rpx color-gray-700">
         uniapp 团队协作开发实践模板(Vue3)
@@ -13,11 +8,45 @@
       <view class="mt-20rpx color-gray-500">
         使用 uniapp+vite+vue3+typescript+uview-plus+unocss 搭建的适合团队协作的快速开发模版
       </view>
+
+      <view class="center flex-wrap gap-2 py-4">
+        <Button>按钮</Button>
+        <Button variant="secondary">
+          Secondary
+        </Button>
+        <Button variant="destructive">
+          Destructive
+        </Button>
+        <Button variant="outline">
+          Outline
+        </Button>
+        <Button variant="ghost">
+          Ghost
+        </Button>
+        <Button variant="link">
+          Link
+        </Button>
+        <Button variant="outline" size="icon">
+          <ChevronRight class="h-4 w-4" />
+        </Button>
+        <Button>
+          <MailOpen class="mr-2 h-4 w-4" /> Login with Email
+        </Button>
+        <Button disabled>
+          <Loader2 class="mr-2 h-4 w-4 animate-spin" />
+          Please wait
+        </Button>
+        <Button as-child>
+          <a href="/login">
+            Login
+          </a>
+        </Button>
+      </view>
     </view>
     <view class="mt-50rpx">
       <view center cursor-pointer @click="toGithub">
         <up-text mode="link" text="点击跳转项目地址" :href="githubLink" />
-        <view class="i-mdi-github text-40rpx" />
+        <view class="i-lucide-github text-40rpx" />
       </view>
     </view>
   </view>
@@ -25,6 +54,7 @@
 
 <script setup lang="ts">
 import { useUserStore } from '@/store';
+import { ChevronRight, Loader2, MailOpen } from 'lucide-vue-next';
 
 const githubLink = 'https://github.com/oyjt/uniapp-vue3-template';
 
