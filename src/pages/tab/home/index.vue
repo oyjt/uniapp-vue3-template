@@ -12,34 +12,34 @@
       <view class="center flex-wrap gap-2 py-4">
         <Button>按钮</Button>
         <Button variant="secondary">
-          Secondary
+          次要按钮
         </Button>
         <Button variant="destructive">
-          Destructive
+          危险操作
         </Button>
         <Button variant="outline">
-          Outline
+          轮廓
         </Button>
         <Button variant="ghost">
-          Ghost
+          幽灵按钮
         </Button>
         <Button variant="link">
-          Link
+          链接
         </Button>
         <Button variant="outline" size="icon">
           <ChevronRight class="h-4 w-4" />
         </Button>
         <Button>
-          <MailOpen class="mr-2 h-4 w-4" /> Login with Email
+          <MailOpen class="mr-2 h-4 w-4" /> 使用邮箱登录
         </Button>
         <Button disabled>
           <Loader2 class="mr-2 h-4 w-4 animate-spin" />
-          Please wait
+          请稍等
         </Button>
         <Button as-child>
-          <a href="/login">
-            Login
-          </a>
+          <navigator url="/pages/common/login/index">
+            跳转登录
+          </navigator>
         </Button>
       </view>
     </view>

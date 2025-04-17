@@ -3,7 +3,7 @@ import setupPlugins from '@/plugins';
 import { createSSRApp } from 'vue';
 // 引入UnoCSS
 import '@unocss/reset/tailwind-compat.css';
-import 'virtual:uno.css';
+import 'uno.css';
 
 export function createApp() {
   const app = createSSRApp(App);

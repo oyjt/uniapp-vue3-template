@@ -1,22 +1,38 @@
+import type { Preset, SourceCodeTransformer } from 'unocss'
 import { presetWind } from '@unocss/preset-wind3';
 import {
   defineConfig,
   presetIcons,
   transformerVariantGroup,
+  presetAttributify,
 } from 'unocss';
 import presetAnimations from 'unocss-preset-animations';
 import { presetShadcn } from 'unocss-preset-shadcn';
-import { presetWeapp } from 'unocss-preset-weapp';
-import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
+import {
+  presetApplet,
+  presetRemRpx,
+  transformerAttributify,
+} from 'unocss-applet'
 
-const { presetWeappAttributify, transformerAttributify } = extractorAttributify();
+// uni-app
+const isApplet = process.env?.UNI_PLATFORM?.startsWith('mp-') ?? false
+const presets: Preset[] = []
+const transformers: SourceCodeTransformer[] = []
+
+if (isApplet) {
+  presets.push(presetApplet() as Preset<any>)
+  presets.push(presetRemRpx() as Preset<any>)
+  transformers.push(transformerAttributify({ ignoreAttributes: ['block'] }) as unknown as SourceCodeTransformer)
+}
+else {
+  presets.push(presetApplet() as Preset<any>)
+  presets.push(presetAttributify() as Preset<any>)
+  presets.push(presetRemRpx({ mode: 'rpx2rem' }) as Preset<any>)
+}
 
 export default defineConfig({
   presets: [
-    // https://github.com/MellowCo/unocss-preset-weapp
-    presetWeapp() as any,
-    // attributify autocomplete
-    presetWeappAttributify() as any,
+    ...presets,
     // https://unocss.dev/presets/icons
     presetIcons({
       scale: 1.2,
@@ -26,7 +42,7 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
     }),
-    presetWind(),
+    presetWind() as Preset<any>,
     presetAnimations(),
     presetShadcn(
       {
@@ -48,14 +64,10 @@ export default defineConfig({
     'center': 'flex justify-center items-center',
   },
   transformers: [
+    ...transformers,
     // https://unocss.dev/transformers/variant-group
     // 启用 () 分组功能
     transformerVariantGroup(),
-    // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
-    transformerAttributify() as any,
-    // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
-    transformerClass(),
-    // https://unocss.dev/transformers/directives
   ],
   // shadcn-vue 必须要下面的配置
   content: {
