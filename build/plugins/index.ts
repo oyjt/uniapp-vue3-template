@@ -9,22 +9,22 @@ import { AutoImportDeps } from './autoImport';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
 import { AutoRegistryComponents } from './component';
-import { ConfigUnoCSSPlugin } from './unocss';
+import { TailwindcssPlugin } from './tailwindcss';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
-    // UnoCSS配置
-    ConfigUnoCSSPlugin(),
+    // uni支持(兼容性写法，当type为module时，必须要这样写)
+    (uniPlugin as any).default(),
     // 自动按需引入依赖
     AutoImportDeps(),
     // 自动按需引入组件(注意：需注册至 uni 之前，否则不会生效)
     AutoRegistryComponents(),
-    // uni支持(兼容性写法，当type为module时，必须要这样写)
-    (uniPlugin as any).default(),
     ViteRestart({
       // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
       restart: ['vite.config.ts'],
     }),
+    // tailwindcss配置
+    TailwindcssPlugin(),
   ];
 
   if (isBuild) {

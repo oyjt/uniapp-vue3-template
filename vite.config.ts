@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import { createViteProxy } from './build/config/index';
 import createVitePlugins from './build/plugins/index';
+import postcssPlugins from './postcss.config';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }): UserConfig => {
@@ -17,6 +18,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
   console.log('环境变量 env -> ', env);
 
   const isBuild = process.env.NODE_ENV === 'production';
+
   return {
     // 自定义env目录
     envDir: './env',
@@ -35,8 +37,12 @@ export default defineConfig(({ command, mode }): UserConfig => {
       open: true,
       proxy: createViteProxy(env),
     },
+    plugins: createVitePlugins(isBuild),
     // 设置scss的api类型为modern-compiler
     css: {
+      postcss: {
+        plugins: postcssPlugins,
+      },
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler',
@@ -45,7 +51,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
         },
       },
     },
-    plugins: createVitePlugins(isBuild),
     esbuild: {
       drop: JSON.parse(env.VITE_DROP_CONSOLE) ? ['console', 'debugger'] : [],
     },
