@@ -2,16 +2,23 @@
  * @name TailwindcssPlugin
  * @description tailwindcss相关配置
  */
-import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite';
+import { UnifiedViteWeappTailwindcssPlugin as uvwt } from 'weapp-tailwindcss/vite';
 import { WeappTailwindcssDisabled } from '../../platform';
 
 export const TailwindcssPlugin = () => {
-  return UnifiedViteWeappTailwindcssPlugin(
+  return uvwt(
     {
       rem2rpx: true,
       disabled: WeappTailwindcssDisabled,
-      tailwindcssBasedir: __dirname,
-      injectAdditionalCssVarScope: true,
+      tailwindcssPatcherOptions: {
+        patch: {
+          tailwindcss: {
+            v4: {
+              base: __dirname
+            }
+          }
+        }
+      }
     },
   );
 };

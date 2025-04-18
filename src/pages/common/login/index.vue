@@ -1,22 +1,22 @@
 <template>
   <view>
-    <view class="mx-auto mb-0 mt-80rpx w-600rpx">
-      <view class="mb-100rpx text-left text-60rpx font-500">
+    <view class="mx-auto mb-0 mt-[80rpx] w-[600rpx]">
+      <view class="mb-[100rpx] text-left text-[60rpx] font-medium">
         欢迎登录
       </view>
       <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号">
-      <view class="u-border-bottom my-40rpx flex">
-        <input v-model="code" class="mb-10rpx flex-1 pb-6rpx text-left" type="number" placeholder="请输入验证码">
+      <view class="u-border-bottom my-[40rpx] flex">
+        <input v-model="code" class="mb-[10rpx] flex-1 pb-[6rpx] text-left" type="number" placeholder="请输入验证码">
         <view>
           <u-code ref="uCodeRef" @change="codeChange" />
           <u-button :text="tips" type="success" size="mini" @click="getCode" />
         </view>
       </view>
-      <button class="flex items-center justify-center border-none bg-#fdf3d0 px-0 py-12rpx text-30rpx c-[$u-tips-color]" :style="[inputStyle]" @tap="submit">
+      <button class="flex items-center justify-center border-none bg-[#fdf3d0] px-0 py-[12rpx] text-[30rpx] text-[var(--u-tips-color)]" :style="[inputStyle]" @tap="submit">
         登录 <text class="i-lucide-arrow-right-to-line" />
       </button>
 
-      <view class="mt-30rpx flex justify-between c-[$u-tips-color]">
+      <view class="mt-[30rpx] flex justify-between text-[var(--u-tips-color)]">
         <view class="password">
           密码登录
         </view>
@@ -25,23 +25,23 @@
         </view>
       </view>
     </view>
-    <view class="flex justify-between px-150rpx pb-150rpx pt-350rpx">
-      <view class="flex flex-col items-center text-28rpx c-[$u-content-color]">
+    <view class="flex justify-between px-[150rpx] pb-[150rpx] pt-[350rpx]">
+      <view class="flex flex-col items-center text-[28rpx] text-[var(--u-content-color)]">
         <view class="icon">
           <u-icon size="35" name="weixin-fill" color="rgb(83,194,64)" />
         </view>
         微信
       </view>
-      <view class="flex flex-col items-center text-28rpx c-[$u-content-color]">
+      <view class="flex flex-col items-center text-[28rpx] text-[var(--u-content-color)]">
         <view class="icon">
           <u-icon size="35" name="qq-fill" color="rgb(17,183,233)" />
         </view>
         QQ
       </view>
     </view>
-    <view class="px-40rpx py-20rpx text-24rpx c-[$u-tips-color]">
+    <view class="px-[40rpx] py-[20rpx] text-[24rpx] text-[var(--u-tips-color)]">
       登录代表同意
-      <text class="c-[$u-warning]">
+      <text class="text-[var(--u-warning)]">
         用户协议、隐私政策，
       </text>
       并授权使用您的账号信息（如昵称、头像、收获地址）以便您统一管理
@@ -122,7 +122,3 @@ onLoad((options: any) => {
   }
 });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

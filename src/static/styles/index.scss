@@ -1,10 +1,5 @@
-// uview-plus
-@import 'uview-plus/index';
+/* uview-plus */
+@import 'uview-plus/index.scss';
 
-// tailwindcss
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-// 全局样式
+/* 全局样式 */
 @import './global';

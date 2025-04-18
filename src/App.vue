@@ -17,5 +17,5 @@ onHide(() => {
 
 <style lang="scss">
 /* 每个页面公共css */
-@import '@/static/styles/index';
+@import '@/static/styles/index.scss';
 </style>

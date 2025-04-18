@@ -29,7 +29,7 @@ function toGithub() {
         使用 uniapp+vite+vue3+typescript+uview-plus+unocss 搭建的适合团队协作的快速开发模版
       </view>
 
-      <view class="flex flex-wrap items-center gap-2 py-4">
+      <view class="flex flex-wrap items-center justify-center gap-2 py-4">
         <Button>按钮</Button>
         <Button variant="secondary">
           次要按钮

@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import { createViteProxy } from './build/config/index';
 import createVitePlugins from './build/plugins/index';
-import postcssPlugins from './postcss.config';
+import tailwindcss from '@tailwindcss/postcss'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }): UserConfig => {
@@ -41,7 +41,11 @@ export default defineConfig(({ command, mode }): UserConfig => {
     // 设置scss的api类型为modern-compiler
     css: {
       postcss: {
-        plugins: postcssPlugins,
+        plugins: [
+          tailwindcss({
+            base: __dirname
+          }),
+        ],
       },
       preprocessorOptions: {
         scss: {
