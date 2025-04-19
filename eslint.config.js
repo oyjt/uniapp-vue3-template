@@ -1,18 +1,10 @@
 import antfu from '@antfu/eslint-config';
+import tailwind from 'eslint-plugin-tailwindcss';
 
 export default antfu(
   {
-    unocss: true,
-    ignores: [
-      'dist/**',
-      '.vscode/**',
-      '.idea/**',
-      'node_modules/**',
-      'src/uni_modules/**',
-      'src/manifest.json',
-      'src/pages.json',
-      'README.md',
-    ],
+    ...tailwind.configs["flat/recommended"],
+    'tailwindcss/no-custom-classname': 'off'
   },
   {
     rules: {
