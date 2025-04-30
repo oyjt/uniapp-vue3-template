@@ -10,7 +10,7 @@
       "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "miniprogram-api-typings", "uview-plus/types"],
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "miniprogram-api-typings"],
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
@@ -18,7 +18,8 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "dist"
   },
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-app-types/volar-plugin"]

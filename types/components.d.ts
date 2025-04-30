@@ -8,6 +8,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('./../src/components/ui/avatar/Avatar.vue')['default']
+    AvatarFallback: typeof import('./../src/components/ui/avatar/AvatarFallback.vue')['default']
+    AvatarImage: typeof import('./../src/components/ui/avatar/AvatarImage.vue')['default']
     Button: typeof import('./../src/components/ui/button/Button.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

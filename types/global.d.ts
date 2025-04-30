@@ -25,7 +25,7 @@ declare global {
   declare function parseFloat(string: string | number): number;
 
   declare interface Uni {
-    $u: any;
+    $uv: any;
   }
 
   namespace JSX {

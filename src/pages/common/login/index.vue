@@ -4,17 +4,18 @@
       <view class="mb-[100rpx] text-left text-[60rpx] font-medium">
         欢迎登录
       </view>
-      <input v-model="tel" class="u-border-bottom" type="number" placeholder="请输入手机号">
-      <view class="u-border-bottom my-[40rpx] flex">
-        <input v-model="code" class="mb-[10rpx] flex-1 pb-[6rpx] text-left" type="number" placeholder="请输入验证码">
+      <view class="u-border-b py-[16rpx]">
+        <input v-model="tel" type="number" placeholder="请输入手机号">
+      </view>
+      <view class="u-border-b py-[16rpx] mt-[30rpx] flex items-center">
+        <input v-model="code" class="flex-1 pb-[6rpx] text-left" type="number" placeholder="请输入验证码">
         <view>
-          <u-code ref="uCodeRef" @change="codeChange" />
-          <u-button :text="tips" type="success" size="mini" @click="getCode" />
+          <uv-code ref="uCodeRef" @change="codeChange" />
+          <Button variant="ghost" size="xs" @click="getCode">{{ tips }}</Button>
         </view>
       </view>
-      <button class="flex items-center justify-center border-none bg-[#fdf3d0] px-0 py-[12rpx] text-[30rpx] text-[var(--u-tips-color)]" :style="[inputStyle]" @tap="submit">
-        登录 <text class="i-lucide-arrow-right-to-line" />
-      </button>
+
+      <Button class="w-full mt-[40rpx]" size="lg" @click="submit">登录 <text class="i-lucide-arrow-right-to-line" /></Button>
 
       <view class="mt-[30rpx] flex justify-between text-[var(--u-tips-color)]">
         <view class="password">
@@ -28,13 +29,13 @@
     <view class="flex justify-between px-[150rpx] pb-[150rpx] pt-[350rpx]">
       <view class="flex flex-col items-center text-[28rpx] text-[var(--u-content-color)]">
         <view class="icon">
-          <u-icon size="35" name="weixin-fill" color="rgb(83,194,64)" />
+          <uv-icon size="35" name="weixin-fill" color="rgb(83,194,64)" />
         </view>
         微信
       </view>
       <view class="flex flex-col items-center text-[28rpx] text-[var(--u-content-color)]">
         <view class="icon">
-          <u-icon size="35" name="qq-fill" color="rgb(17,183,233)" />
+          <uv-icon size="35" name="qq-fill" color="rgb(17,183,233)" />
         </view>
         QQ
       </view>
@@ -50,7 +51,6 @@
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties } from 'vue';
 import { HOME_PATH, isTabBarPath, LOGIN_PATH, removeQueryString } from '@/router';
 import { setToken } from '@/utils/auth';
 import uCode from 'uview-plus/components/u-code/u-code.vue';
@@ -62,15 +62,6 @@ const code = ref<string>('1234');
 const tips = ref<string>();
 const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
 let redirect = HOME_PATH;
-
-const inputStyle = computed<CSSProperties>(() => {
-  const style = {} as CSSProperties;
-  if (tel.value && code.value) {
-    style.color = '#fff';
-    style.backgroundColor = uni.$u.color.warning;
-  }
-  return style;
-});
 
 function codeChange(text: string) {
   tips.value = text;
@@ -84,32 +75,32 @@ function getCode() {
     });
     setTimeout(() => {
       uni.hideLoading();
-      uni.$u.toast('验证码已发送');
+      uni.$uv.toast('验证码已发送');
       // 通知验证码组件内部开始倒计时
       uCodeRef.value?.start();
     }, 1000);
   }
   else {
-    uni.$u.toast('倒计时结束后再发送');
+    uni.$uv.toast('倒计时结束后再发送');
   }
 }
 async function submit() {
-  if (!uni.$u.test.mobile(Number(tel.value))) {
-    uni.$u.toast('请输入正确的手机号');
+  if (!uni.$uv.test.mobile(Number(tel.value))) {
+    uni.$uv.toast('请输入正确的手机号');
     return;
   }
   if (!code.value) {
-    uni.$u.toast('请输入验证码');
+    uni.$uv.toast('请输入验证码');
     return;
   }
   // 登录请求
   // const res = await userStore.login({ phone: tel.value, code: code.value }).catch(() => {
-  //   uni.$u.toast('登录失败');
+  //   uni.$uv.toast('登录失败');
   // });
   // if (!res) return;
   setToken('1234567890');
   setTimeout(() => {
-    uni.$u.route({
+    uni.$uv.route({
       type: isTabBarPath(redirect) ? 'switchTab' : 'redirectTo',
       url: redirect,
     });

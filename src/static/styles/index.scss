@@ -1,5 +1,106 @@
-/* uview-plus */
-@import 'uview-plus/index.scss';
-
 /* 全局样式 */
 @import './global';
+
+/* 此处加上!important并非随意乱用，而是因为目前*.nvue页面编译到H5时，
+ * App.vue的样式会被uni-app的view元素的自带border属性覆盖，导致无效
+ * 综上，这是uni-app的缺陷导致我们为了多端兼容，而必须要加上!important
+ * 移动端兼容性较好，直接使用0.5px去实现细边框，不使用伪元素形式实现
+ */
+.u-border {
+	border-width: 0.5px!important;
+	border-color: var(--color-border) !important;
+    border-style: solid;
+}
+
+.u-border-t {
+	border-top-width: 0.5px!important;
+	border-color: var(--color-border)!important;
+    border-top-style: solid;
+}
+
+.u-border-l {
+	border-left-width: 0.5px!important;
+	border-color: var(--color-border)!important;
+    border-left-style: solid;
+}
+
+.u-border-r {
+	border-right-width: 0.5px!important;
+	border-color: var(--color-border)!important;
+    border-right-style: solid;
+}
+
+.u-border-b {
+	border-bottom-width: 0.5px!important;
+	border-color: var(--color-border)!important;
+  border-bottom-style: solid;
+}
+
+.u-border-x {
+	border-left-width: 0.5px!important;
+	border-right-width: 0.5px!important;
+	border-color: var(--color-border)!important;
+  border-left-style: solid;
+  border-right-style: solid;
+}
+
+.u-border-y {
+	border-top-width: 0.5px!important;
+	border-bottom-width: 0.5px!important;
+	border-color: var(--color-border)!important;
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
+.u-divide-x {
+	:where(& > :not(:last-child)) {
+    border-color: var(--color-border)!important;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-left-width: 0;
+    border-right-width: 0.5px!important;
+  }
+}
+
+.u-divide-y {
+	:where(& > :not(:last-child)) {
+    border-color: var(--color-border)!important;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 0.5px!important;
+  }
+}
+
+/* 去除button的所有默认样式，让其表现跟普通的view、text元素一样 */
+.u-reset-button {
+	padding: 0;
+	background-color: transparent;
+	/* #ifndef APP-PLUS */
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	/* #endif */
+	/* #ifdef APP-NVUE */
+	border-width: 0;
+	/* #endif */
+}
+
+/* #ifndef APP-NVUE */
+.u-reset-button::after {
+   border: none;
+}
+/* #endif */
+
+.u-hover-class {
+	opacity: 0.7;
+}
+
+/* 隐藏scroll-view的滚动条 */
+::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none;
+  background: transparent;
+}

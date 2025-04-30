@@ -1,22 +1,21 @@
 <template>
   <z-paging ref="pagingRef" v-model="dataList" @query="queryList">
-    <view v-for="(item, index) in dataList" :key="index">
-      <u-cell :title="`列表长度-${index + 1}`">
-        <template #icon>
-          <u-avatar
-            shape="square"
-            size="35"
-            :src="item"
-            custom-style="margin: -3px 5px -3px 0"
-          />
-        </template>
-      </u-cell>
+    <view class="u-divide-y">
+      <view v-for="(item, index) in dataList" :key="index"
+        class="flex items-center py-[26rpx] px-[30rpx] text-[#606266] bg-white" hover-class="u-hover-class">
+        <Avatar class="size-[70rpx] mr-[8rpx]">
+          <AvatarImage :src="item" />
+          <AvatarFallback>头像</AvatarFallback>
+        </Avatar>
+        <view class="flex-1 text-[30rpx]">{{ `列表长度-${index + 1}` }}</view>
+      </view>
     </view>
   </z-paging>
 </template>
 
 <script setup lang="ts">
-const pagingRef = ref<InstanceType<typeof zPaging> | null>(null);
+import ZPaging from 'z-paging/components/z-paging/z-paging.vue';
+const pagingRef = ref<InstanceType<typeof ZPaging> | null>(null);
 const dataList = ref<string[]>([]);
 
 const urls: string[] = [
@@ -41,7 +40,7 @@ function queryList(pageNo: number, pageSize: number) {
     // 1秒之后停止刷新动画
     const list = [];
     for (let i = 0; i < 30; i++)
-      list.push(urls[uni.$u.random(0, urls.length - 1)]);
+      list.push(urls[uni.$uv.random(0, urls.length - 1)]);
 
     pagingRef.value?.complete(list);
   }, 1000);

@@ -25,6 +25,6 @@
     "manifest.json": "jsonc",
     "pages.json": "jsonc"
   },
-  // 消除Unknown at rule @apply警告
-  "css.customData": [".vscode/unocss.json"]
+  // 消除Unknown at rule @apply警告 https://github.com/tailwindlabs/tailwindcss/discussions/5258
+  "css.customData": [".vscode/tailwind.json"],
 }
