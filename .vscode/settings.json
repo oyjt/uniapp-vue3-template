@@ -26,5 +26,11 @@
     "pages.json": "jsonc"
   },
   // 消除Unknown at rule @apply警告
-  "css.customData": [".vscode/unocss.json"]
+  "css.customData": [
+    ".vscode/unocss.json"
+  ],
+  "i18n-ally.localesPaths": [
+    "src/locales",
+    "src/locales/langs"
+  ]
 }
