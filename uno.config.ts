@@ -4,7 +4,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
-import presetWeapp from 'unocss-preset-weapp';
+import { presetWeapp } from 'unocss-preset-weapp';
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
 
 const { presetWeappAttributify, transformerAttributify } = extractorAttributify();
@@ -12,7 +12,7 @@ const { presetWeappAttributify, transformerAttributify } = extractorAttributify(
 export default defineConfig({
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
-    presetWeapp() as any,
+    presetWeapp(),
     // attributify autocomplete
     presetWeappAttributify() as any,
     // https://unocss.dev/presets/icons
@@ -45,6 +45,5 @@ export default defineConfig({
     transformerAttributify() as any,
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
     transformerClass(),
-    // https://unocss.dev/transformers/directives
   ],
 });
