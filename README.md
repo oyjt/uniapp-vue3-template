@@ -14,6 +14,8 @@
 
 本项目集众多项目的优点，打造最适合团队协作开发的项目模板。
 
+国内仓库地址：[https://gitee.com/ouyang/uniapp-vue3-template](https://gitee.com/ouyang/uniapp-vue3-template)
+
 在线预览地址：[https://oyjt.github.io/uniapp-vue3-template/](https://oyjt.github.io/uniapp-vue3-template/)
 
 ### 特性
@@ -40,6 +42,7 @@
 - [x] 集成`alova`网络请求（具体使用请切换到 [feature/alova](https://github.com/oyjt/uniapp-vue3-template/tree/feature/alova) 分支）
 - [x] 集成`axios`网络请求（具体使用请切换到 [feature/axios](https://github.com/oyjt/uniapp-vue3-template/tree/feature/axios) 分支）
 - [x] 支持新的`wot-design-uni`库（具体使用请切换到[feature/wot-design-uni](https://github.com/oyjt/uniapp-vue3-template/tree/feature/wot-design-uni)分支），[wot-design-uni官方文档](https://wot-design-uni.cn/)
+- [x] 支持新的`shadcn-ui`库（具体使用请切换到[feature/shadcn-ui](https://github.com/oyjt/uniapp-vue3-template/tree/feature/shadcn-ui)分支），[shadcn-ui官方文档](https://ui.shadcn.com/)
 
 ### uniapp插件推荐
 - [uniapp 插件精选（https://github.com/oyjt/awesome-uniapp）](https://github.com/oyjt/awesome-uniapp)
@@ -317,6 +320,9 @@ This @babel/plugin-proposal-private-property-in-object version is not meant to
 be imported.
 ```
 此时升级微信开发者工具，或者安装`@babel/plugin-proposal-private-property-in-object`依赖即可解决问题。
+
+5. `shadcn-ui` 分支采用最新的 `tailwindcss v4.1` 版本，因为现阶段的 `unocss` 对于最新版 `tailwindcss` 支持还不够完善。
+`shadcn-ui`并不太适合移动端使用，如果不喜欢可以移除，只保留纯净的框架。
 
 ### 捐赠
 
