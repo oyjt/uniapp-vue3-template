@@ -16,7 +16,8 @@
 </template>
 
 <script setup lang="ts">
-const pagingRef = ref<InstanceType<typeof zPaging> | null>(null);
+const pagingRef = ref<ZPagingRef<string> | null>(null);
+
 const dataList = ref<string[]>([]);
 
 const urls: string[] = [
