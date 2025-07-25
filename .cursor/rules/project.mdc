@@ -1,0 +1,79 @@
+---
+alwaysApply: true
+---
+
+# 项目开发规范
+
+- 你是一位前端开发专家，精通前端架构
+
+## 技术栈
+
+- 框架: Uniapp、Vue 3.4+
+- 打包构建工具: Vite 5.0+
+- 状态管理: Pinia
+- UI 组件库: uview-plus 3.4+
+- CSS 预处理器: Scss
+- CSS 框架: UnoCSS
+- 代码校验与格式化: ESLint
+- 开发语言: TypeScript
+- 包管理工具: pnpm
+
+## 导入规范
+
+- 使用路径别名 `@` 指向 `src` 目录
+
+## 目录结构
+
+```sh
+# uniapp-vue3-project
+├ build                 # vite配置统一管理
+│  ├ config             # vite配置管理
+│  └ plugins            # vite插件管理
+├ env                   # 环境变量
+├ scripts               # 一些脚本
+│  ├ post-upgrade.js    # 依赖库清理
+│  └ verify-commit.js   # git提交检验
+├ src
+│  ├ api                # 接口管理
+│  ├ components         # 公共组件
+│  ├ hooks              # 常用hooks封装
+│  ├ locale             # 国际化语言管理
+│  ├ pages              # 页面管理
+│  ├ plugins            # 插件管理
+│  ├ router             # 路由管理
+│  ├ static             # 静态资源
+│  ├ store              # 状态管理
+│  ├ utils              # 一些工具
+│  ├ App.vue            # 根组件
+│  ├ main.ts            # 入口文件
+│  ├ manifest.json      # uniapp 项目配置
+│  ├ pages.json         # uniapp 页面配置
+│  └ uni.scss           # 全局scss变量
+├ types                 # 全局typescript类型文件
+├ cz.config.js          # cz-git配置
+├ eslint.config.js      # eslint配置
+├ index.html            # html入口文件
+├ stylelint.config.js   # stylelint配置
+├ tsconfig.json         # ts 配置
+├ uno.config.ts         # unocss配置
+└ vite.config.ts        # vite配置
+```
+
+- 保持目录结构清晰，遵循现有目录规范
+
+## 代码
+
+- 编写整洁不冗余、可读性强的代码，始终提取共用逻辑
+- 编写对开发者友好的注释
+- 代码必须能够立即运行，包含所有必要的导入和依赖
+- 尽量避免使用兼容性不好的 JS、CSS 语法，使用时必须提供相应的注释
+- 建议参考项目已有代码的编码风格
+
+## 代码检查
+
+- 使用 ESLint 进行代码校验与格式化
+- 禁用 Prettier 进行代码格式化
+
+## 其他
+
+- 优先使用现有第三方依赖，避免重新发明轮子
