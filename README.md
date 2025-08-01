@@ -223,7 +223,7 @@ pnpm cz
 
 更新uniapp相关依赖到最新正式版
 ```bash
-npx @dcloudio/uvm@latest
+pnpx @dcloudio/uvm@latest
 ```
 或者执行下面的命令
 ```bash
