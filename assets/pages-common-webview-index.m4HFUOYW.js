@@ -1,1 +1,0 @@
-import{d as s,g as a,a3 as e,a as n,e as r,ad as o,o as t}from"./index-BwQJwXx1.js";const l=s({__name:"index",setup(s){const l=a("");return e(s=>{s.url&&(l.value=decodeURIComponent(s.url))}),(s,a)=>{const e=o;return t(),n(e,{class:"h-full",src:r(l)},null,8,["src"])}}});export{l as default};
