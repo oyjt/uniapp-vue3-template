@@ -35,7 +35,7 @@ alwaysApply: false
 ## Props
 
 - Prop 定义应该尽量详细，包括类型、必传、默认值
-- 如果是使用了 TS 那么应该使用「基于类型的声明」，默认值则使用「响应式 Props 解构」，示例: `const { isActive = false } = defineProps<Props>()`
+- 如果是使用了 TS 那么应该使用「基于类型的声明」，示例: `const props = defineProps<Props>()`
 
 ## 状态管理
 
