@@ -1,4 +1,4 @@
-page {
+.page-wrap {
   /* 亮色主题 (默认) */
   --primary-color: 60 80 220;
   --primary-muted-color: 150 160 240;
@@ -17,7 +17,7 @@ page {
 }
 
 /* 当 page 元素拥有 'dark' class 时，应用暗色主题变量 */
-page.dark {
+.page-wrap.dark {
   --primary-color: 120 130 255;
   --primary-muted-color: 80 90 200;
   --background-color: 20 20 30;

@@ -1,5 +1,5 @@
 <template>
-  <view class="flex flex-col items-center justify-center" :class="themeStore.theme">
+  <view class="page-wrap min-h-screen flex flex-col items-center" :class="themeStore.theme">
     <image
       class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
       src="@/static/images/logo.png"
@@ -7,7 +7,7 @@
       height="200rpx"
     />
     <view class="flex justify-center">
-      <text class="font-size-36rpx color-gray-700">
+      <text class="font-size-36rpx color-text">
         {{ $t('home.intro') }}
       </text>
     </view>
