@@ -51,9 +51,9 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
+import uCode from 'uview-plus/components/u-code/u-code.vue';
 import { HOME_PATH, isTabBarPath, LOGIN_PATH, removeQueryString } from '@/router';
 import { setToken } from '@/utils/auth';
-import uCode from 'uview-plus/components/u-code/u-code.vue';
 // import { useUserStore } from '@/store';
 
 // const userStore = useUserStore();

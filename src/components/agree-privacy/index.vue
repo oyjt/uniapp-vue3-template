@@ -16,12 +16,12 @@
       </view>
 
       <view class="mt-30rpx flex items-center justify-around pt-10rpx">
-        <view style="min-width: 100px">
+        <view class="min-w-100px">
           <button class="button button-default" @click="disagree">
             拒绝
           </button>
         </view>
-        <view style="min-width: 100px">
+        <view class="min-w-100px">
           <button
             :id="agreePrivacyId"
             class="button button-primary"

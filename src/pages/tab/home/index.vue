@@ -1,5 +1,5 @@
 <template>
-  <view class="flex flex-col items-center justify-center">
+  <view class="flex flex-col items-center justify-center" :class="themeStore.theme">
     <image
       class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
       src="@/static/images/logo.png"
@@ -13,6 +13,7 @@
     </view>
     <view class="mt-100rpx flex gap-30rpx">
       <lang-select />
+      <theme-switcher />
       <view cursor-pointer @click="toGithub">
         <view class="i-mdi-github text-40rpx" />
       </view>
@@ -25,10 +26,10 @@
 </template>
 
 <script setup lang="ts">
-// #ifdef MP-WEIXIN
 import { useShare } from '@/hooks';
-// #endif
-import { useUserStore } from '@/store';
+import { useThemeStore, useUserStore } from '@/store';
+
+const themeStore = useThemeStore();
 
 // #ifdef MP-WEIXIN
 // 分享使用示例

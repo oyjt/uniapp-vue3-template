@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useThemeStore } from '@/store';
 import { mpUpdate } from '@/utils/index';
 
 onLaunch(() => {
@@ -6,6 +7,10 @@ onLaunch(() => {
   // #ifdef MP-WEIXIN
   mpUpdate();
   // #endif
+
+  // 初始化主题
+  const themeStore = useThemeStore();
+  themeStore.init();
 });
 onShow(() => {
   console.log('App Show');

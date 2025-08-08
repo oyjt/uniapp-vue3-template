@@ -25,6 +25,14 @@ export default defineConfig({
       },
     }),
   ],
+  theme: {
+    colors: {
+      primary: 'rgb(var(--primary-color) / <alpha-value>)',
+      background: 'rgb(var(--background-color) / <alpha-value>)',
+      text: 'rgb(var(--text-color) / <alpha-value>)',
+      border: 'rgb(var(--border-color) / <alpha-value>)',
+    },
+  },
   /**
    * 自定义快捷语句
    * @see https://github.com/unocss/unocss#shortcuts

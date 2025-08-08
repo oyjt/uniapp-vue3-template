@@ -117,6 +117,7 @@
     "stylelint": "^16.23.0",
     "stylelint-config-recess-order": "^6.1.0",
     "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
     "typescript": "5.8.3",
     "unocss": "65.5.0",
     "unocss-preset-weapp": "^66.0.2",
