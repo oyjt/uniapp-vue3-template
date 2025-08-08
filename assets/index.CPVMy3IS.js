@@ -1,0 +1,1 @@
+import{u as e,f as o}from"./index-CcDYoQkB.js";function t(){const t=e(),m=o(()=>t.getThemeMode),s=o(()=>t.getIsDark),r=o(()=>t.getThemeColors);return{themeMode:m,isDark:s,themeColors:r,setThemeMode:e=>{t.setThemeMode(e)},toggleTheme:()=>{t.toggleTheme()},getThemeColor:e=>r.value[e]}}export{t as u};
