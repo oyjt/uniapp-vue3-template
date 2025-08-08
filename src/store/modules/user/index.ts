@@ -1,9 +1,9 @@
-import type { LoginReq } from '@/api/user/types';
 import type { providerType, UserState } from './types';
-import { UserApi } from '@/api';
-import { clearToken, setToken } from '@/utils/auth';
-
+import type { LoginReq } from '@/api/user/types';
 import { defineStore } from 'pinia';
+import { UserApi } from '@/api';
+
+import { clearToken, setToken } from '@/utils/auth';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({

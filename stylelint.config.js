@@ -8,6 +8,7 @@ export default {
     'dist/**',
     'src/uni_modules/**',
     'node_modules/**',
+    'src/static/styles/theme.scss', // 忽略主题文件，因为包含 CSS 自定义属性
   ],
   rules: {
     // 禁止空代码
@@ -53,6 +54,5 @@ export default {
     ],
     'selector-type-no-unknown': [true, { ignoreTypes: ['page', 'radio', 'checkbox', 'scroll-view'] }],
     'at-rule-no-deprecated': null,
-    'declaration-property-value-no-unknown': null,
   },
 };

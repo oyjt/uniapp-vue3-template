@@ -1,12 +1,15 @@
 <template>
-  <view @click="themeStore.toggleTheme()">
-    <view v-if="themeStore.theme === 'light'" class="i-mdi-moon-and-stars text-xl" />
-    <view v-else class="i-mdi-white-balance-sunny text-xl" />
+  <view @click="toggleTheme()">
+    <view class="text-xl" :class="appStore.getIsDark ? 'i-mdi-white-balance-sunny' : 'i-mdi-moon-and-stars'" />
   </view>
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store';
+import { useAppStore } from '@/store';
 
-const themeStore = useThemeStore();
+const appStore = useAppStore();
+
+const toggleTheme = () => {
+  appStore.toggleTheme();
+};
 </script>

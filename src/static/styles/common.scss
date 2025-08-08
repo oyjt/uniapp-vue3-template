@@ -1,29 +1,5 @@
-.page-wrap {
-  /* 亮色主题 (默认) */
-  --primary-color: 60 80 220;
-  --primary-muted-color: 150 160 240;
-  --background-color: 255 255 255;
-  --surface-color: 245 245 245;
-  --on-primary-color: 255 255 255;
-  --text-color: 10 10 10;
-  --text-muted-color: 100 100 100;
-  --border-color: 220 220 220;
-
-  /* 基础样式和过渡效果 */
+page {
   font-size: $u-font-base;
-  color: rgb(var(--text-color));
-  background-color: rgb(var(--background-color));
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* 当 page 元素拥有 'dark' class 时，应用暗色主题变量 */
-.page-wrap.dark {
-  --primary-color: 120 130 255;
-  --primary-muted-color: 80 90 200;
-  --background-color: 20 20 30;
-  --surface-color: 35 35 50;
-  --on-primary-color: 240 240 240;
-  --text-color: 240 240 240;
-  --text-muted-color: 160 160 160;
-  --border-color: 70 70 90;
+  color: $u-main-color;
+  background-color: $u-bg-color;
 }

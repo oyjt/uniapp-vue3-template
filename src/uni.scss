@@ -1,26 +1,27 @@
 @import 'uview-plus/theme.scss';
+@import '@/static/styles/theme.scss';
 
-/* 颜色变量 */
+/* 颜色变量 - 使用CSS变量支持主题切换 */
 
 /* 行为相关颜色 */
-$u-primary: #21d59d;
-$u-primary-dark: #76a3fd;
-$u-success: #3ed268;
-$u-warning: #fe9831;
-$u-error: #fa4e62;
+$u-primary: var(--theme-primary);
+$u-primary-dark: var(--theme-primary-dark);
+$u-success: var(--theme-success);
+$u-warning: var(--theme-warning);
+$u-error: var(--theme-error);
 
 /* 文字基本颜色 */
-$u-main-color: #1b233b;
-$u-content-color: #60687e;
-$u-tips-color: #7e869a;
-$u-light-color: #bdc3d2;
-$u-disabled-color: #dce0eb;
+$u-main-color: var(--theme-main-color);
+$u-content-color: var(--theme-content-color);
+$u-tips-color: var(--theme-tips-color);
+$u-light-color: var(--theme-light-color);
+$u-disabled-color: var(--theme-disabled-color);
 
 /* 背景颜色 */
-$u-bg-color: #f1f7f7;
+$u-bg-color: var(--theme-bg-color);
 
 /* 边框颜色 */
-$u-border-color: #f2f7f7;
+$u-border-color: var(--theme-border-color);
 
 /* 尺寸变量 */
 

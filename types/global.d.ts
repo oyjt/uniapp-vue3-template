@@ -33,4 +33,8 @@ declare global {
       view: _View;
     }
   }
+
+  interface Window {
+    matchMedia: (query: string) => MediaQueryList;
+  }
 }

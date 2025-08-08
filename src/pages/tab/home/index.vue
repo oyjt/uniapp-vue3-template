@@ -1,5 +1,5 @@
 <template>
-  <view class="page-wrap min-h-screen flex flex-col items-center" :class="themeStore.theme">
+  <view class="min-h-screen flex flex-col items-center">
     <image
       class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
       src="@/static/images/logo.png"
@@ -7,16 +7,16 @@
       height="200rpx"
     />
     <view class="flex justify-center">
-      <text class="text-36rpx">
+      <text class="font-size-36rpx">
         {{ $t('home.intro') }}
       </text>
     </view>
     <view class="mt-100rpx flex gap-30rpx">
       <lang-select />
-      <theme-switcher />
       <view cursor-pointer @click="toGithub">
         <view class="i-mdi-github text-40rpx" />
       </view>
+      <theme-switcher />
     </view>
     <!-- #ifdef MP-WEIXIN -->
     <!-- 隐私协议组件 -->
@@ -26,10 +26,10 @@
 </template>
 
 <script setup lang="ts">
+// #ifdef MP-WEIXIN
 import { useShare } from '@/hooks';
-import { useThemeStore, useUserStore } from '@/store';
-
-const themeStore = useThemeStore();
+// #endif
+import { useUserStore } from '@/store';
 
 // #ifdef MP-WEIXIN
 // 分享使用示例

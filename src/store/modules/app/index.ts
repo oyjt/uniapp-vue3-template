@@ -1,13 +1,36 @@
 import type { AppState } from './types';
+import type { ThemeColors, ThemeMode } from '@/utils/theme/types';
 import { defineStore } from 'pinia';
+import {
+  applyTheme,
+  getStoredThemeMode,
+  getSystemTheme,
+  getThemeColors,
+  saveThemeMode,
+} from '@/utils/theme';
+import { lightTheme, THEME_CONFIG } from '@/utils/theme/config';
 
 const useAppStore = defineStore('app', {
   state: (): AppState => ({
     systemInfo: {} as UniApp.GetSystemInfoResult,
+    theme: {
+      mode: THEME_CONFIG.defaultMode,
+      isDark: false,
+      colors: lightTheme,
+    },
   }),
   getters: {
     getSystemInfo(): UniApp.GetSystemInfoResult {
       return this.systemInfo;
+    },
+    getThemeMode(): ThemeMode {
+      return this.theme.mode;
+    },
+    getIsDark(): boolean {
+      return this.theme.isDark;
+    },
+    getThemeColors(): ThemeColors {
+      return this.theme.colors;
     },
   },
   actions: {
@@ -23,6 +46,39 @@ const useAppStore = defineStore('app', {
           console.error(err);
         },
       });
+    },
+    /**
+     * 初始化主题
+     */
+    initTheme() {
+      const storedMode = getStoredThemeMode();
+      const finalMode = storedMode === 'auto' ? getSystemTheme() : storedMode;
+
+      this.setThemeMode(finalMode);
+    },
+    /**
+     * 设置主题模式
+     */
+    setThemeMode(mode: ThemeMode) {
+      const isDark = mode === 'dark';
+      const colors = getThemeColors(mode);
+
+      this.theme.mode = mode;
+      this.theme.isDark = isDark;
+      this.theme.colors = colors;
+
+      // 应用主题
+      applyTheme(mode);
+
+      // 保存到本地存储
+      saveThemeMode(mode);
+    },
+    /**
+     * 切换主题
+     */
+    toggleTheme() {
+      const newMode = this.theme.isDark ? 'light' : 'dark';
+      this.setThemeMode(newMode);
     },
     checkUpdate() {
       const updateManager = uni.getUpdateManager();

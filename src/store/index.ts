@@ -1,11 +1,10 @@
 import type { App } from 'vue';
 import { createPinia } from 'pinia';
-// 数据持久化
+// pinia 持久化插件
 import { createPersistedState } from 'pinia-plugin-persistedstate';
 
 // 导入子模块
 import useAppStore from './modules/app';
-import useThemeStore from './modules/theme';
 import useUserStore from './modules/user';
 
 // 安装pinia状态管理插件
@@ -24,5 +23,5 @@ function setupStore(app: App) {
 }
 
 // 导出模块
-export { useAppStore, useThemeStore, useUserStore };
+export { useAppStore, useUserStore };
 export default setupStore;

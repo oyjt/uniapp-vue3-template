@@ -1,20 +1,28 @@
 <script setup lang="ts">
-import { useThemeStore } from '@/store';
+import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
+import { useAppStore } from '@/store';
 import { mpUpdate } from '@/utils/index';
+
+const appStore = useAppStore();
 
 onLaunch(() => {
   console.log('App Launch');
+
+  // 初始化系统信息
+  appStore.initSystemInfo();
+
+  // 初始化主题
+  appStore.initTheme();
+
   // #ifdef MP-WEIXIN
   mpUpdate();
   // #endif
-
-  // 初始化主题
-  const themeStore = useThemeStore();
-  themeStore.init();
 });
+
 onShow(() => {
   console.log('App Show');
 });
+
 onHide(() => {
   console.log('App Hide');
 });
