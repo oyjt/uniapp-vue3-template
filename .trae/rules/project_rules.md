@@ -134,6 +134,7 @@
 
 - 优先使用 Scoped CSS，示例: `<style scoped lang="scss">`
 - 尽可能避免使用 `!important`
+- 优先使用 UnoCSS 内联样式
 
 ## 其他
 

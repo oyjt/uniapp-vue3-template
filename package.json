@@ -88,7 +88,7 @@
     "z-paging": "^2.8.7"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.0.0",
+    "@antfu/eslint-config": "5.0.0",
     "@dcloudio/types": "^3.4.19",
     "@dcloudio/uni-automator": "3.0.0-4070520250711001",
     "@dcloudio/uni-cli-shared": "3.0.0-4070520250711001",
@@ -105,7 +105,7 @@
     "@unocss/preset-icons": "^66.3.3",
     "@vue/runtime-core": "^3.4.21",
     "czg": "^1.12.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.32.0",
     "lint-staged": "^16.1.4",
     "miniprogram-api-typings": "^4.1.0",
     "picocolors": "^1.1.1",
@@ -129,6 +129,11 @@
     "vite-plugin-restart": "^1.0.0",
     "vite-plugin-vue-mcp": "^0.3.2",
     "vue-tsc": "^2.2.12"
+  },
+  "pnpm": {
+    "overrides": {
+      "vue": "3.4.21"
+    }
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",

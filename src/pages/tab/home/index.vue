@@ -16,7 +16,9 @@
       <view cursor-pointer @click="toGithub">
         <view class="i-mdi-github text-40rpx" />
       </view>
+      <!-- #ifdef H5 -->
       <theme-switcher />
+      <!-- #endif -->
     </view>
     <!-- #ifdef MP-WEIXIN -->
     <!-- 隐私协议组件 -->

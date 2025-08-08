@@ -6,11 +6,11 @@ export interface UserState {
   token?: string;
 }
 
-export type providerType =
-  | 'weixin'
-  | 'qq'
-  | 'sinaweibo'
-  | 'xiaomi'
-  | 'apple'
-  | 'univerify'
-  | undefined;
+export type providerType
+  = | 'weixin'
+    | 'qq'
+    | 'sinaweibo'
+    | 'xiaomi'
+    | 'apple'
+    | 'univerify'
+    | undefined;
