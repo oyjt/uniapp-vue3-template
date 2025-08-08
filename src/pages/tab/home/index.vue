@@ -7,7 +7,7 @@
       height="200rpx"
     />
     <view class="flex justify-center">
-      <text class="font-size-36rpx color-text">
+      <text class="text-36rpx">
         {{ $t('home.intro') }}
       </text>
     </view>
