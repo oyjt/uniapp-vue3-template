@@ -1,36 +1,22 @@
 import type { AppState } from './types';
-import type { ThemeColors, ThemeMode } from '@/utils/theme/types';
 import { defineStore } from 'pinia';
 import {
   applyTheme,
-  getStoredThemeMode,
-  getSystemTheme,
-  getThemeColors,
-  saveThemeMode,
+  getStoredTheme,
+  saveTheme,
 } from '@/utils/theme';
-import { lightTheme, THEME_CONFIG } from '@/utils/theme/config';
 
 const useAppStore = defineStore('app', {
   state: (): AppState => ({
     systemInfo: {} as UniApp.GetSystemInfoResult,
-    theme: {
-      mode: THEME_CONFIG.defaultMode,
-      isDark: false,
-      colors: lightTheme,
-    },
+    themeColor: '',
   }),
   getters: {
     getSystemInfo(): UniApp.GetSystemInfoResult {
       return this.systemInfo;
     },
-    getThemeMode(): ThemeMode {
-      return this.theme.mode;
-    },
-    getIsDark(): boolean {
-      return this.theme.isDark;
-    },
-    getThemeColors(): ThemeColors {
-      return this.theme.colors;
+    getTheme(): string {
+      return this.themeColor;
     },
   },
   actions: {
@@ -51,34 +37,21 @@ const useAppStore = defineStore('app', {
      * 初始化主题
      */
     initTheme() {
-      const storedMode = getStoredThemeMode();
-      const finalMode = storedMode === 'auto' ? getSystemTheme() : storedMode;
-
-      this.setThemeMode(finalMode);
+      const themeColor = getStoredTheme();
+      this.setTheme(themeColor);
     },
     /**
      * 设置主题模式
      */
-    setThemeMode(mode: ThemeMode) {
-      const isDark = mode === 'dark';
-      const colors = getThemeColors(mode);
-
-      this.theme.mode = mode;
-      this.theme.isDark = isDark;
-      this.theme.colors = colors;
+    setTheme(color?: string) {
+      if (!color) return;
+      this.themeColor = color;
 
       // 应用主题
-      applyTheme(mode);
+      applyTheme(color);
 
       // 保存到本地存储
-      saveThemeMode(mode);
-    },
-    /**
-     * 切换主题
-     */
-    toggleTheme() {
-      const newMode = this.theme.isDark ? 'light' : 'dark';
-      this.setThemeMode(newMode);
+      saveTheme(color);
     },
     checkUpdate() {
       const updateManager = uni.getUpdateManager();

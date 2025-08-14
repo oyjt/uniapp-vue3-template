@@ -1,11 +1,6 @@
 <template>
   <view class="min-h-screen flex flex-col items-center">
-    <image
-      class="mb-50rpx mt-200rpx h-200rpx w-200rpx"
-      src="@/static/images/logo.png"
-      width="200rpx"
-      height="200rpx"
-    />
+    <image class="mb-50rpx mt-200rpx h-200rpx w-200rpx" src="@/static/images/logo.png" width="200rpx" height="200rpx" />
     <view class="flex justify-center">
       <text class="font-size-36rpx">
         {{ $t('home.intro') }}
@@ -13,13 +8,32 @@
     </view>
     <view class="mt-100rpx flex gap-30rpx">
       <lang-select />
-      <view cursor-pointer @click="toGithub">
+      <view class="cursor-pointer" @click="toGithub">
         <view class="i-mdi-github text-40rpx" />
       </view>
-      <!-- #ifdef H5 -->
-      <theme-switcher />
-      <!-- #endif -->
     </view>
+
+    <!-- 主题预览 -->
+    <view class="mt-100rpx">
+      <view class="rounded-12rpx bg-#f8f9fa p-30rpx shadow-md">
+        <theme-picker />
+        <view class="u-border-top pt-20rpx">
+          主题预览
+        </view>
+        <view class="flex flex-col gap-10rpx py-20rpx">
+          <view class="flex items-center">
+            图标：<text class="i-mdi-yin-yang text-36rpx color-primary" />
+          </view>
+          <view class="flex items-center">
+            文字：<up-text type="primary" text="主要文字" size="18" />
+          </view>
+          <view class="flex items-center">
+            按钮：<view><u-button type="primary" text="主要按钮" shape="circle" /></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
     <!-- #ifdef MP-WEIXIN -->
     <!-- 隐私协议组件 -->
     <agree-privacy v-model="showAgreePrivacy" :disable-check-privacy="false" @agree="handleAgree" />

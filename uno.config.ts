@@ -32,37 +32,11 @@ export default defineConfig({
   shortcuts: {
     'border-base': 'border border-gray-500_10',
     'center': 'flex justify-center items-center',
-    // 主题相关快捷方式
-    'theme-bg': 'bg-[var(--theme-bg-color)]',
-    'theme-bg-secondary': 'bg-[var(--theme-bg-color-secondary)]',
-    'theme-bg-tertiary': 'bg-[var(--theme-bg-color-tertiary)]',
-    'theme-text': 'text-[var(--theme-main-color)]',
-    'theme-text-content': 'text-[var(--theme-content-color)]',
-    'theme-text-tips': 'text-[var(--theme-tips-color)]',
-    'theme-border': 'border-[var(--theme-border-color)]',
-    'theme-shadow': 'shadow-[0_2px_8px_var(--theme-shadow-color)]',
   },
   theme: {
     colors: {
       // 主题颜色
-      'primary': 'var(--theme-primary)',
-      'primary-dark': 'var(--theme-primary-dark)',
-      'success': 'var(--theme-success)',
-      'warning': 'var(--theme-warning)',
-      'error': 'var(--theme-error)',
-      // 文字颜色
-      'text-main': 'var(--theme-main-color)',
-      'text-content': 'var(--theme-content-color)',
-      'text-tips': 'var(--theme-tips-color)',
-      'text-light': 'var(--theme-light-color)',
-      'text-disabled': 'var(--theme-disabled-color)',
-      // 背景颜色
-      'bg-main': 'var(--theme-bg-color)',
-      'bg-secondary': 'var(--theme-bg-color-secondary)',
-      'bg-tertiary': 'var(--theme-bg-color-tertiary)',
-      // 边框颜色
-      'border-main': 'var(--theme-border-color)',
-      'border-light': 'var(--theme-border-color-light)',
+      primary: 'var(--theme-primary)',
     },
   },
   transformers: [
