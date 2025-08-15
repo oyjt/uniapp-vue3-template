@@ -37,7 +37,6 @@ export default defineConfig({
     colors: {
       // 主题颜色
       'primary': 'var(--theme-primary)',
-      'primary-dark': 'var(--theme-primary-dark)',
       'success': 'var(--theme-success)',
       'warning': 'var(--theme-warning)',
       'error': 'var(--theme-error)',

@@ -1,8 +1,8 @@
 // 主题CSS变量
-:root {
+:root,
+page {
   // 主色调
   --theme-primary: #21d59d;
-  --theme-primary-dark: #76a3fd;
   --theme-success: #3ed268;
   --theme-warning: #fe9831;
   --theme-error: #fa4e62;
@@ -19,4 +19,11 @@
 
   // 边框颜色
   --theme-border-color: #e9ecef;
+}
+
+.theme-blue {
+  --theme-primary: #3c9cff;
+  --theme-success: #5ac725;
+  --theme-warning: #f9ae3d;
+  --theme-error: #f56c6c;
 }

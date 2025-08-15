@@ -21,7 +21,7 @@ const appStore = useAppStore();
 const colors = ['#21d59d', '#409EFF', '#67C23A', '#E6A23C', '#F56C6C', '#909399'];
 
 const primaryColor = computed(() => appStore.getTheme.primary);
-console.log('[ primaryColor ] >', primaryColor.value);
+
 function changeTheme(color: string) {
   appStore.setTheme({
     primary: color,

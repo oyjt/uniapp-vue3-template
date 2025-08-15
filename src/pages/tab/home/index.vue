@@ -1,5 +1,5 @@
 <template>
-  <view class="min-h-screen flex flex-col items-center">
+  <view class="min-h-screen flex flex-col items-center" :class="themeClass">
     <image class="mb-50rpx mt-200rpx h-200rpx w-200rpx" src="@/static/images/logo.png" width="200rpx" height="200rpx" />
     <view class="flex justify-center">
       <text class="font-size-36rpx">
@@ -14,7 +14,7 @@
     </view>
 
     <!-- 主题预览 -->
-    <view class="mt-100rpx">
+    <view class="mt-100rpx" @click="changeTheme">
       <view class="rounded-12rpx bg-#f8f9fa p-30rpx shadow-md">
         <theme-picker class="mb-10rpx" />
         <view class="u-border-top pt-20rpx">
@@ -45,7 +45,6 @@
 // #ifdef MP-WEIXIN
 import { useShare } from '@/hooks';
 // #endif
-import { useUserStore } from '@/store';
 
 // #ifdef MP-WEIXIN
 // 分享使用示例
@@ -63,8 +62,11 @@ title.value = import.meta.env.VITE_APP_TITLE;
 
 const showAgreePrivacy = ref(false);
 
-const userStore = useUserStore();
-console.log('userStore.user_name', userStore.user_name);
+const themeClass = ref('');
+
+function changeTheme() {
+  themeClass.value = 'theme-blue';
+}
 
 // 同意隐私协议
 function handleAgree() {

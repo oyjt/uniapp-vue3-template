@@ -1,7 +1,6 @@
 export interface ThemeColors {
   // 主色调
   primary?: string;
-  primaryDark?: string;
   success?: string;
   warning?: string;
   error?: string;
