@@ -33,14 +33,6 @@ const useAppStore = defineStore('app', {
       });
     },
     /**
-     * 初始化主题
-     */
-    initTheme() {
-      const theme = storage.get(THEME_KEY);
-      if (!theme) return;
-      this.setTheme(theme);
-    },
-    /**
      * 设置主题
      */
     setTheme(theme: ThemeMode) {

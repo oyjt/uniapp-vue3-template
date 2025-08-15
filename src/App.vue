@@ -11,9 +11,6 @@ onLaunch(() => {
   // 初始化系统信息
   appStore.initSystemInfo();
 
-  // 初始化主题
-  appStore.initTheme();
-
   // #ifdef MP-WEIXIN
   mpUpdate();
   // #endif
