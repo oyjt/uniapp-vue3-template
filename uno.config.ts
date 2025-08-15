@@ -48,6 +48,7 @@ export default defineConfig({
       'text-disabled': 'var(--theme-disabled-color)',
       // 背景颜色
       'bg-main': 'var(--theme-bg-color)',
+      'bg-secondary': 'var(--theme-bg-color-secondary)',
       // 边框颜色
       'border-main': 'var(--theme-border-color)',
     },

@@ -1,6 +1,5 @@
-import type { ThemeColors } from 'types/theme';
-
+export type ThemeMode = 'light' | 'dark' | 'auto';
 export interface AppState {
   systemInfo: UniApp.GetSystemInfoResult;
-  theme: ThemeColors;
+  theme: ThemeMode;
 }

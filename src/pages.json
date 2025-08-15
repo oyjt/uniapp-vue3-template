@@ -51,6 +51,12 @@
             "navigationBarTitleText": "404",
             "navigationStyle": "custom"
           }
+        },
+        {
+          "path": "theme/index",
+          "style": {
+            "navigationBarTitleText": "主题设置"
+          }
         }
       ]
     }
