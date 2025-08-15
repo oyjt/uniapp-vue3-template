@@ -1,1 +1,0 @@
-import{d as s,h as a,a4 as e,c as n,b as r,ae as o,o as t}from"./index-CcDYoQkB.js";const l=s({__name:"index",setup(s){const l=a("");return e(s=>{s.url&&(l.value=decodeURIComponent(s.url))}),(s,a)=>{const e=o;return t(),n(e,{class:"h-full",src:r(l)},null,8,["src"])}}});export{l as default};

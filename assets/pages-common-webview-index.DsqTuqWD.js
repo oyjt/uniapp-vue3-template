@@ -1,0 +1,1 @@
+import{d as s,m as a,a6 as e,a as n,g as r,af as o,o as t}from"./index-BgSKzko5.js";const l=s({__name:"index",setup(s){const l=a("");return e(s=>{s.url&&(l.value=decodeURIComponent(s.url))}),(s,a)=>{const e=o;return t(),n(e,{class:"h-full",src:r(l)},null,8,["src"])}}});export{l as default};
