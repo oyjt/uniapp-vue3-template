@@ -36,7 +36,21 @@ export default defineConfig({
   theme: {
     colors: {
       // 主题颜色
-      primary: 'var(--theme-primary)',
+      'primary': 'var(--theme-primary)',
+      'primary-dark': 'var(--theme-primary-dark)',
+      'success': 'var(--theme-success)',
+      'warning': 'var(--theme-warning)',
+      'error': 'var(--theme-error)',
+      // 文字颜色
+      'text-main': 'var(--theme-main-color)',
+      'text-content': 'var(--theme-content-color)',
+      'text-tips': 'var(--theme-tips-color)',
+      'text-light': 'var(--theme-light-color)',
+      'text-disabled': 'var(--theme-disabled-color)',
+      // 背景颜色
+      'bg-main': 'var(--theme-bg-color)',
+      // 边框颜色
+      'border-main': 'var(--theme-border-color)',
     },
   },
   transformers: [

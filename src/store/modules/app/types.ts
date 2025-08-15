@@ -1,4 +1,6 @@
+import type { ThemeColors } from 'types/theme';
+
 export interface AppState {
   systemInfo: UniApp.GetSystemInfoResult;
-  themeColor: string;
+  theme: ThemeColors;
 }

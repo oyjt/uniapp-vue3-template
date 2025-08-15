@@ -1,15 +1,15 @@
 <template>
-  <view class="mb-20rpx flex items-center gap-2">
-    <view>
-      请选择主题颜色：
-    </view>
+  <view class="flex flex-wrap gap-3">
     <view
-      v-for="color in colors"
-      :key="color"
-      class="h-32rpx w-32rpx cursor-pointer border border-gray-200 rounded-full"
-      :style="{ backgroundColor: color }"
-      @click="changeTheme(color)"
-    />
+      v-for="(item, index) in colors"
+      :key="index"
+      class="mb-10rpx h-40rpx w-40rpx center cursor-pointer border-4rpx border-gray-300 rounded-4rpx border-solid"
+      :class="{ 'border-white': primaryColor === item }"
+      :style="{ backgroundColor: item }"
+      @click="changeTheme(item)"
+    >
+      <view v-if="primaryColor === item" class="i-mdi-check text-32rpx c-#fff" />
+    </view>
   </view>
 </template>
 
@@ -18,9 +18,13 @@ import { useAppStore } from '@/store';
 
 const appStore = useAppStore();
 
-const colors = ['#409EFF', '#67C23A', '#E6A23C', '#F56C6C', '#909399'];
+const colors = ['#21d59d', '#409EFF', '#67C23A', '#E6A23C', '#F56C6C', '#909399'];
 
+const primaryColor = computed(() => appStore.getTheme.primary);
+console.log('[ primaryColor ] >', primaryColor.value);
 function changeTheme(color: string) {
-  appStore.setTheme(color);
+  appStore.setTheme({
+    primary: color,
+  });
 }
 </script>

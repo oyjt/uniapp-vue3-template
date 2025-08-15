@@ -1,14 +1,19 @@
-const ThemeKey = 'theme-color';
+import type { ThemeColors } from 'types/theme';
+import storage from '@/utils/storage';
+
+const ThemeKey = 'theme';
 
 /**
  * 设置CSS变量
  */
-export function setCSSVariable(color: string): void {
+export function setCSSVariable(colors: ThemeColors): void {
   // #ifdef H5
   if (typeof document !== 'undefined') {
     const root = document.documentElement;
-    const cssVar = `--theme-primary`;
-    root.style.setProperty(cssVar, color);
+    Object.entries(colors).forEach(([key, value]) => {
+      const cssVar = `--theme-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`;
+      root.style.setProperty(cssVar, value);
+    });
   }
   // #endif
 }
@@ -16,9 +21,8 @@ export function setCSSVariable(color: string): void {
 /**
  * 应用主题
  */
-export function applyTheme(color?: string): void {
-  if (!color) return;
-  setCSSVariable(color);
+export function applyTheme(theme: ThemeColors): void {
+  setCSSVariable(theme);
 }
 
 /**
@@ -26,7 +30,7 @@ export function applyTheme(color?: string): void {
  */
 export function getStoredTheme() {
   try {
-    const stored = uni.getStorageSync(ThemeKey);
+    const stored = storage.getJSON(ThemeKey);
     return stored;
   }
   catch {
@@ -35,21 +39,13 @@ export function getStoredTheme() {
 }
 
 /**
- * 保存主题模式
+ * 保存主题
  */
-export function saveTheme(color: string): void {
+export function saveTheme(theme: ThemeColors): void {
   try {
-    uni.setStorageSync(ThemeKey, color);
+    storage.setJSON(ThemeKey, theme);
   }
   catch (error) {
     console.error('保存主题失败:', error);
   }
-}
-
-/**
- * 初始化主题
- */
-export function initTheme() {
-  const themeColor = getStoredTheme();
-  applyTheme(themeColor);
 }

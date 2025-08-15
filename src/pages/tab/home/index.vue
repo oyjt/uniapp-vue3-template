@@ -16,7 +16,7 @@
     <!-- 主题预览 -->
     <view class="mt-100rpx">
       <view class="rounded-12rpx bg-#f8f9fa p-30rpx shadow-md">
-        <theme-picker />
+        <theme-picker class="mb-10rpx" />
         <view class="u-border-top pt-20rpx">
           主题预览
         </view>

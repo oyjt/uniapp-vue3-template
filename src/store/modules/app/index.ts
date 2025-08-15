@@ -1,3 +1,4 @@
+import type { ThemeColors } from 'types/theme';
 import type { AppState } from './types';
 import { defineStore } from 'pinia';
 import {
@@ -9,14 +10,14 @@ import {
 const useAppStore = defineStore('app', {
   state: (): AppState => ({
     systemInfo: {} as UniApp.GetSystemInfoResult,
-    themeColor: '',
+    theme: getStoredTheme() || { primary: '#21d59d' },
   }),
   getters: {
     getSystemInfo(): UniApp.GetSystemInfoResult {
       return this.systemInfo;
     },
-    getTheme(): string {
-      return this.themeColor;
+    getTheme(): ThemeColors {
+      return this.theme;
     },
   },
   actions: {
@@ -37,21 +38,21 @@ const useAppStore = defineStore('app', {
      * 初始化主题
      */
     initTheme() {
-      const themeColor = getStoredTheme();
-      this.setTheme(themeColor);
+      const theme = getStoredTheme();
+      if (!theme) return;
+      this.setTheme(theme);
     },
     /**
-     * 设置主题模式
+     * 设置主题
      */
-    setTheme(color?: string) {
-      if (!color) return;
-      this.themeColor = color;
+    setTheme(theme: ThemeColors) {
+      this.theme = Object.assign(this.theme, theme);
 
       // 应用主题
-      applyTheme(color);
+      applyTheme(this.theme);
 
       // 保存到本地存储
-      saveTheme(color);
+      saveTheme(this.theme);
     },
     checkUpdate() {
       const updateManager = uni.getUpdateManager();
