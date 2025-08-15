@@ -1,7 +1,7 @@
 <template>
   <view class="page-wrap">
-    <u-navbar title="" placeholder left-icon="" right-icon="camera-fill" :bg-color="themeColors.bgColor" />
-    <view class="flex items-center theme-bg pb-30rpx pl-30rpx pr-20rpx">
+    <u-navbar title="" placeholder left-icon="" right-icon="camera-fill" />
+    <view class="flex items-center pb-30rpx pl-30rpx pr-20rpx">
       <view class="mr-10rpx">
         <u-avatar src="/static/images/logo.png" size="70" />
       </view>
@@ -21,13 +21,13 @@
       </view>
     </view>
 
-    <view class="mt-20rpx theme-bg">
+    <view class="mt-20rpx">
       <u-cell-group>
         <u-cell icon="rmb-circle" title="支付" is-link />
       </u-cell-group>
     </view>
 
-    <view class="mt-20rpx theme-bg">
+    <view class="mt-20rpx">
       <u-cell-group>
         <u-cell icon="star" title="收藏" is-link />
         <u-cell icon="photo" title="相册" is-link />
@@ -36,7 +36,7 @@
       </u-cell-group>
     </view>
 
-    <view class="mt-20rpx theme-bg">
+    <view class="mt-20rpx">
       <u-cell-group>
         <u-cell icon="setting" title="设置" is-link />
       </u-cell-group>
@@ -45,9 +45,8 @@
 </template>
 
 <script setup lang="ts">
-import { useClipboard, usePermission, useTheme } from '@/hooks';
+import { useClipboard, usePermission } from '@/hooks';
 
-const { themeColors } = useTheme();
 const { setClipboardData, getClipboardData } = useClipboard();
 
 // 复制
