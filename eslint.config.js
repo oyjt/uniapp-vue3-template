@@ -49,6 +49,8 @@ export default antfu(
       }],
       // if 语句后需要换行
       'antfu/if-newline': 'off',
+      // 禁止必需的props属性同时设置默认值
+      'vue/no-required-prop-with-default': 'off',
     },
   },
 );
