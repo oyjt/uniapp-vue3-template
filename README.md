@@ -235,6 +235,29 @@ pnpm uvm
 pnpm uvm-rm
 ```
 
+### 同步最新代码
+
+1. 在自己的仓库里面新增开源仓库地址
+```bash
+git remote add upstream https://github.com/oyjt/uniapp-vue3-template
+```
+
+2. 从开源仓库拉取最新代码
+```bash
+git fetch upstream
+```
+
+3. 合并更新，拉取开源项目更新代码
+```bash
+# 切换到本地 main 分支
+git checkout main
+
+# 合并更新
+git merge upstream/main
+```
+
+4. 代码有冲突时，解决冲突，解决完冲突后提交代码即可
+
 ### `v3` 代码块
 在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板，可以大大加快页面生成。
 > 原理：基于 VSCode 代码块生成。
