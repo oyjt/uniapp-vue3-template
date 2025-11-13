@@ -1,23 +1,23 @@
 const storage = {
-  set(key: string | null, value: string | null) {
+  set(key, value) {
     if (key !== null && value !== null)
       uni.setStorageSync(key, value);
   },
-  get(key: string | null) {
+  get(key) {
     if (key === null)
       return null;
 
     return uni.getStorageSync(key);
   },
-  setJSON(key: any, jsonValue: any) {
+  setJSON(key, jsonValue) {
     if (jsonValue !== null)
       this.set(key, JSON.stringify(jsonValue));
   },
-  getJSON(key: any) {
+  getJSON(key) {
     const value = this.get(key);
     if (value) return JSON.parse(value);
   },
-  remove(key: string) {
+  remove(key) {
     uni.removeStorageSync(key);
   },
 };

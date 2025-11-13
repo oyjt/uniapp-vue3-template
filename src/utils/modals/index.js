@@ -1,11 +1,9 @@
-import type { ILoadingOptions, IShowModalOptions, IShowToastOptions } from './types';
-
 /**
  * 轻提示
  * @param {string} content 提示内容
  * @param {object} option 配置
  */
-export function Toast(content: string, option: IShowToastOptions = {}) {
+export function Toast(content, option = {}) {
   uni.showToast({
     title: content,
     icon: 'none',
@@ -19,7 +17,7 @@ export function Toast(content: string, option: IShowToastOptions = {}) {
  * Loading 提示框
  * @param {string} content 提示内容
  */
-export const Loading: ILoadingOptions = {
+export const Loading = {
   show: (content = '加载中') => {
     uni.showLoading({
       title: content,
@@ -36,7 +34,7 @@ export const Loading: ILoadingOptions = {
  * @param {string} content 提示内容
  * @param {object} option 配置
  */
-export function Dialog(content: string, option: IShowModalOptions = {}) {
+export function Dialog(content, option = {}) {
   option.showCancel = false;
   return new Promise((resolve, reject) => {
     uni.showModal({

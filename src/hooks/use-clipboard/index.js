@@ -8,8 +8,8 @@
  * const data = await getClipboardData()
  */
 export default function useClipboard() {
-  const setClipboardData = ({ data, showToast = true }: UniApp.SetClipboardDataOptions) => {
-    return new Promise<string>((resolve, reject) => {
+  const setClipboardData = ({ data, showToast = true }) => {
+    return new Promise((resolve, reject) => {
       uni.setClipboardData({
         data,
         showToast,
@@ -19,7 +19,7 @@ export default function useClipboard() {
     });
   };
   const getClipboardData = () => {
-    return new Promise<string>((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       uni.getClipboardData({
         success: ({ data }) => resolve(data),
         fail: error => reject(error),

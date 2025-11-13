@@ -15,11 +15,11 @@
   </z-paging>
 </template>
 
-<script setup lang="ts">
-const pagingRef = ref<InstanceType<typeof zPaging> | null>(null);
-const dataList = ref<string[]>([]);
+<script setup>
+const pagingRef = ref(null);
+const dataList = ref([]);
 
-const urls: string[] = [
+const urls = [
   'https://picsum.photos/100/100?random=1',
   'https://picsum.photos/100/100?random=2',
   'https://picsum.photos/100/100?random=3',
@@ -32,7 +32,7 @@ const urls: string[] = [
   'https://picsum.photos/100/100?random=10',
 ];
 
-function queryList(pageNo: number, pageSize: number) {
+function queryList(pageNo, pageSize) {
   console.log('[ pageNo ] >', pageNo);
   console.log('[ pageSize ] >', pageSize);
   // 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
@@ -40,8 +40,9 @@ function queryList(pageNo: number, pageSize: number) {
   setTimeout(() => {
     // 1秒之后停止刷新动画
     const list = [];
-    for (let i = 0; i < 30; i++)
+    for (let i = 0; i < 30; i++) {
       list.push(urls[uni.$u.random(0, urls.length - 1)]);
+    }
 
     pagingRef.value?.complete(list);
   }, 1000);

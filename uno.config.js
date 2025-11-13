@@ -1,9 +1,4 @@
-import {
-  defineConfig,
-  presetIcons,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss';
+import { defineConfig, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss';
 import { presetWeapp } from 'unocss-preset-weapp';
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
 
@@ -13,8 +8,7 @@ export default defineConfig({
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
     presetWeapp(),
-    // attributify autocomplete
-    presetWeappAttributify() as any,
+    presetWeappAttributify(),
     // https://unocss.dev/presets/icons
     presetIcons({
       scale: 1.2,
@@ -42,7 +36,7 @@ export default defineConfig({
     // 启用 () 分组功能
     transformerVariantGroup(),
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
-    transformerAttributify() as any,
+    transformerAttributify(),
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
     transformerClass(),
   ],

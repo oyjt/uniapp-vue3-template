@@ -10,7 +10,7 @@ export const ERROR404_PATH = '/pages/common/404/index';
  * @param {object} pagesJson
  * @returns [{"path": "/pages/tab/home/index","needLogin": false},...]
  */
-function parseRoutes(pagesJson = {} as any) {
+function parseRoutes(pagesJson = {}) {
   if (!pagesJson.pages) {
     pagesJson.pages = [];
   }
@@ -18,7 +18,7 @@ function parseRoutes(pagesJson = {} as any) {
     pagesJson.subPackages = [];
   }
 
-  function parsePages(pages = [] as any, rootPath = '') {
+  function parsePages(pages = [], rootPath = '') {
     const routes = [];
     for (let i = 0; i < pages.length; i++) {
       routes.push({
@@ -29,7 +29,7 @@ function parseRoutes(pagesJson = {} as any) {
     return routes;
   }
 
-  function parseSubPackages(subPackages = [] as any) {
+  function parseSubPackages(subPackages = []) {
     const routes = [];
     for (let i = 0; i < subPackages.length; i++) {
       routes.push(...parsePages(subPackages[i].pages, subPackages[i].root));
@@ -51,7 +51,7 @@ export const routes = parseRoutes(pagesJson);
 export function currentRoute() {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   const pages = getCurrentPages();
-  const currentPage = pages[pages.length - 1] as any;
+  const currentPage = pages[pages.length - 1];
   return currentPage?.$page?.fullPath || currentPage.route;
 }
 

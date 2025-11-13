@@ -15,7 +15,21 @@ export default antfu(
     ],
   },
   {
+    languageOptions: {
+      globals: {
+        uni: 'readonly',
+        wx: 'readonly',
+        onShareAppMessage: 'readonly',
+        onShareTimeline: 'readonly',
+        getCurrentPages: 'readonly',
+        onLoad: 'readonly',
+        onShow: 'readonly',
+        onLaunch: 'readonly',
+        onHide: 'readonly',
+      },
+    },
     rules: {
+      'style/max-statements-per-line': ['error', { max: 2 }],
       // vue顶级标签的顺序
       'vue/block-order': ['error', {
         order: ['template', 'script', 'style'],

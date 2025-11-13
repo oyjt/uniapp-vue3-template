@@ -44,7 +44,7 @@
   </view>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useClipboard, usePermission } from '@/hooks';
 
 const { setClipboardData, getClipboardData } = useClipboard();

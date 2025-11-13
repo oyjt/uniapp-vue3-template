@@ -49,22 +49,21 @@
   </view>
 </template>
 
-<script setup lang="ts">
-import type { CSSProperties } from 'vue';
+<script setup>
 import { HOME_PATH, isTabBarPath, LOGIN_PATH, removeQueryString } from '@/router';
 import { setToken } from '@/utils/auth';
 import uCode from 'uview-plus/components/u-code/u-code.vue';
 // import { useUserStore } from '@/store';
 
 // const userStore = useUserStore();
-const tel = ref<string>('18502811111');
-const code = ref<string>('1234');
-const tips = ref<string>();
-const uCodeRef = ref<InstanceType<typeof uCode> | null>(null);
+const tel = ref('18502811111');
+const code = ref('1234');
+const tips = ref();
+const uCodeRef = ref(null);
 let redirect = HOME_PATH;
 
-const inputStyle = computed<CSSProperties>(() => {
-  const style = {} as CSSProperties;
+const inputStyle = computed(() => {
+  const style = {};
   if (tel.value && code.value) {
     style.color = '#fff';
     style.backgroundColor = uni.$u.color.warning;
@@ -72,7 +71,7 @@ const inputStyle = computed<CSSProperties>(() => {
   return style;
 });
 
-function codeChange(text: string) {
+function codeChange(text) {
   tips.value = text;
 }
 
@@ -116,7 +115,7 @@ async function submit() {
   }, 800);
 }
 
-onLoad((options: any) => {
+onLoad((options) => {
   if (options.redirect && removeQueryString(options.redirect) !== LOGIN_PATH) {
     redirect = decodeURIComponent(options.redirect);
   }

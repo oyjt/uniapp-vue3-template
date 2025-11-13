@@ -3,7 +3,7 @@
  * @param {number|string} status 状态码
  * @returns {string} 错误信息
  */
-export const showMessage = (status: number | string): string => {
+export const showMessage = (status) => {
   let message = '';
   switch (status) {
     case 400:

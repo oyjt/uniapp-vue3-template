@@ -1,5 +1,3 @@
-import type { ShareOptions } from './types';
-
 /**
  * 小程序分享
  * @param {object} options
@@ -12,14 +10,14 @@ import type { ShareOptions } from './types';
  * onShareAppMessage()
  * onShareTimeline()
  */
-export default function useShare(options?: ShareOptions) {
+export default function useShare(options) {
   // #ifdef MP-WEIXIN
   const title = options?.title ?? '';
   const path = options?.path ?? '';
   const query = options?.query ?? '';
   const imageUrl = options?.imageUrl ?? '';
 
-  const shareApp = (params: ShareOptions = {}) => {
+  const shareApp = (params = {}) => {
     onShareAppMessage(() => {
       return {
         title,
@@ -30,7 +28,7 @@ export default function useShare(options?: ShareOptions) {
     });
   };
 
-  const shareTime = (params: ShareOptions = {}) => {
+  const shareTime = (params = {}) => {
     onShareTimeline(() => {
       return {
         title,

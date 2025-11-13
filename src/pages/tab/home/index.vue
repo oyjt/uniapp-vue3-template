@@ -23,7 +23,7 @@
   </view>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useUserStore } from '@/store';
 
 const githubLink = 'https://github.com/oyjt/uniapp-vue3-template';

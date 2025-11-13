@@ -2,10 +2,10 @@
   <web-view class="h-full" :src="url" />
 </template>
 
-<script setup lang="ts">
-const url = ref<string>('');
+<script setup>
+const url = ref('');
 
-onLoad((options: any) => {
+onLoad((options) => {
   if (options.url)
     url.value = decodeURIComponent(options.url);
 });

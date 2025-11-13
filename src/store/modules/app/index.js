@@ -1,32 +1,29 @@
-import type { AppState } from './types';
 import { defineStore } from 'pinia';
 
 const useAppStore = defineStore('app', {
-  state: (): AppState => ({
-    systemInfo: {} as UniApp.GetSystemInfoResult,
+  state: () => ({
+    systemInfo: {},
   }),
   getters: {
-    getSystemInfo(): UniApp.GetSystemInfoResult {
-      return this.systemInfo;
-    },
+    getSystemInfo() { return this.systemInfo; },
   },
   actions: {
-    setSystemInfo(info: UniApp.GetSystemInfoResult) {
+    setSystemInfo(info) {
       this.systemInfo = info;
     },
     initSystemInfo() {
       uni.getSystemInfo({
-        success: (res: UniApp.GetSystemInfoResult) => {
+        success: (res) => {
           this.setSystemInfo(res);
         },
-        fail: (err: any) => {
+        fail: (err) => {
           console.error(err);
         },
       });
     },
     checkUpdate() {
       const updateManager = uni.getUpdateManager();
-      updateManager.onCheckForUpdate((res: UniApp.OnCheckForUpdateResult) => {
+      updateManager.onCheckForUpdate((res) => {
         // 请求完新版本信息的回调
 
         console.log(res.hasUpdate);
@@ -43,7 +40,7 @@ const useAppStore = defineStore('app', {
           },
         });
       });
-      updateManager.onUpdateFailed((res: any) => {
+      updateManager.onUpdateFailed((res) => {
         console.error(res);
         // 新的版本下载失败
         uni.showToast({

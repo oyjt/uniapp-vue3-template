@@ -6,7 +6,7 @@ function isLogin() {
 function getToken() {
   return uni.getStorageSync(TokenKey);
 }
-function setToken(token: string) {
+function setToken(token) {
   uni.setStorageSync(TokenKey, token);
 }
 function clearToken() {

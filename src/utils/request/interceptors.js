@@ -1,19 +1,13 @@
-import type {
-  HttpError,
-  HttpRequestAbstract,
-  HttpRequestConfig,
-  HttpResponse,
-} from 'uview-plus/libs/luch-request/index';
 import { useUserStore } from '@/store';
 import { getToken } from '@/utils/auth';
 import storage from '@/utils/storage';
 import { showMessage } from './status';
 
 // 重试队列，每一项将是一个待执行的函数形式
-let requestQueue: (() => void)[] = [];
+let requestQueue = [];
 
 // 防止重复提交
-const repeatSubmit = (config: HttpRequestConfig) => {
+const repeatSubmit = (config) => {
   const requestObj = {
     url: config.url,
     data: typeof config.data === 'object' ? JSON.stringify(config.data) : config.data,
@@ -40,10 +34,10 @@ const repeatSubmit = (config: HttpRequestConfig) => {
 };
 
 // 是否正在刷新token的标记
-let isRefreshing: boolean = false;
+let isRefreshing = false;
 
 // 刷新token
-const refreshToken = async (http: HttpRequestAbstract, config: HttpRequestConfig) => {
+const refreshToken = async (http, config) => {
   // 是否在获取token中,防止重复获取
   if (!isRefreshing) {
     // 修改登录状态为true
@@ -59,7 +53,7 @@ const refreshToken = async (http: HttpRequestAbstract, config: HttpRequestConfig
     return http.request(config);
   }
 
-  return new Promise<HttpResponse<any>>((resolve) => {
+  return new Promise((resolve) => {
     // 将resolve放进队列，用一个函数形式来保存，等登录后直接执行
     requestQueue.push(() => {
       resolve(http.request(config));
@@ -67,13 +61,13 @@ const refreshToken = async (http: HttpRequestAbstract, config: HttpRequestConfig
   });
 };
 
-function requestInterceptors(http: HttpRequestAbstract) {
+function requestInterceptors(http) {
   /**
    * 请求拦截
    * @param {object} http
    */
   http.interceptors.request.use(
-    (config: HttpRequestConfig) => {
+    (config) => {
       // 可使用async await 做异步操作
       // 初始化请求拦截器时，会执行此方法，此时data为undefined，赋予默认{}
       config.data = config.data || {};
@@ -102,16 +96,15 @@ function requestInterceptors(http: HttpRequestAbstract) {
       }
       return config;
     },
-    (config: any) => // 可使用async await 做异步操作
-      Promise.reject(config),
+    config => Promise.reject(config),
   );
 }
-function responseInterceptors(http: HttpRequestAbstract) {
+function responseInterceptors(http) {
   /**
    * 响应拦截
    * @param {object} http
    */
-  http.interceptors.response.use((response: HttpResponse) => {
+  http.interceptors.response.use((response) => {
     /* 对响应成功做点什么 可使用async await 做异步操作 */
     const data = response.data;
     // 配置参数
@@ -141,7 +134,7 @@ function responseInterceptors(http: HttpRequestAbstract) {
 
     // 请求失败则抛出错误
     return Promise.reject(data);
-  }, (response: HttpError) => {
+  }, (response) => {
     // 自定义参数
     const custom = response.config?.custom;
 

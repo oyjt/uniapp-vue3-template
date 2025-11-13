@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { HOME_PATH } from '@/router';
 
 function handleBack() {
