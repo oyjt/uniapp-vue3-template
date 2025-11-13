@@ -9,8 +9,8 @@ import { AutoImportDeps } from './autoImport';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
 import { AutoRegistryComponents } from './component';
-import { ConfigUnoCSSPlugin } from './unocss';
 import { MCPPlugin } from './mcp';
+import { ConfigUnoCSSPlugin } from './unocss';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -27,7 +27,7 @@ export default function createVitePlugins(isBuild: boolean) {
       restart: ['vite.config.ts'],
     }),
     // 为项目开启 MCP Server
-    MCPPlugin()
+    MCPPlugin(),
   ];
 
   if (isBuild) {
