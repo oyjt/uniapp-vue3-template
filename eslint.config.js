@@ -29,7 +29,6 @@ export default antfu(
       },
     },
     rules: {
-      'style/max-statements-per-line': ['error', { max: 2 }],
       // vue顶级标签的顺序
       'vue/block-order': ['error', {
         order: ['template', 'script', 'style'],
