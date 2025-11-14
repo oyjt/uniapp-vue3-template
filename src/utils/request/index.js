@@ -32,9 +32,17 @@ export function request(config) {
   });
 }
 
-export function get(url, config) { return request({ ...config, url, method: 'GET' }); }
-export function post(url, config) { return request({ ...config, url, method: 'POST' }); }
-export function upload(url, config) { return request({ ...config, url, method: 'UPLOAD' }); }
-export function download(url, config) { return request({ ...config, url, method: 'DOWNLOAD' }); }
+export function get(url, config) {
+  return request({ ...config, url, method: 'GET' });
+}
+export function post(url, config) {
+  return request({ ...config, url, method: 'POST' });
+}
+export function upload(url, config) {
+  return request({ ...config, url, method: 'UPLOAD' });
+}
+export function download(url, config) {
+  return request({ ...config, url, method: 'DOWNLOAD' });
+}
 
 export default setupRequest;

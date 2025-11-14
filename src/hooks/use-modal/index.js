@@ -5,7 +5,7 @@
  * showModal('提示内容')
  */
 export default function useModal() {
-  const showModal = (content: string, options: UniApp.ShowModalOptions) => {
+  const showModal = (content, options) => {
     return new Promise((resolve, reject) => {
       uni.showModal({
         title: '温馨提示',
