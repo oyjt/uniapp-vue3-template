@@ -18,16 +18,16 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v5
 
+      - name: 设置 pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: 设置 Node
         uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: pnpm
-
-      - name: 设置 pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
