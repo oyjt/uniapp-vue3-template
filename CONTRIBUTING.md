@@ -37,8 +37,12 @@
   fix: 修复 bug
   docs: 更新文档
   style: 格式调整
+  perf: 性能优化
   refactor: 代码重构
   test: 添加/修改测试
+  ci: 持续集成、工作流
+  revert: 撤销更改
+  chore: 其他修改（更新依赖、修改配置等）
   ```
 
 ## 贡献前请注意

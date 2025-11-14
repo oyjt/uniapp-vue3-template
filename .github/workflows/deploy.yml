@@ -1,38 +1,48 @@
-name: deploy
+name: Deploy UniApp H5 to GitHub Pages
 
 on:
   push:
-    branches: [main] # master 分支有 push 时触发
-    paths-ignore: # 下列文件的变更不触发部署，可以自行添加
+    branches: [main]
+    paths-ignore:
       - README.md
+      - CONTRIBUTING.md
+
+permissions:
+  contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: 检出代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: 安装pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
-      - name: Node环境
-        uses: actions/setup-node@v4
+      - name: 设置 Node
+        uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: pnpm
 
-      - name: 安装构建
-        run: |
-          pnpm install
-          pnpm build:h5
-
-      # 部署到 GitHub pages
-      - name: 部署
-        uses: peaceiris/actions-gh-pages@v4 # 使用部署到 GitHub pages 的 action
+      - name: 设置 pnpm
+        uses: pnpm/action-setup@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # secret 名
-          commit_message: 自动部署 # 部署时的 git 提交信息，自由填写
-          publish_dir: ./dist/build/h5 # 部署打包后的 dist 目录
+          version: 10
+
+      - name: 安装依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 构建 UniApp H5
+        run: pnpm build:h5
+
+      - name: 部署到 GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # 部署目标分支
+          folder: dist/build/h5 # 构建输出目录
+          clean: true # 自动清理旧文件
+          clean-exclude: '' # 不保留额外文件
+          force: false # 是否强推，一般 false 即可
+          single-commit: true # 减少 commit 历史，让分支更干净
+          commit-message: 自动部署 # 自定义 commit message
+          token: ${{ secrets.GITHUB_TOKEN }}
