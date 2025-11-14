@@ -1,0 +1,63 @@
+// 主题CSS变量
+:root,
+page {
+  // 主色调
+  --theme-primary: #21d59d;
+  --theme-success: #3ed268;
+  --theme-warning: #fe9831;
+  --theme-error: #fa4e62;
+
+  // 文字颜色
+  --theme-main-color: #1b233b;
+  --theme-content-color: #60687e;
+  --theme-tips-color: #7e869a;
+  --theme-light-color: #bdc3d2;
+  --theme-disabled-color: #dce0eb;
+
+  // 背景颜色
+  --theme-bg-color: #ffffff;
+  --theme-bg-color-secondary: #f8f9fa;
+
+  // 边框颜色
+  --theme-border-color: #e9ecef;
+}
+
+.theme-dark {
+  // 主色调
+  --theme-primary: #3c9cff;
+  --theme-success: #5ac725;
+  --theme-warning: #f9ae3d;
+  --theme-error: #f56c6c;
+
+  // 文字颜色
+  --theme-main-color: #ffffff;
+  --theme-content-color: #b0b8c1;
+  --theme-tips-color: #8a8f95;
+  --theme-light-color: #6c757d;
+  --theme-disabled-color: #495057;
+
+  // 背景颜色
+  --theme-bg-color: #1a1a1a;
+  --theme-bg-color-secondary: #2d2d2d;
+}
+
+// 主题工具类
+.theme-bg {
+  background-color: var(--theme-bg-color);
+}
+
+.theme-bg-secondary {
+  background-color: var(--theme-bg-color-secondary);
+}
+
+.theme-text {
+  color: var(--theme-main-color);
+}
+
+.theme-text-content {
+  color: var(--theme-content-color);
+}
+
+.theme-text-tips {
+  color: var(--theme-tips-color);
+}
