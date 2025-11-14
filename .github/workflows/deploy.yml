@@ -29,8 +29,28 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      - name: 缓存 pnpm store
+        uses: actions/cache@v4
+        id: pnpm-cache
+        with:
+          path: ~/.local/share/pnpm/store
+          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-
+
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
+
+      - name: 恢复构建缓存
+        uses: actions/cache@v4
+        id: build-cache
+        with:
+          path: |
+            node_modules/.cache
+            ./dist/.cache
+          key: build-cache-${{ runner.os }}-${{ hashFiles('src/**/*', 'vite.config.*') }}
+          restore-keys: |
+            build-cache-
 
       - name: 构建 UniApp H5
         run: pnpm build:h5
