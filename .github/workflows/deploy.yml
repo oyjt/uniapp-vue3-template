@@ -41,8 +41,6 @@ jobs:
           branch: gh-pages # 部署目标分支
           folder: dist/build/h5 # 构建输出目录
           clean: true # 自动清理旧文件
-          clean-exclude: '' # 不保留额外文件
-          force: false # 是否强推，一般 false 即可
           single-commit: true # 减少 commit 历史，让分支更干净
           commit-message: 自动部署 # 自定义 commit message
           token: ${{ secrets.GITHUB_TOKEN }}
