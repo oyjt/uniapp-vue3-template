@@ -198,9 +198,9 @@ button {
   padding: 0;
   margin: 0;
   line-height: inherit;
+  outline: none;
   background-color: transparent;
   border-radius: 0;
-  outline: none;
 }
 
 button::after {
