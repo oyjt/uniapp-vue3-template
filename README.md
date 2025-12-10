@@ -19,7 +19,7 @@
 |网络请求 |	Luch-request（默认） / Axios (分支) / Alova (分支)|
 |代码规范 |	ESLint, StyleLint, Git Hooks (Commit 校验)|
 
-### 🔗 链接与文档
+## 🔗 链接与文档
 - 国内仓库地址 (Gitee)：[https://gitee.com/ouyang/uniapp-vue3-template](https://gitee.com/ouyang/uniapp-vue3-template)
 
 - 在线预览地址：[https://oyjt.github.io/uniapp-vue3-template/](https://oyjt.github.io/uniapp-vue3-template/)
@@ -28,7 +28,7 @@
 
 - UniApp 插件精选: [https://github.com/oyjt/awesome-uniapp](https://github.com/oyjt/awesome-uniapp)
 
-### 🚀 项目核心特性
+## 🚀 项目核心特性
 
 #### 📦 开发与工程化
 - [x] **技术栈:** TypeScript 全面支持。
@@ -79,7 +79,7 @@
 - [x] **图片优化:** 项目构建时，**自动删除本地图片并替换本地路径为线上 CDN 路径** (需配置)。
 
 
-### 📁 目录结构概览
+## 📁 目录结构概览
 清晰的目录结构是团队协作的基础。本项目采用目前主流的技术方案。
 ```
 uniapp-vue3-project/
@@ -150,7 +150,7 @@ hooks
 └ index.ts       入口文件
 ```
 
-### 📁 页面结构
+#### 📁 页面结构
 ```
 pages
 ├ common           公共页面（分包common）
@@ -180,7 +180,7 @@ store
 └ index.ts        入口文件
 ```
 
-### 🔧 工具类（utils）
+#### 🔧 工具类（utils）
 ```
 utils
 ├ auth                token相关方法
@@ -197,7 +197,7 @@ utils
 └ index.ts            入口文件
 ```
 
-### 🛠️ 使用方法
+## 🛠️ 使用方法
 
 #### 1. 项目启动
 
@@ -277,11 +277,11 @@ git merge upstream/main
 
 4. 代码有冲突时，解决冲突，解决完冲突后提交代码即可
 
-### ⚡ 页面模板代码块（VSCode Snippet）
+## ⚡ 页面模板代码块（VSCode Snippet）
 在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板，可以加快页面生成。
 > 原理：基于 VSCode 代码块生成。
 
-### 🔑 核心功能指南
+## 🔑 核心功能指南
 
 #### 1. 登录鉴权 (路由拦截)
 
@@ -356,7 +356,7 @@ import bgImg from '@/static/images/bg_img.png'; // <-- 必须通过 JS 模块化
 ```
 
 
-### 🤖 微信小程序自动化构建 (CI/CD)
+## 🤖 微信小程序自动化构建 (CI/CD)
 
 本项目提供基于 `miniprogram-ci` 工具的 `Node.js` 脚本 (`scripts/mini-ci.js`)，用于自动化**预览 (preview)** 和**上传 (upload)** 微信小程序代码。
 
@@ -410,7 +410,7 @@ pnpm upload prod
 
   - **描述信息 (`desc`):** 包含 `[环境] + package.json 版本 + 日期 + Git Commit Short Hash`。
 
-### ❌ 常见问题 (FAQ)
+## ❌ 常见问题 (FAQ)
 #### 1. 关于包体积分析不准确？
 
   微信开发者工具内置的打包分析不准确。本项目已集成 `rollup-plugin-visualizer`，如需使用，请在 Vite 配置中移除相关注释。
