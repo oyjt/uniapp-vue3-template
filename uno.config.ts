@@ -61,9 +61,10 @@ export default defineConfig({
     // https://unocss.dev/transformers/variant-group
     // 启用 () 分组功能
     transformerVariantGroup(),
+    // 暂时关闭这两个功能，会引起 sourcemap 异常无法正常调试
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
-    transformerAttributify() as any,
+    // transformerAttributify() as any,
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
-    transformerClass(),
+    // transformerClass(),
   ],
 });
