@@ -5,9 +5,9 @@ import {
   transformerVariantGroup,
 } from 'unocss';
 import { presetWeapp } from 'unocss-preset-weapp';
-import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
+import { extractorAttributify } from 'unocss-preset-weapp/transformer';
 
-const { presetWeappAttributify, transformerAttributify } = extractorAttributify();
+const { presetWeappAttributify } = extractorAttributify();
 
 export default defineConfig({
   presets: [
