@@ -13,10 +13,10 @@
 | 技术栈 |  描述  |
 | ---  | ----- |
 |框架/构建 |	Uni-app, Vue 3, Vite, TypeScript|
-|UI 库 |	Uview-plus (默认) / Wot-design-uni / Shadcn-ui (分支)|
+|UI 库 |	uview-plus (默认) / wot-ui / shadcn-ui (分支)|
 |样式 |	UnoCSS, StyleLint, EditorConfig|
 |状态管理 |	Pinia |
-|网络请求 |	Luch-request（默认） / Axios (分支) / Alova (分支)|
+|网络请求 |	luch-request（默认） / axios (分支) / alova (分支)|
 |代码规范 |	ESLint, StyleLint, Git Hooks (Commit 校验)|
 
 ## 🔗 链接与文档
@@ -24,9 +24,13 @@
 
 - 在线预览地址：[https://oyjt.github.io/uniapp-vue3-template/](https://oyjt.github.io/uniapp-vue3-template/)
 
-- Uview-plus 官方文档：[https://uiadmin.net/uview-plus/](https://uiadmin.net/uview-plus/)
+- uview-plus 官方文档：[https://uiadmin.net/uview-plus/](https://uiadmin.net/uview-plus/)
 
-- UniApp 插件精选: [https://github.com/oyjt/awesome-uniapp](https://github.com/oyjt/awesome-uniapp)
+- wot-ui 官方文档：[https://wot-ui.cn/](https://wot-ui.cn/)
+
+- shadcn-ui 官方文档：[https://ui.shadcn.com/](https://ui.shadcn.com/)
+
+- uni-app 插件精选: [https://github.com/oyjt/awesome-uniapp](https://github.com/oyjt/awesome-uniapp)
 
 ## 🚀 项目核心特性
 
@@ -50,9 +54,9 @@
 #### 🎨 UI 与样式
 - [x] **UI 库:** 集成 `uview-plus 3.0` (默认)。
 
-  - *分支支持:* Wot-design-uni (查看 `feature/wot-design-uni` 分支)。
+  - *分支支持:* `wot-ui` (查看 [feature/wot-design-uni]((https://github.com/oyjt/uniapp-vue3-template/tree/feature/wot-design-uni)) 分支)。
 
-  - *分支支持:* Shadcn-ui (查看 `feature/shadcn-ui` 分支)。
+  - *分支支持:* `shadcn-ui` (查看 [feature/shadcn-ui](https://github.com/oyjt/uniapp-vue3-template/tree/feature/shadcn-ui) 分支)。
 
 - [x] **原子化 CSS:** 集成 `UnoCSS`，支持快速样式开发。
 
@@ -63,7 +67,8 @@
 
 - [x] **网络请求:** 封装网络请求（支持 TypeScript），支持 **Token 无感刷新**。
 
-  - 分支支持: Alova (`feature/alova` 分支) / Axios (`feature/axios` 分支)。
+  - *分支支持*：`alova` (查看 [feature/alova](https://github.com/oyjt/uniapp-vue3-template/tree/feature/alova) 分支)。
+  - *分支支持*：`axios` (查看 [feature/axios](https://github.com/oyjt/uniapp-vue3-template/tree/feature/axios) 分支)。
 
 - [x] **权限控制:** 添加页面跳转拦截，实现 登录权限校验。
 
@@ -245,9 +250,6 @@ pnpm cz
 
 ```bash
 # 更新 uni-app 相关依赖到最新正式版
-pnpx @dcloudio/uvm@latest
-
-# 或使用简化命令
 pnpm uvm
 
 # 升级完成后，清理可能产生的冗余依赖，减小包体积
