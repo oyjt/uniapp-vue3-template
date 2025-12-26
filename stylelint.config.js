@@ -1,63 +1,91 @@
 export default {
+  // 继承规则
   extends: [
     'stylelint-config-standard-scss',
     'stylelint-config-standard-vue/scss',
     'stylelint-config-recess-order',
   ],
+  // 忽略文件
   ignoreFiles: [
     'dist/**',
     'src/uni_modules/**',
     'node_modules/**',
   ],
   rules: {
-    // 禁止空代码
+    // --- 基础规则优化 ---
     'no-empty-source': null,
-    // 禁止在覆盖高特异性选择器之后出现低特异性选择器
     'no-descending-specificity': null,
-    // 不允许未知单位
-    'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
-    // 禁止空注释
     'comment-no-empty': true,
-    // @import 规则必须始终使用字符串表示法。
-    'import-notation': 'string',
-    // 忽略属性值未知校验
-    'declaration-property-value-no-unknown': [
-      true,
-      {
-        ignoreProperties: {
-          '/.*/': [
-            /v-bind\(.+\)/, // 匹配所有 v-bind(变量)、v-bind('--css-var') 等
-            /(^|\s)\d+(\.\d+)?rpx($|\s)/, // 匹配所有 rpx
-            /(^|\s)-\d+(\.\d+)?rpx($|\s)/, // 匹配所有 -rpx
-          ],
-        },
-      },
-    ],
-    // 忽略伪元素未知校验
-    'selector-pseudo-element-no-unknown': [
-      true,
-      {
-        ignorePseudoElements: ['v-deep'],
-      },
-    ],
-    // 忽略伪类未知校验
-    'selector-pseudo-class-no-unknown': [
-      true,
-      {
-        ignorePseudoClasses: ['deep'],
-      },
-    ],
-    // 忽略类型未知校验
-    'selector-type-no-unknown': [true, { ignoreTypes: ['page', 'radio', 'checkbox', 'scroll-view'] }],
-    // 忽略规则未知校验
-    'at-rule-no-deprecated': null,
-    // 忽略颜色十六进制长度校验
+    'comment-empty-line-before': null,
     'color-hex-length': null,
-    // 忽略scss文件后缀校验
+    'import-notation': 'string',
+
+    // --- UniApp & 小程序适配 ---
+    // 允许 rpx 单位
+    'unit-no-unknown': [true, {
+      ignoreUnits: ['rpx'],
+    }],
+    // 允许小程序特有标签
+    'selector-type-no-unknown': [true, {
+      ignoreTypes: [
+        'page',
+        'view',
+        'text',
+        'image',
+        'scroll-view',
+        'swiper',
+        'swiper-item',
+        'navigator',
+        'button',
+        'radio',
+        'checkbox',
+        'label',
+        'form',
+        'picker',
+        'picker-view',
+      ],
+    }],
+
+    // --- UnoCSS 兼容 (关键) ---
+    'scss/at-rule-no-unknown': [true, {
+      ignoreAtRules: [
+        'apply',
+        'variants',
+        'responsive',
+        'screen',
+        'unocss',
+        'theme',
+      ],
+    }],
+    'function-no-unknown': [true, {
+      ignoreFunctions: ['theme', 'v-bind'],
+    }],
+
+    // --- Vue3 深度选择器适配 ---
+    'selector-pseudo-element-no-unknown': [true, {
+      ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted'],
+    }],
+    'selector-pseudo-class-no-unknown': [true, {
+      ignorePseudoClasses: ['deep', 'global'],
+    }],
+
+    // --- 声明值校验优化 (针对 v-bind 和 rpx) ---
+    'declaration-property-value-no-unknown': [true, {
+      ignoreProperties: {
+        '/.+/': [
+          /v-bind\(.+\)/,
+          /(\d+(\.\d+)?rpx)/,
+        ],
+      },
+    }],
+
+    // --- SCSS 规则微调 (配合 @antfu 风格) ---
     'scss/load-partial-extension': null,
-    // 忽略scss注释校验
     'scss/double-slash-comment-empty-line-before': null,
-    // 忽略scss注释空格校验
     'scss/double-slash-comment-whitespace-inside': null,
+    'scss/at-import-partial-extension': null, // 允许不写下划线和后缀
+
+    // 禁用标准 CSS 中不支持 SCSS 函数的报错
+    'at-rule-no-deprecated': null,
   },
 };
