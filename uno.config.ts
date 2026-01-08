@@ -1,3 +1,5 @@
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders';
+import { presetLegacyCompat } from '@unocss/preset-legacy-compat';
 import {
   defineConfig,
   presetIcons,
@@ -23,6 +25,23 @@ export default defineConfig({
         'display': 'inline-block',
         'vertical-align': 'middle',
       },
+      // 自定义图标
+      collections: {
+        // 从本地文件系统加载 svg 图标
+        'my-icons': FileSystemIconLoader('./src/static/icons'),
+        // 从在线图标库加载图标
+        // 'my-online-icons': async (iconName) => {
+        //   return await fetch(`https://example.com/icons/${iconName}.svg`).then(res => res.text());
+        // },
+      },
+    }),
+    /**
+     * 启用 legacy-compat 模式(处理低端安卓机的样式问题)
+     * @see https://unocss.dev/presets/legacy-compat
+     */
+    presetLegacyCompat({
+      commaStyleColorFunction: true,
+      legacyColorSpace: true,
     }),
   ],
   /**
