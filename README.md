@@ -8,7 +8,7 @@
 [![GitHub License](https://img.shields.io/github/license/oyjt/uniapp-vue3-template)](https://github.com/oyjt/uniapp-vue3-template)
 
 
-使用 **uni-app + vite + vue3 + typeScript + uview-plus + UnoCSS** 搭建的适合**团队协作**的快速开发模版。本项目集众多优秀项目的优点，旨在打造最适合团队协作开发的高效脚手架。
+使用 **uni-app + vite + vue3 + typescript + uview-plus + unocss** 搭建的适合**团队协作**的快速开发模版。本项目集众多优秀项目的优点，旨在打造最适合团队协作开发的高效脚手架。
 
 | 技术栈 |  描述  |
 | ---  | ----- |
