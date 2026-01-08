@@ -425,7 +425,7 @@ pnpm upload prod
 
 #### 3. Shadcn-ui 分支说明
 
-  `feature/shadcn-ui` 分支采用最新的 `tailwindcss v4.1`，Unocss 对其支持可能不够完善。**Shadcn-ui 不太适合移动端**，如不需要可切换回主分支或移除相关配置。
+  `feature/shadcn-ui` 分支采用最新的 `tailwindcss v4.1`，Unocss 对其支持还不够完善。**Shadcn-ui 不太适合移动端**，如不需要可切换回主分支或移除相关配置。
 
 ### ❤️ 捐赠支持
 
