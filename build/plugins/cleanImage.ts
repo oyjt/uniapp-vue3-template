@@ -1,5 +1,5 @@
 /**
- * @name cleanImagePlugin
+ * @name CleanImagePlugin
  * @description 清除构建后的图片资源
  */
 import CleanBuild from 'vite-plugin-clean-build';

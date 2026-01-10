@@ -3,25 +3,25 @@
  * @description 封装plugins数组统一调用
  */
 import type { PluginOption } from 'vite';
-import uniPlugin from '@dcloudio/vite-plugin-uni';
+import UniPlugin from '@dcloudio/vite-plugin-uni';
 import ViteRestart from 'vite-plugin-restart';
-import { AutoImportDeps } from './autoImport';
+import { AutoImportPlugin } from './autoImport';
 // import { ConfigImageminPlugin } from './imagemin';
 // import { ReplaceUrlPlugin } from './replaceUrl';
-import { AutoRegistryComponents } from './component';
+import { AutoComponentsPlugin } from './component';
 import { MCPPlugin } from './mcp';
-import { ConfigUnoCSSPlugin } from './unocss';
+import { UnoCSSPlugin } from './unocss';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     // UnoCSS配置
-    ConfigUnoCSSPlugin(),
+    UnoCSSPlugin(),
     // 自动按需引入依赖
-    AutoImportDeps(),
+    AutoImportPlugin(),
     // 自动按需引入组件(注意：需注册至 uni 之前，否则不会生效)
-    AutoRegistryComponents(),
+    AutoComponentsPlugin(),
     // uni支持(兼容性写法，当type为module时，必须要这样写)
-    (uniPlugin as any).default(),
+    (UniPlugin as any).default(),
     ViteRestart({
       // 通过这个插件，在修改vite.config.js文件则不需要重新运行也生效配置
       restart: ['vite.config.ts'],

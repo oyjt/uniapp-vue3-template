@@ -1,10 +1,10 @@
 /**
- * @name AutoImportDeps
+ * @name AutoImportPlugin
  * @description 按需加载，自动引入
  */
 import AutoImport from 'unplugin-auto-import/vite';
 
-export const AutoImportDeps = () => {
+export const AutoImportPlugin = () => {
   return AutoImport({
     imports: ['vue', 'uni-app', 'pinia'],
     dts: 'types/auto-imports.d.ts',

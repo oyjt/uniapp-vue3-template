@@ -1,5 +1,5 @@
 /**
- * @name ReplaceImageUrl
+ * @name ReplaceUrlPlugin
  * @description 替换图片地址
  */
 import replaceImageUrl from 'vite-plugin-replace-image-url';

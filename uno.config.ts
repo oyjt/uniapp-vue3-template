@@ -1,22 +1,15 @@
+import type { Preset } from 'unocss';
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders';
+import { presetUni } from '@uni-helper/unocss-preset-uni';
 import { presetLegacyCompat } from '@unocss/preset-legacy-compat';
-import {
-  defineConfig,
-  presetIcons,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss';
-import { presetWeapp } from 'unocss-preset-weapp';
-import { extractorAttributify } from 'unocss-preset-weapp/transformer';
-
-const { presetWeappAttributify } = extractorAttributify();
+import { defineConfig, presetIcons, transformerDirectives, transformerVariantGroup } from 'unocss';
 
 export default defineConfig({
   presets: [
-    // https://github.com/MellowCo/unocss-preset-weapp
-    presetWeapp(),
-    // attributify autocomplete
-    presetWeappAttributify() as any,
+    // https://uni-helper.js.org/unocss-preset-uni
+    presetUni({
+      attributify: false,
+    }),
     // https://unocss.dev/presets/icons
     presetIcons({
       scale: 1.2,
@@ -42,7 +35,7 @@ export default defineConfig({
     presetLegacyCompat({
       commaStyleColorFunction: true,
       legacyColorSpace: true,
-    }),
+    }) as Preset,
   ],
   /**
    * 自定义快捷语句
@@ -52,6 +45,9 @@ export default defineConfig({
     'border-base': 'border border-gray-500_10',
     'center': 'flex justify-center items-center',
   },
+  rules: [
+    ['pb-safe', { 'padding-bottom': 'env(safe-area-inset-bottom)' }],
+  ],
   theme: {
     colors: {
       // 主题颜色
@@ -73,17 +69,9 @@ export default defineConfig({
     },
   },
   transformers: [
-    // 启用 @apply 功能
-    transformerDirectives({
-      enforce: 'pre',
-    }),
-    // https://unocss.dev/transformers/variant-group
+    // 启用指令功能：主要用于支持 @apply、@screen 和 theme() 等 CSS 指令
+    transformerDirectives(),
     // 启用 () 分组功能
     transformerVariantGroup(),
-    // 暂时关闭这两个功能，会引起 sourcemap 异常无法正常调试
-    // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
-    // transformerAttributify() as any,
-    // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
-    // transformerClass(),
   ],
 });

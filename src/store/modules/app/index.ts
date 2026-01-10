@@ -1,4 +1,4 @@
-import type { AppState, ThemeMode } from './types';
+import type { AppState } from './types';
 import { defineStore } from 'pinia';
 import storage from '@/utils/storage';
 
@@ -35,7 +35,7 @@ const useAppStore = defineStore('app', {
     /**
      * 设置主题
      */
-    setTheme(theme: ThemeMode) {
+    setTheme(theme: string) {
       this.theme = theme;
 
       // 保存到本地存储
