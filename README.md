@@ -43,7 +43,7 @@
 
 - [x] **代码规范:** 集成 ESLint、StyleLint、EditorConfig，自动校验 Git 提交代码格式。
 
-- [x] **AI 支持:** 更好地适配 `cursor` 和 `trae` 规则，集成 `MCP` 插件。
+- [x] **AI 支持:** 更好地适配 `cursor` 和 `trae` 规则，集成 `MCP` 插件，支持`antfu skills`。
 
 - [x] **包体积分析:** 集成包体积视图分析插件 (`rollup-plugin-visualizer`)。
 
