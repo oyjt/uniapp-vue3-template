@@ -85,6 +85,9 @@ export default {
     'scss/double-slash-comment-whitespace-inside': null,
     'scss/at-import-partial-extension': null, // 允许不写下划线和后缀
 
+    // 允许单行中出现多个声明，避免过度严格
+    'declaration-block-single-line-max-declarations': null,
+
     // 禁用标准 CSS 中不支持 SCSS 函数的报错
     'at-rule-no-deprecated': null,
   },

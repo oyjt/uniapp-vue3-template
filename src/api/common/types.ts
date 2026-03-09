@@ -1,21 +1,21 @@
 export interface CommonReq {
-  [key: string]: any;
+  [key: string]: any
 }
 
 export interface CommonRes {
-  [key: string]: any;
+  [key: string]: any
 }
 
 export interface UploadRes {
-  file: string;
-  url: string;
+  file: string
+  url: string
 }
 
 export interface SendCodeReq {
-  phone: number;
-  code: number;
+  phone: number
+  code: number
 }
 
 export interface SendCodeRes {
-  code: number;
+  code: number
 }

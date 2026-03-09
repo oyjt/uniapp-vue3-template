@@ -1,4 +1,4 @@
-import type { ILoadingOptions, IShowModalOptions, IShowToastOptions } from './types';
+import type { ILoadingOptions, IShowModalOptions, IShowToastOptions } from './types'
 
 /**
  * 轻提示
@@ -12,7 +12,7 @@ export function Toast(content: string, option: IShowToastOptions = {}) {
     mask: true,
     duration: 1500,
     ...option,
-  });
+  })
 }
 
 /**
@@ -24,12 +24,12 @@ export const Loading: ILoadingOptions = {
     uni.showLoading({
       title: content,
       mask: true,
-    });
+    })
   },
   hide: () => {
-    uni.hideLoading();
+    uni.hideLoading()
   },
-};
+}
 
 /**
  * Dialog 提示框
@@ -37,7 +37,7 @@ export const Loading: ILoadingOptions = {
  * @param {object} option 配置
  */
 export function Dialog(content: string, option: IShowModalOptions = {}) {
-  option.showCancel = false;
+  option.showCancel = false
   return new Promise((resolve, reject) => {
     uni.showModal({
       title: '温馨提示',
@@ -46,12 +46,12 @@ export function Dialog(content: string, option: IShowModalOptions = {}) {
       confirmColor: '#1677FF',
       success(res) {
         if (res.confirm)
-          resolve(res);
+          resolve(res)
       },
       fail() {
-        reject(new Error('Alert 调用失败 !'));
+        reject(new Error('Alert 调用失败 !'))
       },
       ...option,
-    });
-  });
+    })
+  })
 }

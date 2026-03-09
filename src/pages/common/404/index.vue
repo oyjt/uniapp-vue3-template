@@ -13,13 +13,13 @@
 </template>
 
 <script lang="ts" setup>
-import { HOME_PATH } from '@/router';
+import { HOME_PATH } from '@/router'
 
 function handleBack() {
   uni.$u.route({
     type: 'switchTab',
     url: HOME_PATH,
-  });
+  })
 }
 </script>
 

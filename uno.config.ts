@@ -1,4 +1,5 @@
 import type { Preset } from 'unocss';
+import { icons as mdiIcons } from '@iconify-json/mdi';
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders';
 import { presetUni } from '@uni-helper/unocss-preset-uni';
 import { presetLegacyCompat } from '@unocss/preset-legacy-compat';
@@ -22,12 +23,8 @@ export default defineConfig({
       },
       // 自定义图标
       collections: {
-        // 从本地文件系统加载 svg 图标
+        'mdi': () => mdiIcons,
         'my-icons': FileSystemIconLoader('./src/static/icons'),
-        // 从在线图标库加载图标
-        // 'my-online-icons': async (iconName) => {
-        //   return await fetch(`https://example.com/icons/${iconName}.svg`).then(res => res.text());
-        // },
       },
     }),
     /**

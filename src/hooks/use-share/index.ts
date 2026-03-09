@@ -1,4 +1,4 @@
-import type { ShareOptions } from './types';
+import type { ShareOptions } from './types'
 
 /**
  * 小程序分享
@@ -14,10 +14,10 @@ import type { ShareOptions } from './types';
  */
 export default function useShare(options?: ShareOptions) {
   // #ifdef MP-WEIXIN
-  const title = options?.title ?? '';
-  const path = options?.path ?? '';
-  const query = options?.query ?? '';
-  const imageUrl = options?.imageUrl ?? '';
+  const title = options?.title ?? ''
+  const path = options?.path ?? ''
+  const query = options?.query ?? ''
+  const imageUrl = options?.imageUrl ?? ''
 
   const shareApp = (params: ShareOptions = {}) => {
     onShareAppMessage(() => {
@@ -26,9 +26,9 @@ export default function useShare(options?: ShareOptions) {
         path: path ? `${path}${query ? `?${query}` : ''}` : '',
         imageUrl,
         ...params,
-      };
-    });
-  };
+      }
+    })
+  }
 
   const shareTime = (params: ShareOptions = {}) => {
     onShareTimeline(() => {
@@ -37,12 +37,12 @@ export default function useShare(options?: ShareOptions) {
         query: options?.query ?? '',
         imageUrl,
         ...params,
-      };
-    });
-  };
+      }
+    })
+  }
   return {
     onShareAppMessage: shareApp,
     onShareTimeline: shareTime,
-  };
+  }
   // #endif
 }

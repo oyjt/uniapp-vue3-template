@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store';
+import { useAppStore } from '@/store'
 
-const appStore = useAppStore();
+const appStore = useAppStore()
 
 const colors = [{
   name: '',
@@ -22,11 +22,11 @@ const colors = [{
 }, {
   name: 'blue',
   color: '#3c9cff',
-}];
+}]
 
-const theme = computed(() => appStore.getTheme);
+const theme = computed(() => appStore.getTheme)
 
 function changeTheme(theme: string) {
-  appStore.setTheme(theme);
+  appStore.setTheme(theme)
 }
 </script>

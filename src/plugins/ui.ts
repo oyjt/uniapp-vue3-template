@@ -1,5 +1,5 @@
-import type { App } from 'vue';
-import uviewPlus, { setConfig } from 'uview-plus';
+import type { App } from 'vue'
+import uviewPlus, { setConfig } from 'uview-plus'
 
 function setupUI(app: App) {
   // 下面的在特殊场景下才需要配置，通常不用配置即可直接使用uview-plus框架。
@@ -20,9 +20,9 @@ function setupUI(app: App) {
       // 其他组件属性配置
       // ......
     },
-  });
+  })
 
-  app.use(uviewPlus);
+  app.use(uviewPlus)
 }
 
-export default setupUI;
+export default setupUI

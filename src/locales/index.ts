@@ -1,7 +1,7 @@
-import type { App } from 'vue';
-import { createI18n } from 'vue-i18n';
-import en from './langs/en';
-import zhHans from './langs/zh-Hans';
+import type { App } from 'vue'
+import { createI18n } from 'vue-i18n'
+import en from './langs/en'
+import zhHans from './langs/zh-Hans'
 
 const i18n = createI18n({
   legacy: false, // 必须设置false才能使用Composition API
@@ -11,11 +11,11 @@ const i18n = createI18n({
     en,
     'zh-Hans': zhHans,
   },
-});
+})
 
 function setupI18n(app: App) {
-  app.use(i18n);
+  app.use(i18n)
 }
 
-export { i18n };
-export default setupI18n;
+export { i18n }
+export default setupI18n

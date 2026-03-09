@@ -4,15 +4,14 @@
   "version": "1.6.0",
   "description": "uniapp 团队协作开发实践模板(Vue3)",
   "author": {
-    "name": "江阳小道",
-    "email": "oyjt001@gmail.com",
-    "github": "https://github.com/oyjt"
+    "name": "小鲁班",
+    "github": "https://github.com/xiaoluban-sudo"
   },
   "license": "MIT",
-  "homepage": "https://github.com/oyjt/uniapp-vue3-template",
+  "homepage": "https://github.com/xiaoluban-sudo/uniapp-vue3-template",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oyjt/uniapp-vue3-template.git"
+    "url": "https://github.com/xiaoluban-sudo/uniapp-vue3-template.git"
   },
   "keywords": [
     "Vue3",

@@ -8,4 +8,4 @@ export default {
     'intro': '欢迎来到uni-app演示',
     'toggle-langs': '切换语言',
   },
-};
+}

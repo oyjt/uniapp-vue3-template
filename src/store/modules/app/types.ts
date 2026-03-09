@@ -1,5 +1,5 @@
-export type ThemeMode = 'light' | 'dark' | 'auto';
+export type ThemeMode = 'light' | 'dark' | 'auto'
 export interface AppState {
-  systemInfo: UniApp.GetSystemInfoResult;
-  theme: string;
+  systemInfo: UniApp.GetSystemInfoResult
+  theme: string
 }

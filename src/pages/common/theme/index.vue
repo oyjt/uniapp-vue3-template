@@ -76,14 +76,14 @@
 </template>
 
 <script setup lang="ts">
-import type { ThemeMode } from '@/store/modules/app/types';
-import { useTheme } from '@/hooks';
-import { useAppStore } from '@/store';
+import type { ThemeMode } from '@/store/modules/app/types'
+import { useTheme } from '@/hooks'
+import { useAppStore } from '@/store'
 
-const { theme, isDark, setTheme, toggleTheme } = useTheme();
+const { theme, isDark, setTheme, toggleTheme } = useTheme()
 
-const appStore = useAppStore();
-const themeClass = computed(() => `theme-${appStore.theme}`);
+const appStore = useAppStore()
+const themeClass = computed(() => `theme-${appStore.theme}`)
 
 // 主题选项
 const themeOptions = [
@@ -99,5 +99,5 @@ const themeOptions = [
     icon: 'i-mdi-moon-and-stars',
     description: '适合暗光环境使用',
   },
-];
+]
 </script>

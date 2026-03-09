@@ -11,13 +11,19 @@
     {
       "path": "pages/tab/home/index",
       "style": {
-        "navigationBarTitleText": "首页"
+        "navigationStyle": "custom"
       }
     },
     {
-      "path": "pages/tab/list/index",
+      "path": "pages/tab/match/index",
       "style": {
-        "navigationBarTitleText": "列表"
+        "navigationBarTitleText": "约球大厅"
+      }
+    },
+    {
+      "path": "pages/tab/record/index",
+      "style": {
+        "navigationStyle": "custom"
       }
     },
     {
@@ -29,6 +35,47 @@
     }
   ],
   "subPackages": [
+    {
+      "root": "pages/activity",
+      "pages": [
+        {
+          "path": "create/index",
+          "style": {
+            "navigationBarTitleText": "发起约球"
+          }
+        },
+        {
+          "path": "detail/index",
+          "style": {
+            "navigationBarTitleText": "活动详情"
+          }
+        },
+        {
+          "path": "match-type/index",
+          "style": {
+            "navigationBarTitleText": "选择比赛类型"
+          }
+        },
+        {
+          "path": "create-match/index",
+          "style": {
+            "navigationBarTitleText": "发起比赛"
+          }
+        },
+        {
+          "path": "match-detail/index",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "scoring/index",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    },
     {
       "root": "pages/common",
       "pages": [
@@ -64,34 +111,44 @@
   "preloadRule": {
     "pages/tab/home/index": {
       "network": "all",
-      "packages": ["pages/common"]
+      "packages": ["pages/common", "pages/activity"]
     }
   },
   "tabBar": {
-    "color": "#1b233b",
+    "color": "#999999",
     "selectedColor": "#21d59d",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list": [{
-      "iconPath": "static/images/tabbar/icon_home.png",
-      "selectedIconPath": "static/images/tabbar/icon_home_selected.png",
-      "pagePath": "pages/tab/home/index",
-      "text": "首页"
-    }, {
-      "iconPath": "static/images/tabbar/icon_list.png",
-      "selectedIconPath": "static/images/tabbar/icon_list_selected.png",
-      "pagePath": "pages/tab/list/index",
-      "text": "列表"
-    }, {
-      "iconPath": "static/images/tabbar/icon_me.png",
-      "selectedIconPath": "static/images/tabbar/icon_me_selected.png",
-      "pagePath": "pages/tab/user/index",
-      "text": "我的"
-    }]
+    "list": [
+      {
+        "iconPath": "static/images/tabbar/home.png",
+        "selectedIconPath": "static/images/tabbar/home_selected.png",
+        "pagePath": "pages/tab/home/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "static/images/tabbar/match.png",
+        "selectedIconPath": "static/images/tabbar/match_selected.png",
+        "pagePath": "pages/tab/match/index",
+        "text": "约球"
+      },
+      {
+        "iconPath": "static/images/tabbar/record.png",
+        "selectedIconPath": "static/images/tabbar/record_selected.png",
+        "pagePath": "pages/tab/record/index",
+        "text": "战绩"
+      },
+      {
+        "iconPath": "static/images/tabbar/user.png",
+        "selectedIconPath": "static/images/tabbar/user_selected.png",
+        "pagePath": "pages/tab/user/index",
+        "text": "我的"
+      }
+    ]
   },
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "羽毛球助手",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   }

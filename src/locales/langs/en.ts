@@ -8,4 +8,4 @@ export default {
     'intro': 'Welcome to uni-app demo',
     'toggle-langs': 'Change languages',
   },
-};
+}

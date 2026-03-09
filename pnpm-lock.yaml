@@ -123,9 +123,6 @@ importers:
       '@uni-helper/unocss-preset-uni':
         specifier: ^0.2.11
         version: 0.2.11(@unocss/preset-legacy-compat@66.6.3)(@unocss/preset-mini@66.6.3)(@unocss/rule-utils@66.6.3)(@unocss/vite@66.5.12(vite@5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1)))(unocss-applet@0.12.2(unocss@66.5.12(postcss@8.5.6)(vite@5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1))))(unocss@66.5.12(postcss@8.5.6)(vite@5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1)))
-      '@uni-ku/root':
-        specifier: ^1.4.1
-        version: 1.4.1(vite@5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1))
       '@unocss/eslint-plugin':
         specifier: ^66.5.12
         version: 66.5.12(eslint@9.39.3(jiti@2.6.1))(typescript@5.8.3)
@@ -2950,11 +2947,6 @@ packages:
         optional: true
       '@unocss/vite':
         optional: true
-
-  '@uni-ku/root@1.4.1':
-    resolution: {integrity: sha512-DI9LLbWmPXjqJVwZTC84GuvSz9vzOgSUjbFrOE1y3kivttEReNVqwWM3n/kzFoNuS3KKm/DissOph4rFs912Zw==}
-    peerDependencies:
-      vite: ^5.0.0
 
   '@unocss-applet/preset-applet@0.12.2':
     resolution: {integrity: sha512-w4R4lkAUbbZ1f6SXkwhcBmGLjgMmgpKUIsWG92ojfg83+kiaX4ENS47SiadO4SOZEJssE2wflvxkjG0CfUN9rQ==}
@@ -13126,13 +13118,6 @@ snapshots:
     optionalDependencies:
       '@unocss/preset-mini': 66.6.3
       '@unocss/vite': 66.5.12(vite@5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1))
-
-  '@uni-ku/root@1.4.1(vite@5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1))':
-    dependencies:
-      '@vue/compiler-sfc': 3.4.21
-      chokidar: 3.6.0
-      jsonc-parser: 3.3.1
-      vite: 5.2.8(@types/node@22.19.3)(less@4.4.2)(sass@1.63.2)(terser@5.44.1)
 
   '@unocss-applet/preset-applet@0.12.2':
     dependencies:

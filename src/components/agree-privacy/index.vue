@@ -38,15 +38,15 @@
 
 <script setup lang="ts">
 interface AgreePrivacyProps {
-  modelValue: boolean;
+  modelValue: boolean
   // 标题
-  title: string;
+  title: string
   // 副标题
-  subTitle: string;
+  subTitle: string
   // 禁止自动检测隐私
-  disableCheckPrivacy: boolean;
+  disableCheckPrivacy: boolean
   // 按钮id 必填项不填写时授权按钮id必须为agree-btn
-  agreePrivacyId: string;
+  agreePrivacyId: string
 }
 
 const props = withDefaults(defineProps<AgreePrivacyProps>(), {
@@ -55,32 +55,32 @@ const props = withDefaults(defineProps<AgreePrivacyProps>(), {
   subTitle: '',
   disableCheckPrivacy: true,
   agreePrivacyId: 'agree-btn',
-});
+})
 
-const emit = defineEmits(['update:modelValue', 'needPrivacyAuthorization', 'agree', 'disagree']);
+const emit = defineEmits(['update:modelValue', 'needPrivacyAuthorization', 'agree', 'disagree'])
 // 初始化的标题
-const initTitle = ref<string>('隐私政策概要');
+const initTitle = ref<string>('隐私政策概要')
 // 初始化的副标题
-const initSubTitle = ref<string>('');
+const initSubTitle = ref<string>('')
 // 隐私政策
-const initPrivacyContractName = ref<string>('隐私政策');
+const initPrivacyContractName = ref<string>('隐私政策')
 
 // 打开隐私
 function openAgreePrivacy() {
-  emit('update:modelValue', true);
+  emit('update:modelValue', true)
 }
 
 // 关闭隐私
 function closeAgreePrivacy() {
-  emit('update:modelValue', false);
+  emit('update:modelValue', false)
 }
 
 // 需要初始化的数据
 function initData() {
-  initTitle.value = props.title || initTitle.value;
+  initTitle.value = props.title || initTitle.value
   initSubTitle.value
     = props.subTitle
-      || `亲爱的用户，感谢您一直以来的支持!为了更好地保护您的权益，同时遵守相关监管要求，请认真阅读${initPrivacyContractName.value}，特向您说明如下:`;
+      || `亲爱的用户，感谢您一直以来的支持!为了更好地保护您的权益，同时遵守相关监管要求，请认真阅读${initPrivacyContractName.value}，特向您说明如下:`
 }
 
 // 检测是否授权
@@ -89,12 +89,12 @@ function checkPrivacySetting() {
     success: (res: any) => {
       // 未授权弹框
       if (res.needAuthorization) {
-        initPrivacyContractName.value = res.privacyContractName;
-        initData();
+        initPrivacyContractName.value = res.privacyContractName
+        initData()
         // 是否禁用 自动检测隐私并弹框
         if (!props.disableCheckPrivacy) {
           // 需要弹出隐私协议
-          openAgreePrivacy();
+          openAgreePrivacy()
         }
       }
       else {
@@ -103,36 +103,36 @@ function checkPrivacySetting() {
       }
     },
     fail: (e: any) => {
-      console.log(e);
+      console.log(e)
     },
-  });
+  })
 }
 // 打开隐私政策
 function openPrivacyContract() {
   wx.openPrivacyContract({
     success: () => {}, // 打开成功
     fail: (e: any) => {
-      uni.$u.toast(`打开失败:${e}`);
+      uni.$u.toast(`打开失败:${e}`)
     }, // 打开失败
-  });
+  })
 }
 
 // 同意
 function agree(e: any) {
-  const buttonId = e.target.id || 'agree-btn';
-  emit('agree', buttonId);
-  emit('update:modelValue', false);
+  const buttonId = e.target.id || 'agree-btn'
+  emit('agree', buttonId)
+  emit('update:modelValue', false)
 }
 
 // 拒绝
 function disagree() {
-  emit('disagree');
-  closeAgreePrivacy();
+  emit('disagree')
+  closeAgreePrivacy()
 }
 
 onMounted(() => {
   // 检测是否授权
-  checkPrivacySetting();
+  checkPrivacySetting()
 
   // // 监听授权
   // wx.onNeedPrivacyAuthorization((resolve, eventInfo) => {
@@ -140,7 +140,7 @@ onMounted(() => {
   //   // 回调
   //   emit('needPrivacyAuthorization', resolve, eventInfo);
   // });
-});
+})
 </script>
 
 <style scoped lang="scss">

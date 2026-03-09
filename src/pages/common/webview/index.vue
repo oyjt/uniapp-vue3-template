@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-const url = ref<string>('');
+const url = ref<string>('')
 
 onLoad((options: any) => {
   if (options.url)
-    url.value = decodeURIComponent(options.url);
-});
+    url.value = decodeURIComponent(options.url)
+})
 </script>

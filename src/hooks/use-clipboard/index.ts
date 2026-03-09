@@ -15,19 +15,19 @@ export default function useClipboard() {
         showToast,
         success: ({ data }) => resolve(data),
         fail: error => reject(error),
-      });
-    });
-  };
+      })
+    })
+  }
   const getClipboardData = () => {
     return new Promise<string>((resolve, reject) => {
       uni.getClipboardData({
         success: ({ data }) => resolve(data),
         fail: error => reject(error),
-      });
-    });
-  };
+      })
+    })
+  }
   return {
     setClipboardData,
     getClipboardData,
-  };
+  }
 }

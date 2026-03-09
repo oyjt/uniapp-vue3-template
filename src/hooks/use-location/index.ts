@@ -1,4 +1,4 @@
-import type { AddressInfo, LocationInfo, LocationOptions } from './types';
+import type { AddressInfo, LocationInfo, LocationOptions } from './types'
 
 /**
  * 定位hooks，提供定位相关功能
@@ -9,38 +9,38 @@ import type { AddressInfo, LocationInfo, LocationOptions } from './types';
  */
 export default function useLocation() {
   // 当前位置信息
-  const location = ref<LocationInfo | null>(null);
+  const location = ref<LocationInfo | null>(null)
 
   // 定位状态
-  const isLocating = ref(false);
+  const isLocating = ref(false)
 
   // 是否正在监听位置
-  const isWatching = ref(false);
+  const isWatching = ref(false)
 
   // 定位错误信息
-  const error = ref<any>(null);
+  const error = ref<any>(null)
 
   // 历史位置
-  const historyLocations = ref<LocationInfo[]>([]);
+  const historyLocations = ref<LocationInfo[]>([])
 
   // 监听位置的定时器ID
-  let watchId: number | null = null;
+  let watchId: number | null = null
 
   /**
    * 获取当前位置
    * @param options 定位选项
    */
   const getLocation = (options: LocationOptions = {}) => {
-    isLocating.value = true;
-    error.value = null;
+    isLocating.value = true
+    error.value = null
 
     const defaultOptions: LocationOptions = {
       type: 'gcj02',
       altitude: false,
       isHighAccuracy: false,
-    };
+    }
 
-    const finalOptions = { ...defaultOptions, ...options };
+    const finalOptions = { ...defaultOptions, ...options }
 
     return new Promise<LocationInfo>((resolve, reject) => {
       uni.getLocation({
@@ -53,33 +53,33 @@ export default function useLocation() {
           const locationData: LocationInfo = {
             ...res,
             timestamp: Date.now(),
-          };
+          }
 
-          location.value = locationData;
+          location.value = locationData
 
           // 添加到历史记录
-          historyLocations.value.push(locationData);
+          historyLocations.value.push(locationData)
 
           // 只保留最近的20条记录
           if (historyLocations.value.length > 20) {
-            historyLocations.value.shift();
+            historyLocations.value.shift()
           }
 
-          finalOptions.success && finalOptions.success(res);
-          resolve(locationData);
+          finalOptions.success && finalOptions.success(res)
+          resolve(locationData)
         },
         fail: (err) => {
-          error.value = err;
-          finalOptions.fail && finalOptions.fail(err);
-          reject(err);
+          error.value = err
+          finalOptions.fail && finalOptions.fail(err)
+          reject(err)
         },
         complete: () => {
-          isLocating.value = false;
-          finalOptions.complete && finalOptions.complete();
+          isLocating.value = false
+          finalOptions.complete && finalOptions.complete()
         },
-      });
-    });
-  };
+      })
+    })
+  }
 
   /**
    * 使用地理编码获取地址信息
@@ -93,8 +93,8 @@ export default function useLocation() {
         url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${latitude},${longitude}&key=YOUR_KEY`,
         success: (res: any) => {
           if (res.data && res.data.status === 0) {
-            const addressComponent = res.data.result.address_component;
-            const formattedAddress = res.data.result.formatted_addresses.recommend;
+            const addressComponent = res.data.result.address_component
+            const formattedAddress = res.data.result.formatted_addresses.recommend
 
             const addressInfo: AddressInfo = {
               nation: addressComponent.nation,
@@ -105,44 +105,44 @@ export default function useLocation() {
               streetNum: addressComponent.street_number,
               poiName: res.data.result.poi_count > 0 ? res.data.result.pois[0].title : '',
               cityCode: res.data.result.ad_info.city_code,
-            };
-
-            if (location.value) {
-              location.value.address = addressInfo;
-              location.value.formatted = formattedAddress;
             }
 
-            resolve(addressInfo);
+            if (location.value) {
+              location.value.address = addressInfo
+              location.value.formatted = formattedAddress
+            }
+
+            resolve(addressInfo)
           }
           else {
-            reject(new Error('获取地址信息失败'));
+            reject(new Error('获取地址信息失败'))
           }
         },
         fail: (err) => {
-          reject(err);
+          reject(err)
         },
-      });
+      })
       // #endif
 
       // #ifndef APP-PLUS
       // 其他平台可以使用uni.getLocation的geocode参数获取（仅App和微信小程序支持）
       // 或者使用其他地图服务的API
-      reject(new Error('当前平台不支持地址解析'));
+      reject(new Error('当前平台不支持地址解析'))
       // #endif
-    });
-  };
+    })
+  }
 
   /**
    * 停止监听位置
    */
   const stopWatchLocation = () => {
     if (watchId !== null) {
-      clearInterval(watchId);
-      watchId = null;
+      clearInterval(watchId)
+      watchId = null
     }
 
-    isWatching.value = false;
-  };
+    isWatching.value = false
+  }
 
   /**
    * 开始监听位置变化
@@ -152,27 +152,27 @@ export default function useLocation() {
   const watchLocation = (options: LocationOptions = {}, interval: number = 5000) => {
     // 已经在监听，先停止
     if (isWatching.value) {
-      stopWatchLocation();
+      stopWatchLocation()
     }
 
-    isWatching.value = true;
+    isWatching.value = true
 
     // 首次定位
     getLocation(options).catch((err) => {
-      console.error('监听位置首次定位失败', err);
-    });
+      console.error('监听位置首次定位失败', err)
+    })
 
     // 定时获取位置
     watchId = window.setInterval(() => {
       if (isWatching.value) {
         getLocation(options).catch((err) => {
-          console.error('监听位置更新失败', err);
-        });
+          console.error('监听位置更新失败', err)
+        })
       }
-    }, interval);
+    }, interval)
 
-    return watchId;
-  };
+    return watchId
+  }
 
   /**
    * 计算两点间距离（米）
@@ -183,22 +183,22 @@ export default function useLocation() {
    * @returns 距离，单位：米
    */
   const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
-    const R = 6371000; // 地球半径，单位米
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const R = 6371000 // 地球半径，单位米
+    const dLat = ((lat2 - lat1) * Math.PI) / 180
+    const dLon = ((lon2 - lon1) * Math.PI) / 180
 
     const a
       = Math.sin(dLat / 2) * Math.sin(dLat / 2)
         + Math.cos((lat1 * Math.PI) / 180)
         * Math.cos((lat2 * Math.PI) / 180)
         * Math.sin(dLon / 2)
-        * Math.sin(dLon / 2);
+        * Math.sin(dLon / 2)
 
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+    const distance = R * c
 
-    return distance;
-  };
+    return distance
+  }
 
   /**
    * 获取当前位置到目标位置的距离
@@ -208,7 +208,7 @@ export default function useLocation() {
    */
   const getDistanceFromCurrent = (targetLat: number, targetLon: number): number => {
     if (!location.value) {
-      return -1;
+      return -1
     }
 
     return calculateDistance(
@@ -216,8 +216,8 @@ export default function useLocation() {
       location.value.longitude,
       targetLat,
       targetLon,
-    );
-  };
+    )
+  }
 
   /**
    * 格式化距离显示
@@ -226,15 +226,15 @@ export default function useLocation() {
    */
   const formatDistance = (distance: number): string => {
     if (distance < 0) {
-      return '未知距离';
+      return '未知距离'
     }
     else if (distance < 1000) {
-      return `${Math.round(distance)}米`;
+      return `${Math.round(distance)}米`
     }
     else {
-      return `${(distance / 1000).toFixed(1)}公里`;
+      return `${(distance / 1000).toFixed(1)}公里`
     }
-  };
+  }
 
   /**
    * 打开导航
@@ -257,9 +257,9 @@ export default function useLocation() {
         address,
         success: () => resolve(),
         fail: err => reject(err),
-      });
-    });
-  };
+      })
+    })
+  }
 
   /**
    * 选择位置
@@ -287,22 +287,22 @@ export default function useLocation() {
                 poiName: res.name,
               },
               formatted: res.address,
-            };
+            }
 
-            location.value = locationData;
+            location.value = locationData
           }
 
-          resolve(res);
+          resolve(res)
         },
         fail: err => reject(err),
-      });
-    });
-  };
+      })
+    })
+  }
 
   // 自动清理
   onUnmounted(() => {
-    stopWatchLocation();
-  });
+    stopWatchLocation()
+  })
 
   return {
     // 状态
@@ -322,5 +322,5 @@ export default function useLocation() {
     formatDistance,
     openLocation,
     chooseLocation,
-  };
+  }
 }

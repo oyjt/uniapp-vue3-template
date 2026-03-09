@@ -1,4 +1,4 @@
-import antfu from '@antfu/eslint-config';
+import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
@@ -25,8 +25,8 @@ export default antfu(
       'comma-dangle': ['error', 'only-multiline'],
       // 允许console
       'no-console': 'off',
-      // 需要分号
-      'style/semi': ['error', 'always'],
+      // 不需要分号
+      'style/semi': ['error', 'never'],
       // 块内的空行
       'padded-blocks': ['error', 'never'],
       // 顶级函数应使用 function 关键字声明
@@ -35,11 +35,11 @@ export default antfu(
       'node/prefer-global/process': 'off',
       // 禁止未使用的捕获组
       'regexp/no-unused-capturing-group': 'off',
-      // 允许接口和类型别名中的成员之间使用三个分隔符
+      // 接口和类型别名成员之间不使用分号
       'style/member-delimiter-style': ['error', {
         multiline: {
-          delimiter: 'semi',
-          requireLast: true,
+          delimiter: 'none',
+          requireLast: false,
         },
         singleline: {
           delimiter: 'semi',
@@ -53,4 +53,4 @@ export default antfu(
       'vue/no-required-prop-with-default': 'off',
     },
   },
-);
+)
