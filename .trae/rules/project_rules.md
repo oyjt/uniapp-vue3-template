@@ -20,7 +20,7 @@
 
 ## 技术栈
 
-- 框架: Uniapp、Vue 3.4+
+- 框架: uni-app（Vue 3 + Composition API）
 - 打包构建工具: Vite 5.0+
 - 状态管理: Pinia
 - UI 组件库: uview-plus 3.4+

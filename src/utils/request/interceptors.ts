@@ -17,7 +17,7 @@ const repeatSubmit = (config: HttpRequestConfig) => {
   const requestObj = {
     url: config.url,
     data: typeof config.data === 'object' ? JSON.stringify(config.data) : config.data,
-    time: new Date().getTime(),
+    time: Date.now(),
   };
   const sessionObj = storage.getJSON('sessionObj');
   if (!sessionObj) {

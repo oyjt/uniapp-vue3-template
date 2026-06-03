@@ -2,8 +2,14 @@ export default {
   // 继承规则
   extends: [
     'stylelint-config-standard-scss',
-    'stylelint-config-standard-vue/scss',
     'stylelint-config-recess-order',
+  ],
+  // Vue SFC <style> 解析
+  overrides: [
+    {
+      files: ['**/*.vue'],
+      customSyntax: 'postcss-html',
+    },
   ],
   // 忽略文件
   ignoreFiles: [
@@ -83,7 +89,6 @@ export default {
     'scss/load-partial-extension': null,
     'scss/double-slash-comment-empty-line-before': null,
     'scss/double-slash-comment-whitespace-inside': null,
-    'scss/at-import-partial-extension': null, // 允许不写下划线和后缀
 
     // 禁用标准 CSS 中不支持 SCSS 函数的报错
     'at-rule-no-deprecated': null,
