@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm eslint*)",
+      "Bash(pnpm stylelint*)",
+      "Bash(pnpm type-check)",
+      "Bash(pnpm cz)",
+      "Bash(pnpm install*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch*)",
+      "Bash(ls *)",
+      "Bash(mkdir *)"
+    ],
+    "deny": []
+  }
+}
