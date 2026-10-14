@@ -1,0 +1,10 @@
+---
+description: 项目统一协作入口
+alwaysApply: true
+---
+
+# 项目协作入口
+
+开始任务前读取仓库根目录的 `AGENTS.md`，以其为项目级权威入口。
+按其中的规则与技能索引读取 `.agents/rules/` 和 `.agents/skills/` 的相关文件。
+始终使用简体中文，不在工具目录维护独立规则副本。
