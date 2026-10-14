@@ -5,7 +5,7 @@
         <template #icon>
           <u-avatar
             shape="square"
-            size="35"
+            :size="35"
             :src="item"
             custom-style="margin: -3px 5px -3px 0"
           />
